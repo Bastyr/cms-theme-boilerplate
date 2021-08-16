@@ -1,6 +1,6 @@
 hs upload ./src ./bastyr2021
 
-<h1 align="center">HubSpot CMS Boilerplate</h1>
+<h1 align="center">Bastyr's Fork of HubSpot CMS Boilerplate</h1>
 
 <p align="center">
   A straight-forward starting point for building a great website on the HubSpot CMS.
