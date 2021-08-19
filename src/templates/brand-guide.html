@@ -1,0 +1,38 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Bastyr Brand Guide page
+  screenshotPath: ../images/template-previews/landing-page.png
+-->
+{% extends './layouts/base.html' %}
+
+{% block header %}
+  {% set sitename = "Brand Guide" %}
+  {% set header_reverse_logo = true %}
+    {% set navigation_id = 41418721219 %}
+    {{ super() }}
+  {% global_partial path='./partials/microsite-header.html' %}
+{% endblock header %}
+
+{% block body %}
+<main class="body-container-wrapper">
+{% module "page_options" path="../modules/page-options.module" %}
+
+  {% block main_content %}
+    {% dnd_section full_width={true} %}
+    {% end_dnd_section %}
+  {% endblock main_content %}
+  
+  {% dnd_area "dragon_drop" %}
+    {% dnd_section
+      max_width={{theme.spacing.max_width}},
+      vertical_alignment='MIDDLE'
+    %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+
+  {% dnd_area 'dnd_area' class='body-container body-container--landing-page', label='Main section' %}
+
+  {% end_dnd_area %}
+</main>
+{% endblock body %}
