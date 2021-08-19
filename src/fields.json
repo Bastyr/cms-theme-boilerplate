@@ -5,8 +5,8 @@
     "type": "group",
     "children": [
       {
-        "label": "Primary color",
-        "name": "primary_color",
+        "label": "Primary lightest (Salmon)",
+        "name": "salmon",
         "type": "color",
         "visibility": {
           "hidden_subfields": {
@@ -14,12 +14,12 @@
           }
         },
         "default": {
-          "color": "#494A52"
+          "color": "#b86063"
         }
       },
       {
-        "label": "Secondary color",
-        "name": "secondary_color",
+        "label": "Primary light (Rhubarb)",
+        "name": "rhubarb",
         "type": "color",
         "visibility": {
           "hidden_subfields": {
@@ -27,7 +27,228 @@
           }
         },
         "default": {
-          "color": "#F8FAFC"
+          "color": "#a51c30"
+        }
+      },
+      {
+        "label": "Primary main (Cranberry)",
+        "name": "cranberry",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#93282c"
+        }
+      },
+      {
+        "label": "Primary dark (Dark Cherry)",
+        "name": "cherry",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#6d0206"
+        }
+      },
+      {
+        "label": "Secondary light (Wheat)",
+        "name": "wheat",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#e5c072"
+        }
+      },
+      {
+        "label": "Secondary medium (Tumeric)",
+        "name": "tumeric",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#cc8a00"
+        }
+      },
+      {
+        "label": "Secondary dark (Gold)",
+        "name": "gold",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#a46e00"
+        }
+      },
+      {
+        "label": "Tertiary light (Sky)",
+        "name": "sky",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#58a7cb"
+        }
+      },
+      {
+        "label": "Tertiary medium (Bluebird)",
+        "name": "bluebird",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#1880b0"
+        }
+      },
+      {
+        "label": "Tertiary dark (Ocean)",
+        "name": "ocean",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#115b7d"
+        }
+      },
+      {
+        "label": "Quaternary medium (Jade)",
+        "name": "jade",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#007855"
+        }
+      },
+      {
+        "label": "Neutral black",
+        "name": "black",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#0d181c"
+        }
+      },
+      {
+        "label": "Neutral 0 (Midnight)",
+        "name": "midnight",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#2a2a29"
+        }
+      },
+      {
+        "label": "Neutral 1 (Charcoal)",
+        "name": "charcoal",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#393938"
+        }
+      },
+      {
+        "label": "Neutral 2 (Storm)",
+        "name": "storm",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#8c8c89"
+        }
+      },
+      {
+        "label": "Neutral 3 (Cloud)",
+        "name": "cloud",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#c9c9c7"
+        }
+      },
+      {
+        "label": "Neutral 4 (Mist)",
+        "name": "mist",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#e8e8e7"
+        }
+      },
+      {
+        "label": "Neutral 5 (Eggshell)",
+        "name": "eggshell",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#f6f6f5"
+        }
+      },
+      {
+        "label": "Neutral white",
+        "name": "white",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#ffffff"
         }
       }
     ]
@@ -50,7 +271,7 @@
         "load_external_fonts": true,
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary_color.color"
+            "color": "theme.global_colors.midnight.color"
           }
         },
         "default": {
@@ -72,12 +293,12 @@
         "load_external_fonts": true,
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary_color.color"
+            "color": "theme.global_colors.black.color"
           }
         },
         "default": {
           "fallback": "serif",
-          "font": "Merriweather",
+          "font": "Libre Baskerville",
           "font_set": "GOOGLE"
         }
       }
@@ -293,91 +514,186 @@
             "opacity": true
           }
         },
-        "default": {
-          "color": "#0270e0"
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_colors.tumeric.color"
+          }
         }
       }
     ]
   },
   {
-    "label": "Buttons",
+    "label": "Button Styles",
     "name": "buttons",
     "type": "group",
     "children": [
       {
-        "label": "Background color",
-        "name": "background_color",
-        "type": "color",
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "theme.global_colors.primary_color.color"
+        "label": "Primary Button",
+        "name": "primary",
+        "type": "group",
+        "children": [
+          {
+            "label": "Background color",
+            "name": "background_color",
+            "type": "color",
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.cranberry.color"
+              }
+            },
+            "default": {
+              "opacity": 100
+            }
+          },
+          {
+            "label": "Text color",
+            "name": "text_color",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.white.color"
+              }
+            }
+          },
+          {
+            "label": "Border width",
+            "name": "border_width",
+            "type": "number",
+            "display": "slider",
+            "max": 20,
+            "min": 0,
+            "default": 1
+          },
+          {
+            "label": "Border color",
+            "name": "border_color",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "default_value_path": "theme.global_colors.cranberry"
+            }
+          },
+          {
+            "label": "Corner radius",
+            "name": "border_radius",
+            "type": "number",
+            "display": "slider",
+            "max": 100,
+            "min": 0,
+            "default": 6
+          },
+          {
+            "label": "Horizontal padding",
+            "name": "horizontal_padding",
+            "type": "number",
+            "display": "slider",
+            "max": 100,
+            "min": 0,
+            "default": 53
+          },
+          {
+            "label": "Vertical padding",
+            "name": "vertical_padding",
+            "type": "number",
+            "display": "slider",
+            "max": 100,
+            "min": 0,
+            "default": 15
           }
-        },
-        "default": {
-          "opacity": 100
-        }
+        ]
       },
       {
-        "label": "Text color",
-        "name": "text_color",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-            "opacity": true
+        "label": "Secondary Button",
+        "name": "secondary",
+        "type": "group",
+        "children": [
+          {
+            "label": "Background color",
+            "name": "background_color",
+            "type": "color",
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.white.color"
+              }
+            },
+            "default": {
+              "opacity": 100
+            }
+          },
+          {
+            "label": "Text color",
+            "name": "text_color",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.cranberry.color"
+              }
+            }
+          },
+          {
+            "label": "Border width",
+            "name": "border_width",
+            "type": "number",
+            "display": "slider",
+            "max": 20,
+            "min": 0,
+            "default": 1
+          },
+          {
+            "label": "Border color",
+            "name": "border_color",
+            "type": "color",
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            },
+            "inherited_value": {
+              "default_value_path": "theme.global_colors.cranberry"
+            }
+          },
+          {
+            "label": "Corner radius",
+            "name": "border_radius",
+            "type": "number",
+            "display": "slider",
+            "max": 100,
+            "min": 0,
+            "default": 6
+          },
+          {
+            "label": "Horizontal padding",
+            "name": "horizontal_padding",
+            "type": "number",
+            "display": "slider",
+            "max": 100,
+            "min": 0,
+            "default": 53
+          },
+          {
+            "label": "Vertical padding",
+            "name": "vertical_padding",
+            "type": "number",
+            "display": "slider",
+            "max": 100,
+            "min": 0,
+            "default": 15
           }
-        },
-        "default": {
-          "color": "#FFFFFF"
-        }
-      },
-      {
-        "label": "Border width",
-        "name": "border_width",
-        "type": "number",
-        "display": "slider",
-        "max": 20,
-        "min": 0,
-        "default": 1
-      },
-      {
-        "label": "Border color",
-        "name": "border_color",
-        "type": "color",
-        "visibility": {
-          "hidden_subfields": {
-            "opacity": true
-          }
-        },
-        "inherited_value": {
-          "default_value_path": "theme.global_colors.primary_color"
-        }
-      },
-      {
-        "label": "Corner radius",
-        "name": "border_radius",
-        "type": "number",
-        "display": "slider",
-        "max": 100,
-        "min": 0,
-        "default": 6
-      },
-      {
-        "label": "Horizontal padding",
-        "name": "horizontal_padding",
-        "type": "number",
-        "display": "slider",
-        "max": 100,
-        "min": 0,
-        "default": 53
-      },
-      {
-        "label": "Vertical padding",
-        "name": "vertical_padding",
-        "type": "number",
-        "display": "slider",
-        "max": 100,
-        "min": 0,
-        "default": 15
+        ]
       }
     ]
   },
@@ -391,7 +707,7 @@
         "name": "header_background_color",
         "type": "color",
         "inherited_value": {
-          "default_value_path": "theme.global_colors.primary_color"
+          "default_value_path": "theme.global_colors.cloud"
         },
         "default": {
           "opacity": 100
@@ -407,7 +723,7 @@
           }
         },
         "inherited_value": {
-          "default_value_path": "theme.global_colors.secondary_color"
+          "default_value_path": "theme.global_colors.black"
         }
       },
       {
@@ -463,7 +779,7 @@
           }
         },
         "inherited_value": {
-          "default_value_path": "theme.global_colors.primary_color"
+          "default_value_path": "theme.global_colors.sky"
         }
       }
     ]
@@ -478,7 +794,7 @@
         "name": "header_background_color",
         "type": "color",
         "inherited_value": {
-          "default_value_path": "theme.global_colors.primary_color"
+          "default_value_path": "theme.global_colors.cloud"
         },
         "default": {
           "opacity": 100
@@ -493,17 +809,16 @@
             "opacity": true
           }
         },
-        "default": {
-          "color": "#FFFFFF"
+        "inherited_value": {
+          "default_value_path": "theme.global_colors.black"
         }
       },
       {
         "label": "Body background color",
         "name": "body_background_color",
         "type": "color",
-        "default": {
-          "color": "#FFFFFF",
-          "opacity": 100
+        "inherited_value": {
+          "default_value_path": "theme.global_colors.white"
         }
       },
       {
@@ -525,9 +840,10 @@
         "label": "Footer background color",
         "name": "footer_background_color",
         "type": "color",
-        "default": {
-          "color": "#FFFFFF",
-          "opacity": 100
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "theme.global_colors.midnight.color"
+          }
         }
       },
       {
@@ -568,22 +884,114 @@
     "type": "group",
     "children": [
       {
-        "label": "Vertical spacing",
-        "name": "vertical_spacing",
+        "label": "Thin Line or Gap",
+        "name": "thin_line",
         "type": "number",
         "display": "slider",
-        "max": 500,
+        "unit" : "px",
+        "max": 4,
         "min": 0,
+        "default": 2
+      },
+      {
+        "label": "Fat Line or Gap",
+        "name": "fat_line",
+        "type": "number",
+        "display": "slider",
+        "unit" : "px",
+        "max": 16,
+        "min": 2,
+        "default": 4
+      },
+      {
+        "label": "XX-SM",
+        "name": "xx_sm",
+        "type": "number",
+        "display": "slider",
+        "unit" : "px",
+        "max": 8,
+        "min": 3,
+        "default": 5
+      },
+      {
+        "label": "X-SM",
+        "name": "x_sm",
+        "type": "number",
+        "display": "slider",
+        "unit" : "px",
+        "max": 13,
+        "min": 9,
+        "default": 10
+      },
+      {
+        "label": "SM",
+        "name": "sm",
+        "type": "number",
+        "display": "slider",
+        "unit" : "px",
+        "max": 17,
+        "min": 14,
+        "default": 15
+      },
+      {
+        "label": "MD",
+        "name": "md",
+        "type": "number",
+        "display": "slider",
+        "unit" : "px",
+        "max": 26,
+        "min": 18,
+        "default": 20
+      },
+      {
+        "label": "LG",
+        "name": "lg",
+        "type": "number",
+        "display": "slider",
+        "unit" : "px",
+        "max": 35,
+        "min": 27,
+        "default": 30
+      },
+      {
+        "label": "X-LG",
+        "name": "x_lg",
+        "type": "number",
+        "display": "slider",
+        "unit" : "px",
+        "max": 65,
+        "min": 36,
+        "default": 40
+      },
+      {
+        "label": "XX-LG",
+        "name": "xx_lg",
+        "type": "number",
+        "display": "slider",
+        "unit" : "px",
+        "max": 95,
+        "min": 66,
         "default": 80
+      },
+      {
+        "label": "XXX-LG",
+        "name": "xxx_lg",
+        "type": "number",
+        "display": "slider",
+        "unit" : "px",
+        "max": 200,
+        "min": 96,
+        "default": 120
       },
       {
         "label": "Maximum content width",
         "name": "max_width",
         "type": "number",
         "display": "slider",
-        "max": 2500,
+        "unit": "px",
+        "max": 5000,
         "min": 900,
-        "default": 1240
+        "default": 1200
       }
     ]
   },
