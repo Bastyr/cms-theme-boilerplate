@@ -2,6 +2,9 @@ hs upload ./src ./bastyr2021
 
 <h1 align="center">Bastyr's Fork of HubSpot CMS Boilerplate</h1>
 
+* Used for brand guide
+* Intended for future use on landing pages
+
 <p align="center">
   A straight-forward starting point for building a great website on the HubSpot CMS.
 </p>
