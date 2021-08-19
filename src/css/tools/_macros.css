@@ -44,3 +44,8 @@ Example:
   rgba({{ colorhex }}, {{ coloropacity }})
 
 {% endmacro %}
+
+/* Create rgba value from hex */
+{%- macro to_rgba(hex, opacity) -%}
+  rgba({{hex|convert_rgb}},{{ opacity / 100) }};
+{% endmacro %}
