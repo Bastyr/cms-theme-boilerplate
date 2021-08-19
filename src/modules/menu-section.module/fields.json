@@ -1,0 +1,33 @@
+[
+  {
+    "label": "Primary menu field",
+    "name": "primary_menu_field",
+    "type": "menu"
+  },
+  {
+    "label": "Menu Alignment",
+    "name": "menu_alignment",
+    "type": "choice",
+    "required": false,
+    "locked": false,
+    "display": "radio",
+    "choices": [["left", "Left Aligned"], ["right", "Right Aligned"], ["center", "Center Aligned"]],
+    "default": "left"
+  },
+  {
+    "label": "Sticky Menu",
+    "name": "sticky_menu",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "locked": false
+  },
+  {
+    "label": "Sticky Menu Selector",
+    "name": "sticky_menu_selector",
+    "type": "text",
+    "required": false,
+    "default": ".navigation-primary",
+    "locked": true
+  }
+]

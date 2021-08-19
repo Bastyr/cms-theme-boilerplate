@@ -1,0 +1,67 @@
+/* Set variables rooted in /src/fields.json */
+/* Use CSS Variables within modules, preceded by fallback values for older browsers */
+/* Set "elemental" values, e.g. link color, explicitly in fields.json */
+
+/* WTF */
+
+{% set c_salmon = theme.global_colors.salmon %}
+{% set c_rhubarb = theme.global_colors.rhubarb %}
+{% set c_cranberry = theme.global_colors.cranberry %}
+{% set c_cherry = theme.global_colors.cherry %}
+{% set c_wheat = theme.global_colors.wheat %}
+{% set c_tumeric = theme.global_colors.tumeric %}
+{% set c_gold = theme.global_colors.gold %}
+{% set c_sky = theme.global_colors.sky %}
+{% set c_bluebird = theme.global_colors.bluebird %}
+{% set c_ocean = theme.global_colors.ocean %}
+{% set c_jade = theme.global_colors.jade %}
+{% set c_midnight = theme.global_colors.midnight %}
+{% set c_charcoal = theme.global_colors.charcoal %}
+{% set c_storm = theme.global_colors.storm %}
+{% set c_cloud = theme.global_colors.cloud %}
+{% set c_mist = theme.global_colors.mist %}
+{% set c_eggshell = theme.global_colors.eggshell %}
+{% set c_white = theme.global_colors.white %}
+
+{% set sp_nounit_thin_line = theme.spacing.thin_line %}
+{% set sp_nounit_fat_line = theme.spacing.fat_line %}
+{% set sp_nounit_xx_sm = theme.spacing.xx_sm %}
+{% set sp_nounit_x_sm = theme.spacing.x_sm %}
+{% set sp_nounit_sm = theme.spacing.sm %}
+{% set sp_nounit_md = theme.spacing.md %}
+{% set sp_nounit_lg = theme.spacing.lg %}
+{% set sp_nounit_x_lg = theme.spacing.x_lg %}
+{% set sp_nounit_xx_lg = theme.spacing.xx_lg %}
+{% set sp_nounit_xxx_lg = theme.spacing.xxx_lg %}
+{% set sp_nounit_max_width = theme.spacing.max_width %}
+
+:root {
+--c_salmon: {{c_salmon}};
+--c_rhubarb: {{c_rhubarb}};
+--c_cranberry: {{c_cranberry}};
+--c_cherry: {{c_cherry}};
+--c_wheat: {{c_wheat}};
+--c_tumeric: {{c_tumeric}};
+--c_gold: {{c_gold}};
+--c_sky: {{c_sky}};
+--c_bluebird: {{c_bluebird}};
+--c_ocean: {{c_ocean}};
+--c_jade: {{c_jade}};
+--c_midnight: {{c_midnight}};
+--c_charcoal: {{c_charcoal}};
+--c_storm: {{c_storm}};
+--c_cloud: {{c_cloud}};
+--c_mist: {{c_mist}};
+--c_eggshell: {{c_eggshell}};
+--c_white: {{c_white}};
+--sp_fat_line: {{sp_nounit_thin_line ~ 'px'}};
+--sp_xx_sm: {{sp_nounit_fat_line ~ 'px'}};
+--sp_x_sm: {{sp_nounit_xx_sm ~ 'px'}};
+--sp_sm: {{sp_nounit_x_sm  ~ 'px'}};
+--sp_md: {{sp_nounit_sm ~ 'px'}};
+--sp_lg: {{sp_nounit_md ~ 'px'}};
+--sp_x_lg: {{sp_nounit_lg  ~ 'px'}};
+--sp_xx_lg: {{sp_nounit_x_lg  ~ 'px'}};
+--sp_xxx_lg: {{sp_nounit_xxx_lg  ~ 'px'}};
+--sp_max_width: {{sp_nounit_max_width ~ 'px'}};
+}

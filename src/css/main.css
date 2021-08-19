@@ -1,14 +1,22 @@
-/* Theme base styles */
+/* Theme base styles and global variables */
 
 /* Tools
 Any animations, or functions used throughout the project.
 Note: _macros.css needs to be imported into each stylesheet where macros are used and not included here
 */
 
+
+/* Variables
+Variables to use sitewide, 
+including HUBL (set x) and CSS Vars :root { --var: x }
+Modules use CSS Vars with fallback values for older browsers,
+since module.css does not accept HUBL by design
+ */
+{% include './variables.css' %}
+
 /* Generic
 This is where reset, normalize & box-sizing styles go.
 */
-
 {% include './generic/_reset.css' %}
 {% include './generic/_normalize.css' %}
 
@@ -33,4 +41,8 @@ Specific pieces of UI that are stylized. Typically used for global partial styli
 */
 
 {% include './components/_header.css' %}
+{% include './components/_default-modules.css' %}
+
+
+
 {% include './components/_default-modules.css' %}
