@@ -49,3 +49,8 @@ Example:
 {%- macro to_rgba(hex, opacity) -%}
   rgba({{hex|convert_rgb}},{{ opacity / 100) }};
 {% endmacro %}
+
+/* Convert pixel values to rems */
+{%- macro to_rem(px, body) -%}
+  {{ px/body }}
+{%- endmacro -%}

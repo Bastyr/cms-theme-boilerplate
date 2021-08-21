@@ -1,3 +1,23 @@
+{% set container_width = theme.spacing.max_width ~ 'px' %}
+{% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '20px' %}
+ 
+
+.content-wrapper {
+  max-width: 1200px;
+  max-width: var(--content_width);
+}
+
+.dnd-section,
+.content-wrapper--vertical-spacing {
+  padding: {{ dnd_section_padding }};
+}
+
+.dnd-section > .row-fluid {
+  max-width: 1200px;
+  max-width: var(--content_width);
+}
+  
+
 .content-wrapper {
   margin: 0 auto;
   padding: 0 20px;
@@ -21,4 +41,19 @@
   .dnd-section .dnd-column {
     padding: 0;
   }
+}
+
+/* Overrides */
+
+.content-wrapper {
+  max-width: {{ container_width }};
+}
+
+.dnd-section,
+.content-wrapper--vertical-spacing {
+  padding: {{ dnd_section_padding }};
+}
+
+.dnd-section > .row-fluid {
+  max-width: {{ container_width }};
 }
