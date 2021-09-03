@@ -1,22 +1,14 @@
-/* Theme base styles and global variables */
+/* Theme base styles */
 
 /* Tools
 Any animations, or functions used throughout the project.
 Note: _macros.css needs to be imported into each stylesheet where macros are used and not included here
 */
 
-
-/* Variables
-Variables to use sitewide, 
-including HUBL (set x) and CSS Vars :root { --var: x }
-Modules use CSS Vars with fallback values for older browsers,
-since module.css does not accept HUBL by design
- */
-{% include './variables.css' %}
-
 /* Generic
 This is where reset, normalize & box-sizing styles go.
 */
+
 {% include './generic/_reset.css' %}
 {% include './generic/_normalize.css' %}
 
@@ -43,6 +35,58 @@ Specific pieces of UI that are stylized. Typically used for global partial styli
 {% include './components/_header.css' %}
 {% include './components/_default-modules.css' %}
 
+/* Utilities
+Helper classes with ability to override anything that comes before it
+*/
 
+{% include './utilities/_helper.css' %}
+/*
+    These theme-wide element styles reference variables.css
+*/
 
-{% include './components/_default-modules.css' %}
+{% include './theme-overrides.css' %}
+/*
+    These theme-wide element styles reference variables.css
+*/
+
+:root {
+    /* 
+        Colors 
+    */
+    --c_salmon: {{theme.global_colors.salmon.color}};
+    --c_rhubarb: {{theme.global_colors.rhubarb.color}};
+    --c_cranberry: {{theme.global_colors.cranberry.color}};
+    --c_cherry: {{theme.global_colors.cherry.color}};
+    --c_wheat: {{theme.global_colors.wheat.color}};
+    --c_tumeric: {{theme.global_colors.tumeric.color}};
+    --c_gold: {{theme.global_colors.gold.color}};
+    --c_sky: {{theme.global_colors.sky.color}};
+    --c_bluebird: {{theme.global_colors.bluebird.color}};
+    --c_ocean: {{theme.global_colors.ocean.color}};
+    --c_jade: {{theme.global_colors.jade.color}};
+    --c_midnight: {{theme.global_colors.midnight.color}};
+    --c_charcoal: {{theme.global_colors.charcoal.color}};
+    --c_storm: {{theme.global_colors.storm.color}};
+    --c_cloud: {{theme.global_colors.cloud.color}};
+    --c_mist: {{theme.global_colors.mist.color}};
+    --c_eggshell: {{theme.global_colors.eggshell.color}};
+    --c_white: {{theme.global_colors.white.color}};
+    /* 
+        Sizes
+    */
+    /* line widths */
+    --thin_line: {{theme.spacing.thin_line ~'px'}};
+    --fat_line: {{theme.spacing.fat_line ~'px'}};
+    /* margin and padding values */
+    --xx_sm: {{theme.spacing.xx_sm ~'px'}};
+    --x_sm: {{theme.spacing.x_sm ~'px'}};
+    --sm: {{theme.spacing.sm ~'px'}};
+    --md: {{theme.spacing.md ~'px'}};
+    --lg: {{theme.spacing.lg ~'px'}};
+    --x_lg: {{theme.spacing.x_lg ~'px'}};
+    --xx_lg: {{theme.spacing.xx_lg ~'px'}};
+    --xxx_lg: {{theme.spacing.xxx_lg ~'px'}};
+    /* containers */
+    --content_width: {{theme.spacing.content_width ~ 'px'}};
+    --dnd_section_padding: {{theme.spacing.vertical_spacing ~ 'px ' ~ '20px' }};
+}

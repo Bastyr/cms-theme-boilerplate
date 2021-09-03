@@ -1,61 +1,20 @@
-{% include "../tools/_macros.css" %}
-
-{% set table_head_bg_color = color(theme.tables.header_background_color) %}
-{% set table_head_font_color = theme.tables.header_text_color.color %}
-
-{% set table_bg_color = color(theme.tables.body_background_color) %}
-{% set table_font_color = theme.tables.body_text_color.color %}
-{% set table_border_color = theme.tables.border_color.color %}
-
-{% set table_footer_bg_color = color(theme.tables.footer_background_color) %}
-{% set table_footer_font_color = theme.tables.footer_text_color.color %}
-
 /* Table */
 
 table {
-  border: 1px solid;
+  border-collapse: collapse;
   margin-bottom: 1.4rem;
   overflow-wrap: break-word;
 }
 
-/* Table Cells */
+/* Table cells */
 
-th,
-td {
-  border: 1px solid;
-  padding: 0.75rem;
+td,
+th {
   vertical-align: top;
 }
 
-/* Table Header */
+/* Table header */
 
-thead th,
-thead td {
-  border-bottom: 2px solid;
+thead th {
   vertical-align: bottom;
-}
-
-/* Overrides */
-
-table {
-  background-color: {{ table_bg_color }};
-  border-color: {{ table_border_color }};
-}
-
-th,
-td {
-  border-color: {{ table_border_color }};
-  color: {{ table_font_color }};
-}
-
-thead th,
-thead td {
-  background-color: {{ table_head_bg_color }};
-  border-bottom-color: {{ table_border_color }};
-  color: {{ table_head_font_color }};
-}
-
-tfoot td {
-  background-color: {{ table_footer_bg_color }};
-  color: {{ table_footer_font_color }};
 }

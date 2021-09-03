@@ -1,4 +1,4 @@
-/* Responsive Grid */
+{% import '../variables.css' %}
 
 .row-fluid {
     width: 100%;

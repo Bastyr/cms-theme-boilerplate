@@ -1,5 +1,3 @@
-{#  set placeholders as variables emerge, and wire up to theme variables and add fallbacks later #}
-
 .navigation-primary {
   display: block;
   position: sticky;

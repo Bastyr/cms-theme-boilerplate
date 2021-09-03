@@ -1,0 +1,199 @@
+{% import './tools/_macros.css' %}
+
+{###########################################################################}
+{############################   1. Variables   #############################}
+{###########################################################################}
+
+/* 0. Media breakpoints */
+
+/* Grid layout breakpoints */
+
+/* Content breakpoints */
+
+{% set mq_mw_a = 'max-width: 15em' %}
+{% set mq_mw_b = 'max-width: 22em' %}
+{% set mq_mw_c = 'max-width: 29em' %}
+{% set mq_mw_d = 'max-width: 35em' %}
+{% set mq_mw_e = 'max-width: 42em' %}
+{% set mq_mw_f = 'max-width: 49em' %}
+{% set mq_mw_g = 'max-width: 56em' %}
+{% set mq_mw_h = 'max-width: 56em' %}
+{% set mq_mw_i = 'max-width: 63em' %}
+{% set mq_mw_j = 'max-width: 70em' %}
+{% set mq_mw_l = 'max-width: 76em' %}
+{% set mq_mw_m = 'max-width: 84em' %}
+{% set mq_mw_n = 'max-width: 91em' %}
+{% set mq_mw_o = 'max-width: 98em' %}
+{% set mq_mw_p = 'max-width: 105em' %}
+{% set mq_mw_q = 'max-width: 112em' %}
+{% set mq_mw_r = 'max-width: 118em' %}
+{% set mq_mw_s = 'max-width: 125em' %}
+{% set mq_mw_t = 'max-width: 132em' %}
+{% set mq_mw_u = 'max-width: 139em' %}
+
+/* 0a Colors */
+{% set c_salmon = theme.global_colors.salmon.color %};
+{% set c_rhubarb = theme.global_colors.rhubarb.color %};
+{% set c_cranberry = theme.global_colors.cranberry.color %};
+{% set c_cherry = theme.global_colors.cherry.color %};
+{% set c_wheat = theme.global_colors.wheat.color %};
+{% set c_tumeric = theme.global_colors.tumeric.color %};
+{% set c_gold = theme.global_colors.gold.color %};
+{% set c_sky = theme.global_colors.sky.color %};
+{% set c_bluebird = theme.global_colors.bluebird.color %};
+{% set c_ocean = theme.global_colors.ocean.color %};
+{% set c_jade = theme.global_colors.jade.color %};
+{% set c_black = theme.global_colors.black.color %};
+{% set c_midnight = theme.global_colors.midnight.color %};
+{% set c_charcoal = theme.global_colors.charcoal.color %};
+{% set c_storm = theme.global_colors.storm.color %};
+{% set c_cloud = theme.global_colors.cloud.color %};
+{% set c_mist = theme.global_colors.mist.color %};
+{% set c_eggshell = theme.global_colors.eggshell.color %};
+{% set c_white = theme.global_colors.white.color %};
+
+/* 0b Spacing Integers (NO UNITS) */
+/* 1 */ {% set sp_thin_line = theme.spacing.thin_line %} 
+/* 4 */ {% set sp_fat_line = theme.spacing.fat_line %} 
+/* 5 */ {% set sp_xx_sm = theme.spacing.xx_sm %} 
+/* 10 */ {% set sp_x_sm = theme.spacing.x_sm %} 
+/* 15 */ {% set sp_sm = theme.spacing.sm %} 
+/* 20 */ {% set sp_md = theme.spacing.md %} 
+/* 30 */ {% set sp_lg = theme.spacing.lg %} 
+/* 40 */ {% set sp_x_lg = theme.spacing.x_lg %} 
+/* 80 */ {% set sp_xx_lg = theme.spacing.xx_lg %} 
+/* 120 */ {% set sp_xxx_lg = theme.spacing.xxx_lg %} 
+/* 1200 */ {% set sp_max_width = theme.spacing.max_width %} 
+
+/* 0c Padding combos */
+    /* hor  ver */
+    /* 20   20 */
+    /* 30   15 */
+    /* 30   20 */
+    /* 30   40 */
+    /* 40   35 */
+    /* 40   40 */
+    /* 40   50 */
+    /* 55   40 */
+
+/* 0c Margin strings */
+
+/* 0c Percentage-based spacing other than containers */
+
+/* 1a. Containers */
+
+{% set container_width = sp_max_width ~ 'px' %}
+{% set dnd_section_padding = sp_md ~ 'px ' ~ '1rem' %}
+
+/* 1b. Colors */
+
+{% set primary_color = c_charcoal %}
+{% set secondary_color = c_cloud %}
+
+/* 1c. Typography */
+{% set h1 = theme.text.heading_one %}
+{% set h2 = theme.text.heading_two %}
+{% set h3 = theme.text.heading_three %}
+{% set h4 = theme.text.heading_four %}
+{% set h5 = theme.text.heading_five %}
+{% set h6 = theme.text.heading_six %}
+
+{% set primary_font = theme.global_fonts.primary %}
+{% set secondary_font = theme.global_fonts.secondary %}
+
+{% set h1_font = h1.font %}
+{% set h1_text_transform = h1.transform %}
+{% set h1_line_height = h1.line_height %}
+
+{% set h2_font = h2.font %}
+{% set h2_text_transform = h2.transform %}
+{% set h2_line_height = h2.line_height %}
+
+{% set h3_font = h3.font %}
+{% set h3_text_transform = h3.transform %}
+{% set h3_line_height = h3.line_height %}
+
+{% set h4_font = h4.font %}
+{% set h4_text_transform = h4.transform %}
+{% set h4_line_height = h4.line_height %}
+
+{% set h5_font = h5.font %}
+{% set h5_text_transform = h5.transform %}
+{% set h5_line_height = h5.line_height %}
+
+{% set h6_font = h6.font %}
+{% set h6_text_transform = h6.transform %}
+{% set h6_line_height = h6.line_height %}
+
+{% set body_font = theme.text.body_text.font %}
+
+{% set anchor_font = theme.text.links.font %}
+
+/* 1d. Buttons */
+{% set button_font = theme.buttons.primary.text.font %}
+{% set button_bg_color = color(theme.buttons.primary.background_color) %}
+{% set button_border = 'none' %}
+{% set button_corner_radius = theme.buttons.primary.border_radius ~ 'px' %}
+{% set button_font_color = theme.buttons.primary.text_color.color %}
+{% set button_spacing = sp_sm ~ 'px ' ~ sp_lg ~ 'px' %}
+{% set button_text_transform = theme.buttons.primary.text.transform %}
+
+/* Secondary button -- override primary style */
+    
+/* 1e. Forms */
+
+{% set form_title_font_color = c_black %}
+{% set form_header_background_color = theme.forms.header_background_color %}
+{% set form_bg_color =  c_eggshell %}
+{% set form_header_text_color = theme.forms.header_text_color %}
+{% set form_label_font_color = theme.forms.label_color.color %}
+{% set form_help_text_font_color = theme.forms.help_text.text.color.color %}
+{% set form_field_bg_color = c_white %}
+{% set form_field_placeholder_color = c_storm %}
+{% set form_input_border = primary_color %}
+{% set form_input_border_width = sp_thin_line ~ 'px' %}
+{% set form_input_border_style = 'solid' %}
+{% set form_field_font_color = primary_color %}
+{% set form_field_corner_radius = thin_line ~ 'px' %}
+
+/* 1f. Tables */
+
+{% set table_head_bg_color = c_eggshell %}
+{% set table_head_font_color = c_black %}
+{% set table_head_font = h6_font %}
+{% set table_head_font_transform = h6_text_transform %}
+{% set table_head_spacing = '' %}
+
+{% set table_bg_color = theme.tables.body_background_color.color %}
+{% set table_font_color = theme.tables.body_font_color.color %}
+
+{% set table_footer_bg_color = theme.tables.footer_background_color.color %}
+{% set table_footer_font_color = theme.tables.footer_text_color.color %}
+
+{% set table_cell_spacing = sp_xx_sm ~ 'px' %}
+{% set table_border = sp_thin_line ~ 'px ' ~ 'solid ' ~ c_cloud  %}
+{% set table_border_color = secondary_color %}
+
+/* 1g. Website header */
+
+{% set nav_font_color = theme.header.menu.text.color.color %}
+{% set nav_drop_down_font_color = theme.header.menu.drop_downs.text.color.color %}
+{% set nav_drop_down_bg_color = color(theme.header.menu.drop_downs.background.color) %}
+{% set nav_drop_down_border = theme.header.menu.drop_downs.border.border.css %}
+
+{% set header_bg_color = color(theme.header.background.color) %}
+
+
+/* debug
+nav_font_color {{ nav_font_color|pprint }} 
+nav_drop_down_font_color {{ nav_drop_down_font_color|pprint }} 
+nav_drop_down_bg_color {{ nav_drop_down_bg_color|pprint }} 
+nav_drop_down_border {{ nav_drop_down_border|pprint }} 
+header_bg_color {{ header_bg_color|pprint }} 
+    
+    */
+/* 1h. Website footer */
+
+{% set footer_bg_color = color(theme.footer.background.color) %}
+{% set footer_font_color = theme.footer.text.color.color %}
+    

@@ -1,24 +1,7 @@
-{% import ../tools/_macros.css %}
-
-{% set button_bg_color = color(theme.buttons.primary.background_color) %}
-{% set button_font_color = theme.buttons.primary.text_color.color %}
-{% set button_border = theme.buttons.primary.border_width ~ 'px solid ' ~ theme.buttons.border_color.color %}
-{% set button_corner_radius = theme.buttons.primary.border_radius ~ 'px' %}
-{% set button_spacing = theme.buttons.primary.vertical_padding ~ 'px' ~ ' ' ~ theme.buttons.horizontal_padding ~ 'px' %}
-
-{% set button_disabled_background = theme.buttons.primary.vertical_padding ~ 'px' ~ ' ' ~ theme.buttons.horizontal_padding ~ 'px' %}
-{% set button_disabled_text = theme.buttons.primary.vertical_padding ~ 'px' ~ ' ' ~ theme.buttons.horizontal_padding ~ 'px' %}
-{% set button_disabled_color = theme.buttons.primary.vertical_padding ~ 'px' ~ ' ' ~ theme.buttons.horizontal_padding ~ 'px' %}
-
-{% set button_active_ = theme.buttons.primary.vertical_padding ~ 'px' ~ ' ' ~ theme.buttons.horizontal_padding ~ 'px' %}
-{% set button_active_ = theme.buttons.primary.vertical_padding ~ 'px' ~ ' ' ~ theme.buttons.horizontal_padding ~ 'px' %}
-{% set button_active_ = theme.buttons.primary.vertical_padding ~ 'px' ~ ' ' ~ theme.buttons.horizontal_padding ~ 'px' %}
-
 button,
 .button {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.92rem;
   text-align: center;
   transition: all 0.15s linear;
   white-space: normal;
@@ -31,39 +14,25 @@ button:disabled,
   color: #E6E6E6;
 }
 
-button:hover,
-button:focus,
-.button:hover,
-.button:focus {
+/* No button */
+
+.no-button,
+.no-button:hover,
+.no-button:focus,
+.no-button:active {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: initial;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin-bottom: 0;
+  padding: 0;
+  text-align: left;
   text-decoration: none;
-}
-
-button:active,
-.button:active {
-  text-decoration: none;
-}
-
-button,
-.button {
-  background-color: {{ button_bg_color }};
-  border: {{ button_border }};
-  border-radius: {{ button_corner_radius }};
-  color: {{ button_font_color }};
-  padding: {{ button_spacing }};
-}
-
-button:hover,
-button:focus,
-.button:hover,
-.button:focus {
-  background-color: rgba({{ color_variant(theme.buttons.background_color.color, -40)|convert_rgb }}, {{ theme.buttons.background_color.opacity / 100 }});
-  border-color: {{ color_variant(theme.buttons.border_color.color, -40) }};
-  color: {{ button_font_color }};
-}
-
-button:active,
-.button:active {
-  background-color: rgba({{ color_variant(theme.buttons.background_color.color, 40)|convert_rgb }}, {{ theme.buttons.background_color.opacity / 100 }});
-  border-color: {{ color_variant(theme.buttons.border_color.color, 40) }};
-  color: {{ button_font_color }};
+  transition: none;
 }

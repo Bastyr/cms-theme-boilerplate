@@ -1,6 +1,4 @@
-{% set container_width = theme.spacing.max_width ~ 'px' %}
-{% set dnd_section_padding = theme.spacing.vertical_spacing ~ 'px ' ~ '20px' %}
- 
+{% import '../variables.css' %}
 
 .content-wrapper {
   max-width: 1200px;

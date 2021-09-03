@@ -1,24 +1,7 @@
-{% import ../tools/_macros.css %}
-
-{% set primary_font = theme.global_fonts.primary_font %}
-{% set secondary_font = theme.global_fonts.secondary_font %}
-
-{% set body_font = theme.typography.body_text %}
-{% set heading_one = theme.typography.heading_one %}
-{% set heading_two = theme.typography.heading_two %}
-{% set heading_three = theme.typography.heading_three %}
-{% set heading_four = theme.typography.heading_four %}
-{% set heading_five = theme.typography.heading_five %}
-{% set heading_six = theme.typography.heading_six %}
-{%- set anchor_font_color = theme.typography.link_color.color -%}
-
-{%- set body_font_size = body_text.size ~ 'px' -%}
-{% set heading_one_size = to_rem(heading_one.size, body_text.size) ~ 'rem' %}
-{% set heading_two_size = to_rem(heading_two.size, body_text.size) ~ 'rem' %}
-{% set heading_three_size = to_rem(heading_three.size, body_text.size) ~ 'rem' %}
-{% set heading_four_size = to_rem(heading_four.size, body_text.size) ~ 'rem' %}
-{% set heading_five_size = to_rem(heading_five.size, body_text.size) ~ 'rem' %}
-{% set heading_six_size = to_rem(heading_six.size, body_text.size) ~ 'rem' %}
+body {
+  line-height: 1.4;
+  word-break: break-word;
+}
 
 html[lang^="ja"] body,
 html[lang^="zh"] body,
@@ -27,20 +10,10 @@ html[lang^="ko"] body {
   word-break: break-all;
 }
 
-html {
-  font-size: {{ body_font.size ~ body_font.size_unit }};
-}
-
-body {
-  {{ body_font.style }};
-  color: {{ body_font.color }};
-  word-break: break-word;
-}
-
 /* Paragraphs */
 
 p {
-  {{ body_font.style }};
+  font-size: 1rem;
   margin: 0 0 1.4rem;
 }
 
@@ -48,18 +21,6 @@ p {
 
 a {
   cursor: pointer;
-  text-decoration: none;
-  color: {{ anchor_font_color }};
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
-  color: {{ color_variant(anchor_font_color, -40) }};
-}
-
-a:active {
-  color: {{ color_variant(anchor_font_color, 40) }};
 }
 
 /* Headings */
@@ -71,42 +32,6 @@ h4,
 h5,
 h6 {
   margin: 0 0 1.4rem;
-}
-
-h1 {
-  {{ heading_one.style }};
-  color: {{ heading_one.color }};
-  font-size: {{ heading_one.size ~ heading_one.size_unit }};
-}
-
-h2 {
-  {{ heading_two.style }};
-  color: {{ heading_two.color }};
-  font-size: {{ heading_two.size ~ heading_two.size_unit }};
-}
-
-h3 {
-  {{ heading_three.style }};
-  color: {{ heading_three.color }};
-  font-size: {{ heading_three.size ~ heading_three.size_unit }};
-}
-
-h4 {
-  {{ heading_four.style }};
-  color: {{ heading_four.color }};
-  font-size: {{ heading_four.size ~ heading_four.size_unit }};
-}
-
-h5 {
-  {{ heading_five.style }};
-  color: {{ heading_five.color }};
-  font-size: {{ heading_five.size ~ heading_five.size_unit }};
-}
-
-h6 {
-  {{ heading_six.style }};
-  color: {{ heading_six.color }};
-  font-size: {{ heading_six.size ~ heading_six.size_unit }};
 }
 
 /* Lists */
@@ -125,6 +50,8 @@ ol ol {
 
 ul.no-list {
   list-style: none;
+  margin: 0;
+  padding-left: 0;
 }
 
 /* Code blocks */
@@ -142,22 +69,19 @@ code {
 blockquote {
   border-left: 2px solid;
   margin: 0 0 1.4rem;
-  padding-left: 15px;
-  border-left-color: {{ secondary_color }};
+  padding-left: 0.7rem;
 }
 
 /* Horizontal rules */
 
 hr {
-  background-color: #CCC;
   border: none;
-  color: #CCC;
-  height: 1px;
+  border-bottom: 1px solid #CCC;
 }
 
 /* Image alt text */
 
 img {
-  font-size: 14px;
+  font-size: 0.583rem;
   word-break: normal;
 }
