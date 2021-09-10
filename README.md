@@ -5,6 +5,35 @@ hs upload ./src ./bastyr2021
 * Used for brand guide
 * Intended for future use on landing pages
 
+## CSS
+
+### /src/css/variables.css:
+
+Variables and macros to be ingested at the theme level.
+
+* HuBL variables
+* Macros to be ingested  
+
+What belongs in /src/css/theme-overrides.css:
+
+* Primarily brand-specific, low-specificity selectors.
+* (Whether specific sections, e.g. typography, will be migrated to /elements/*/*.css is TBD)
+
+* HUBL Variables
+* "Element"
+
+What belongs in modules/_macros/*.css:
+
+* Generic to all modules that will use this macro
+* Not theme/brand-specific styling
+
+What belongs in modules/*/module.css:
+
+* Specialized, progressive enhancement of this module compared to the macro,
+* Yet generic to the module, and theme/brand-specific styling
+
+
+
 <p align="center">
   A straight-forward starting point for building a great website on the HubSpot CMS.
 </p>
