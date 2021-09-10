@@ -1,0 +1,43 @@
+{#
+  Config Options:
+{
+  'image' : object (image object),
+  'caption' : string (single line text),
+  'heading' : string (single line text),
+  'heading_style' : choice ['', 'card__heading--rule', 'card__heading--boxed']
+  'heading_size' : choice ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+  'content' : html (rich text)
+  'layout_direction' : choice ['horizontal', 'vertical'],
+  'is_article' : boolean, //does card content stand on its own as a content piece? If so, use <article> and <h1>.
+}
+#}
+{#
+    todo:
+        apply heading styles
+        apply layout direction (just stick a class on the element and style in card-style.css)
+#}
+
+{% macro build_module(config) %}
+    {{require_css('./card-styles.css')}}
+    {% if config.is_article == true %}
+        {% set card_container_element = 'article' %}
+            {% set card_heading_element = 'h1' %}
+                {% else %}
+                    {% set card_container_element = 'div' %}
+                        {% set card_heading_element = 'p' %}
+    {% endif %}
+    <{{card_container_element}} class="card">
+        <div class="image-container">
+            <img class="card__image image" src="{{config.image.src}}"/>
+            {# caption #}
+            {% if config.caption %}<span class="image__caption">{{config.caption}}</span>{% endif %}
+        </div>
+        {# content #}
+        <div class="card__content-container">
+            <{{card_heading_element}} class="card__heading card__heading--{{heading_style}}">{{config.heading}}</{{card_heading_element}}>
+        </div>
+        <p>
+            {{ config.content }}
+        </p>
+    </{{card_container_element}}}}>
+{% endmacro %}
