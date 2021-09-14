@@ -2,42 +2,15 @@
   {
     "name" : "heading",
     "label" : "Heading",
-    "type" : "text",
-    "validation_regex" : "",
-    "default" : "A compelling headline"
-  },
-  {
-    "name" : "image",
-    "label" : "Image",
-    "type" : "image",
-    "default" : {
-      "size_type" : "auto",
-      "src" : "",
-      "alt" : null,
-      "loading" : "lazy"
-    },
-    "resizable": true,
-    "responsive": true,
-    "show_loading": false
-  },
-  {
-    "type" : "text",
-    "validation_regex" : "",
-    "label" : "Caption",
-    "name" : "caption",
-    "default" : "What a lovely image! A picture is worth a thousand words."
-  },
-  {
-    "name" : "content",
-    "type" : "richtext",
-    "label" : "Content",
-    "default" : "Perhaps some pithy copy to drive the point home. And may I interest you in a button? Perhaps a table or a list?"
-  },
-  {
-    "name" : "style_options",
-    "label" : "Style Options",
     "type" : "group",
     "children" : [
+      {
+        "name" : "heading_content",
+        "label" : "Heading",
+        "type" : "text",
+        "validation_regex" : "",
+        "default" : "A compelling headline"
+      },
       {
         "name" : "heading_style",
         "label" : "Heading Style",
@@ -64,7 +37,55 @@
           [ "h6", "Heading 6" ]
         ],
         "default" : "h3"
+      }
+    ]
+  },
+  {
+    "name" : "image",
+    "label" : "Image",
+    "type" : "group",
+    "children" : [
+      {
+        "name" : "img",
+        "label" : "Image",
+        "type" : "image",
+        "default" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "resizable": true,
+        "responsive": true,
+        "show_loading": false
       },
+      {
+        "name" : "is_image_figure",
+        "label" : "Advanced: this card's image creates a figure that make sense as an appendix (Yes/No)",
+        "type" : "boolean",
+        "default" : false,
+        "display" : "toggle"
+      }
+    ]
+  },
+  {
+    "type" : "text",
+    "validation_regex" : "",
+    "label" : "Caption",
+    "name" : "card_caption",
+    "default" : "What a lovely image! A picture is worth a thousand words."
+  },
+  {
+    "name" : "rich_text_content",
+    "type" : "richtext",
+    "label" : "Rich Text Content",
+    "default" : "Perhaps some pithy copy to drive the point home. And may I interest you in a button? Perhaps a table or a list?"
+  },
+  {
+    "name" : "style_options",
+    "label" : "Style Options",
+    "type" : "group",
+    "children" : [
       {
         "name" : "layout_direction",
         "label" : "Layout Direction",
@@ -84,7 +105,7 @@
     "children" : [
       {
         "name" : "is_article",
-        "label" : "This card's content makes sense on its own, without the rest of the page",
+        "label" : "This card's makes sense outside the context of the page (Yes/No)",
         "type" : "boolean",
         "default" : false,
         "display" : "toggle"

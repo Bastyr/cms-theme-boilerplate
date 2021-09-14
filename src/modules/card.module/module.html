@@ -1,20 +1,12 @@
 {% import "../_macros/card-macro.html" as card %}
-{#
-old
-  'image': module.featured_image,
-  'heading': module.heading,
-  'content': module.content,
-  'imagecaption': module.caption,
-  'isArticle': module.isArticle
-#}
-
 {% set card_config = {
-  'heading' : module.heading,
-  'image' : module.image,
-  'caption' : module.caption,
-  'content' : module.content,
-  'heading_style' : module.style_options.style,
-  'heading_size' : module.style_options.heading_size,
+  'heading' : module.heading.heading_content,
+  'heading_style' : module.heading.heading_style,
+  'heading_size' : module.heading.heading_size,
+  'image' : module.image.img,
+  'is_image_figure' : module.image.is_image_figure,
+  'caption' : module.card_caption,
+  'content' : module.rich_text_content,
   'layout_direction' : module.style_options.layout_direction,
   'is_article' : module.semantic_options.is_article
 }

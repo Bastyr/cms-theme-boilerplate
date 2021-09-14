@@ -5,6 +5,8 @@ Any animations, or functions used throughout the project.
 Note: _macros.css needs to be imported into each stylesheet where macros are used and not included here
 */
 
+{% include './_variables.css' %}
+
 /* Generic
 This is where reset, normalize & box-sizing styles go.
 */
@@ -51,8 +53,11 @@ Helper classes with ability to override anything that comes before it
 
 :root {
     /* 
-        Colors 
+    Colors 
     */
+    --c_primary: {{ primary_color}};
+    --c_secondary: {{ secondary_color}};
+
     --c_salmon: {{theme.global_colors.salmon.color}};
     --c_rhubarb: {{theme.global_colors.rhubarb.color}};
     --c_cranberry: {{theme.global_colors.cranberry.color}};
@@ -71,21 +76,22 @@ Helper classes with ability to override anything that comes before it
     --c_mist: {{theme.global_colors.mist.color}};
     --c_eggshell: {{theme.global_colors.eggshell.color}};
     --c_white: {{theme.global_colors.white.color}};
+
     /* 
         Sizes
     */
     /* line widths */
-    --thin_line: {{theme.spacing.thin_line ~'px'}};
-    --fat_line: {{theme.spacing.fat_line ~'px'}};
+    --sp_thin_line: {{theme.spacing.thin_line ~'px'}};
+    --sp_fat_line: {{theme.spacing.fat_line ~'px'}};
     /* margin and padding values */
-    --xx_sm: {{theme.spacing.xx_sm ~'px'}};
-    --x_sm: {{theme.spacing.x_sm ~'px'}};
-    --sm: {{theme.spacing.sm ~'px'}};
-    --md: {{theme.spacing.md ~'px'}};
-    --lg: {{theme.spacing.lg ~'px'}};
-    --x_lg: {{theme.spacing.x_lg ~'px'}};
-    --xx_lg: {{theme.spacing.xx_lg ~'px'}};
-    --xxx_lg: {{theme.spacing.xxx_lg ~'px'}};
+    --sp_xx_sm: {{theme.spacing.xx_sm ~'px'}};
+    --sp_x_sm: {{theme.spacing.x_sm ~'px'}};
+    --sp_sm: {{theme.spacing.sm ~'px'}};
+    --sp_md: {{theme.spacing.md ~'px'}};
+    --sp_lg: {{theme.spacing.lg ~'px'}};
+    --sp_x_lg: {{theme.spacing.x_lg ~'px'}};
+    --sp_xx_lg: {{theme.spacing.xx_lg ~'px'}};
+    --sp_xxx_lg: {{theme.spacing.xxx_lg ~'px'}};
     /* containers */
     --content_width: {{theme.spacing.content_width ~ 'px'}};
     --dnd_section_padding: {{theme.spacing.vertical_spacing ~ 'px ' ~ '20px' }};
