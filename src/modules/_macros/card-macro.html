@@ -8,36 +8,71 @@
   'heading_size' : choice ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
   'content' : html (rich text)
   'layout_direction' : choice ['horizontal', 'vertical'],
-  'is_article' : boolean, //does card content stand on its own as a content piece? If so, use <article> and <h1>.
+  'is_article' : boolean, //This card's makes sense outside the context of the page (Yes/No) If so, use <article> and <h1>.
+  'is_image_figure' : boolean //This card's image creates a figure that make sense as an appendix (Yes/No) If so, use <figure> and <figcaption>
 }
 #}
 {#
-    todo:
-        apply heading styles
-        apply layout direction (just stick a class on the element and style in card-style.css)
+## done:
+apply heading styles
+apply basic layout alignment
+
+## todo:
+attempt to apply meaningful min-max
+attempt to apply reasonable image size/display control
+implement layout direction (just stick a class on the element and style in card-style.css)
+implement semantic markup
+    if is_article
+        <article>
+        <hx>
+    if is_figure
+        <figure>
+        <figcaption>
+implement semantic styling
+    article, hx
+    figure, figcaption
+
+CARD LIST
+implement card list with adjustable gutters
 #}
 
 {% macro build_module(config) %}
-    {{require_css('./card-styles.css')}}
+    {{ require_css(  get_asset_url('/bastyr21/modules/_macros/card-macro-styles.css')  ) }}
+    <!-- asset url  {{  get_asset_url('/bastyr21/modules/_macros/card-macro-styles.css') |pprint }}  -->
+
+    {# 
+        is_article
+        use <article> and <hx> or generic elements with styling classes for headers 
+    #}
+    {% set card_heading_class_string = '' %}
     {% if config.is_article == true %}
-        {% set card_container_element = 'article' %}
-            {% set card_heading_element = 'h1' %}
-                {% else %}
-                    {% set card_container_element = 'div' %}
-                        {% set card_heading_element = 'p' %}
+        {% set card_element = 'article' %}
+        {% set card_heading_element = '{{config.heading_size}}' %}
+    {% else %}
+        {% set card_element = 'div' %}
+        {% set card_heading_element = 'p' %}
+        {%- set card_heading_class_string = card_heading_class_string ~ ' ' ~ config.heading_size -%}
     {% endif %}
-    <{{card_container_element}} class="card">
-        <div class="image-container">
-            <img class="card__image image" src="{{config.image.src}}"/>
-            {# caption #}
-            {% if config.caption %}<span class="image__caption">{{config.caption}}</span>{% endif %}
-        </div>
-        {# content #}
-        <div class="card__content-container">
-            <{{card_heading_element}} class="card__heading card__heading--{{heading_style}}">{{config.heading}}</{{card_heading_element}}>
-        </div>
-        <p>
-            {{ config.content }}
-        </p>
-    </{{card_container_element}}}}>
+
+    <div class="card__container">
+        <{{card_element}} class="card card--shadow">
+            <div class="card__image-container">
+                <img class="card__image image" src="{{config.image.src}}"/>
+                {% if config.caption %}
+                <p class="card__caption h5">
+                    {{config.caption}}
+                </p>
+                {% endif %}
+            </div> <!-- card__image-container -->
+            <div class="card__content-container">
+                <{{card_heading_element}} class="card__heading {{card_heading_class_string}}">
+                    {{config.heading}}
+                </{{card_heading_element}}>
+                <div class="card__rich-text-container">
+                    {{ config.content }}
+                </div>
+            </div> <!-- card__content-container -->
+        </{{card_element}}>  <!-- card -->
+    </div> <!-- card__container :) -->
+
 {% endmacro %}

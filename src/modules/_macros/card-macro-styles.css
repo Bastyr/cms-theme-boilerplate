@@ -1,0 +1,57 @@
+.card {
+    border: 1px solid;
+    border-color: #ccc;
+    border-color: var(--c_cloud);
+    border-color: var(--c_secondary);
+    display: inline-block;
+    max-width: 35rem;
+    text-align: left;
+}
+
+.card--shadow {
+    box-shadow: 0 0 10px var(--c_secondary); 
+}
+
+.card__container {
+    width: 100%;
+    text-align: center;
+}
+
+.card__content-container, .card__caption {
+    padding: 1.2rem;
+    padding: var(--sp_md);
+}
+
+.card__caption {
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.card__heading {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* keep uniform padding in box below image */
+.card__rich-text-container *:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+.card__image {
+    padding: 50%;
+    background-size: cover;
+}
+
+.card__image-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
