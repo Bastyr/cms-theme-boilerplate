@@ -1,7 +1,40 @@
 [
     {
         "name" : "module",
-        "label" : "module.module",
-        "type" : "number"
+        "label" : "repeater",
+        "type" : "group",
+        "required" : true,
+        "occurrence": {
+          "default": 3,
+          "min": 1,
+          "sorting_label_field": "card.heading"
+        },
+        "children" : [
+            {
+                "name" : "number",
+                "label" : "A Number",
+                "type" : "number"       
+            }
+        ]
+    },
+    {
+        "label": "Styles",
+        "name": "styles",
+        "type": "group",
+        "tab": "STYLE",
+        "children": [
+            {
+                "label": "Style Group",
+                "name": "style_group",
+                "type": "group",
+                "children": [
+                    {
+                        "name" : "module",
+                        "label" : "module.module",
+                        "type" : "number"       
+                    }
+                ]
+            }
+        ]
     }
-]
+  ]
