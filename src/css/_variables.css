@@ -63,7 +63,7 @@
 /* 40 */ {% set sp_x_lg = theme.spacing.x_lg %} 
 /* 80 */ {% set sp_xx_lg = theme.spacing.xx_lg %} 
 /* 120 */ {% set sp_xxx_lg = theme.spacing.xxx_lg %} 
-/* 1200 */ {% set sp_max_width = theme.spacing.max_width %} 
+/* 1200 */ {% set sp_max_width = theme.spacing.content_width %} 
 
 /* 0c Padding combos */
     /* hor  ver */

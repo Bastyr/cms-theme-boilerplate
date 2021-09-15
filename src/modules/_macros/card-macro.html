@@ -2,14 +2,19 @@
   Config Options:
 {
   'image' : object (image object),
+  'is_image_figure' : boolean //This card's image creates a figure that make sense as an appendix (Yes/No) If so, use <figure> and <figcaption>,
+  'sizing': choice ["contain", "cover"]
+  'position_v': choice ["top", "25%, "center", "75%, "bottom"] // image position vertical
+  'position_h': choice ["left", "25%, "center", "75%, "right"]
+  'image_repeat_x': choice ["repeat", "no-repeat"]
+  'image_repeat_y': choice ["repeat", "no-repeat"]
   'caption' : string (single line text),
   'heading' : string (single line text),
   'heading_style' : choice ['', 'card__heading--rule', 'card__heading--boxed']
   'heading_size' : choice ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
   'content' : html (rich text)
   'layout_direction' : choice ['horizontal', 'vertical'],
-  'is_article' : boolean, //This card's makes sense outside the context of the page (Yes/No) If so, use <article> and <h1>.
-  'is_image_figure' : boolean //This card's image creates a figure that make sense as an appendix (Yes/No) If so, use <figure> and <figcaption>
+  'card_shadow' : boolean (whether to display a shadow behind the card),
 }
 #}
 {#
@@ -36,13 +41,14 @@ CARD LIST
 implement card list with adjustable gutters
 #}
 
-{% macro build_module(config) %}
+{%- macro build_module(config) -%}
     {{ require_css(  get_asset_url('/bastyr21/modules/_macros/card-macro-styles.css')  ) }}
-    <!-- asset url  {{  get_asset_url('/bastyr21/modules/_macros/card-macro-styles.css') |pprint }}  -->
 
     {# 
-        is_article
-        use <article> and <hx> or generic elements with styling classes for headers 
+        for article
+        not currently in use... can use these to change markup to use article and hx (h1, etc) 
+        tags for semantic markup in the case of stand-alone content, but this may make more sense
+        as another module
     #}
     {% set card_heading_class_string = '' %}
     {% if config.is_article == true %}
@@ -53,11 +59,26 @@ implement card list with adjustable gutters
         {% set card_heading_element = 'p' %}
         {%- set card_heading_class_string = card_heading_class_string ~ ' ' ~ config.heading_size -%}
     {% endif %}
+    {# end for article (not in use) #}
+
+    {% if config.card_shadow %}
+        {% set card_shadow_class = 'card--shadow' %}
+    {% else %}
+        {% set card_shadow_class = '' %}
+    {% endif %}
 
     <div class="card__container">
-        <{{card_element}} class="card card--shadow">
+        <div class="card {{card_shadow_class}}">
             <div class="card__image-container">
-                <img class="card__image image" src="{{config.image.src}}"/>
+                <div class="card__image image" 
+                    style="background-image:url('{{config.image.src}}');
+                    {%- if config.image_sizing -%} background-size: {{config.image_sizing}}; {%- endif -%}
+                    {%- if config.image_position_x -%}  background-position-x: {{config.image_position_x}}; {%- endif -%}
+                    {%- if config.image_position_y -%} background-position-y: {{config.image_position_y}}; {%- endif -%}
+                    {%- if config.image_repeat_x -%} background-repeat-x: {{config.image_repeat_x}}; {%- endif -%}
+                    {%- if config.image_repeat_y -%} background-repeat-y: {{config.image_repeat_y}}; {%- endif -%}"
+                >
+                </div>
                 {% if config.caption %}
                 <p class="card__caption h5">
                     {{config.caption}}
@@ -65,14 +86,14 @@ implement card list with adjustable gutters
                 {% endif %}
             </div> <!-- card__image-container -->
             <div class="card__content-container">
-                <{{card_heading_element}} class="card__heading {{card_heading_class_string}}">
+                <p class="card__heading {{card_heading_class_string}}">
                     {{config.heading}}
-                </{{card_heading_element}}>
+                </p>
                 <div class="card__rich-text-container">
                     {{ config.content }}
                 </div>
             </div> <!-- card__content-container -->
-        </{{card_element}}>  <!-- card -->
+        </div>  <!-- card -->
     </div> <!-- card__container :) -->
 
-{% endmacro %}
+{%- endmacro -%}

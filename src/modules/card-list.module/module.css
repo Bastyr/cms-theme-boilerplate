@@ -1,15 +1,26 @@
-.cards {
+.card_list {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
 
-.cards__card {
-  align-items: center;
-  align-self: flex-start;
+.card__container {
+  display: inline-block;
   display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 1.4rem;
+}
+
+.card__container:not(:last-child) {
+  margin: 0 20px 0 0 ;
+  margin: 0 var(--sp_md) 0 0 ;
+}
+
+.card__image {
+  height: auto;
+  margin: 0 auto;
   max-width: 100%;
-  width: 300px;
+}
+
+.card__text {
+  padding: 0 0.7rem;
+  width: 100%;
 }

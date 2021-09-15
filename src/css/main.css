@@ -81,18 +81,16 @@ Helper classes with ability to override anything that comes before it
         Sizes
     */
     /* line widths */
-    --sp_thin_line: {{theme.spacing.thin_line ~'px'}};
-    --sp_fat_line: {{theme.spacing.fat_line ~'px'}};
-    /* margin and padding values */
-    --sp_xx_sm: {{theme.spacing.xx_sm ~'px'}};
-    --sp_x_sm: {{theme.spacing.x_sm ~'px'}};
-    --sp_sm: {{theme.spacing.sm ~'px'}};
-    --sp_md: {{theme.spacing.md ~'px'}};
-    --sp_lg: {{theme.spacing.lg ~'px'}};
-    --sp_x_lg: {{theme.spacing.x_lg ~'px'}};
-    --sp_xx_lg: {{theme.spacing.xx_lg ~'px'}};
-    --sp_xxx_lg: {{theme.spacing.xxx_lg ~'px'}};
-    /* containers */
-    --content_width: {{theme.spacing.content_width ~ 'px'}};
+    --sp_thin_line: {{sp_thin_line ~'px'}};/* 1 */
+    --sp_fat_line: {{sp_fat_line ~'px'}};/* 4 */
+    --sp_xx_sm: {{sp_xx_sm ~'px'}};/* 5 */
+    --sp_x_sm: {{sp_x_sm ~'px'}};/* 10 */
+    --sp_sm: {{sp_sm ~'px'}};/* 15 */
+    --sp_md: {{sp_md ~'px'}};/* 20 */
+    --sp_lg: {{sp_lg ~'px'}};/* 30 */
+    --sp_x_lg: {{sp_x_lg ~'px'}};/* 40 */
+    --sp_xx_lg: {{sp_xx_lg ~'px'}};/* 80 */
+    --sp_xxx_lg: {{sp_xxx_lg ~'px'}};/* 120 */
+    --content_width: {{sp_max_width ~ 'px'}};/* 1200 */
     --dnd_section_padding: {{theme.spacing.vertical_spacing ~ 'px ' ~ '20px' }};
 }

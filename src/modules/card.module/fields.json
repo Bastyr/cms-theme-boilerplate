@@ -43,25 +43,81 @@
   {
     "name" : "image",
     "label" : "Image",
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "lazy"
+    },
+    "resizable": true,
+    "responsive": true,
+    "show_loading": false
+  },
+  {
+    "name" : "image_options",
+    "label" : "Image Options",
     "type" : "group",
     "children" : [
       {
-        "name" : "img",
-        "label" : "Image",
-        "type" : "image",
-        "default" : {
-          "size_type" : "auto",
-          "src" : "",
-          "alt" : null,
-          "loading" : "lazy"
-        },
-        "resizable": true,
-        "responsive": true,
-        "show_loading": false
+        "name" : "sizing",
+        "label" : "Image Size",
+        "type" : "choice",
+        "choices" : [
+          [ "contain", "Cover" ],
+          [ "cover", "Contain" ]
+        ],
+        "default" : "cover"
+      },
+      {
+        "name" : "position_y",
+        "label" : "Vertical Position",
+        "type" : "choice",
+        "choices" : [
+          [ "top", "Top" ],
+          [ "25%", "25% from Top" ],
+          [ "center", "Center" ],
+          [ "75%", "75% from Top" ],
+          [ "bottom", "Bottom" ]
+        ],
+        "default" : "center"
+      },
+      {
+        "name" : "position_x",
+        "label" : "Horizontal Position",
+        "type" : "choice",
+        "choices" : [
+          [ "left", "Left" ],
+          [ "25%", "25% from Left" ],
+          [ "center", "Center" ],
+          [ "75%", "75% from Left" ],
+          [ "right", "Right" ]
+        ],
+        "default" : "center"
+      },
+      {
+        "name" : "repeat_y",
+        "label" : "Repeat Vertically",
+        "type" : "choice",
+        "choices" : [
+          [ "repeat", "Repeat Vertically" ],
+          [ "no-repeat", "No Repeat" ]
+        ],
+        "default" : "no-repeat"
+      },
+      {
+        "name" : "repeat_x",
+        "label" : "Repeat Horizontally",
+        "type" : "choice",
+        "choices" : [
+          [ "repeat", "Repeat Horzontally" ],
+          [ "no-repeat", "No Repeat" ]
+        ],
+        "default" : "no-repeat"
       },
       {
         "name" : "is_image_figure",
-        "label" : "Advanced: this card's image creates a figure that make sense as an appendix (Yes/No)",
+        "label" : "Advanced: this image can be treated as an independent figure because its content could be included e.g. as an appendix item (Yes/No)",
         "type" : "boolean",
         "default" : false,
         "display" : "toggle"
@@ -95,19 +151,11 @@
           [ "horizontal", "Horizontal" ]
         ],
         "default" : "vertical"
-      }
-    ]
-  },
-  {
-    "name" : "semantic_options",
-    "label" : "Semantic Options",
-    "type" : "group",
-    "children" : [
+      },
       {
-        "name" : "is_article",
-        "label" : "This card's makes sense outside the context of the page (Yes/No)",
+        "name" : "card_shadow",
+        "label" : "Card Shadow",
         "type" : "boolean",
-        "default" : false,
         "display" : "toggle"
       }
     ]
