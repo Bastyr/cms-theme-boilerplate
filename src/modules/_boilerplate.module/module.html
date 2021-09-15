@@ -1,0 +1,8 @@
+{% import "../_macros/boilerplate-macro.html" as macro %}
+
+{% set macro_config = {
+        'field' : module.field
+    }
+%}
+
+{{macro.build_module(macro_config)}}

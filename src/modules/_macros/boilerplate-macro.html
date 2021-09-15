@@ -1,0 +1,13 @@
+{# 
+Config options:
+{
+}
+#}
+
+{%- macro build_module(config) -%}
+    {{ require_css(  get_asset_url('/bastyr21/modules/_macros/boilerplate-macro-styles.css')  ) }}
+
+    <p>
+        Boilerplate macro
+    </p>
+{%- endmacro %}
