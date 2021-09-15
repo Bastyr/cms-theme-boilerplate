@@ -1,0 +1,9 @@
+{% import "../_macros/list-macro.html" as macro %}
+
+{% set macro_config = {
+        'list_type' : 'unordered',
+        'list_items' : module.list_items
+    }
+%}
+
+{{ macro.build_module(macro_config) }}

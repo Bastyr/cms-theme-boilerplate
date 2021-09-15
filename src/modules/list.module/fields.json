@@ -1,0 +1,70 @@
+[
+  {
+      "name" : "list_items",
+      "label" : "List Items",
+      "type" : "group",
+      "required" : true,
+      "occurrence": {
+        "default": 1,
+        "min": 1,
+        "sorting_label_field": "item_content"
+      },
+      "children" : [
+          {
+              "name" : "item_content",
+              "label" : "Item Content",
+              "type" : "richtext",
+              "default" : "<p>This list contains 'rich text' items. You can put bullet lists, videos, or whatever here. But it's styled as a basic bullet list and intended to house simple text.</p>"
+          }
+      ],
+      "default" : [
+        {}
+      ]
+  },
+  {
+      "label": "Styles",
+      "name": "styles",
+      "type": "group",
+      "tab": "STYLE",
+      "children": [
+          {
+            "label": "List Styles",
+            "name": "list_styles",
+            "type": "group",
+            "children": [
+                {
+                    "name" : "bg_color",
+                    "label" : "Background Color",
+                    "sortable" : false,
+                    "required" : false,
+                    "locked" : false,
+                    "type" : "color",
+                    "default" : {
+                        "color" : "#f6f6f5",
+                        "opacity" : 100
+                    }
+                }
+            ]
+        },
+        {
+          "label": "Item Styles",
+          "name": "item_styles",
+          "type": "group",
+          "children": [
+              {
+                  "name" : "bg_color",
+                  "label" : "Background Color",
+                  "sortable" : false,
+                  "required" : false,
+                  "locked" : false,
+                  "type" : "color",
+                  "default" : {
+                      "color" : "#f6f6f5",
+                      "opacity" : 100
+                  }
+              }
+          ]
+        }
+      ]
+  }
+]

@@ -1,0 +1,27 @@
+{#
+Config options:
+{
+    items []
+    list_type : ordered | definition | unordered
+}
+#}
+
+{%- macro build_module(config) -%}
+    {{ require_css(  get_asset_url('/bastyr21/modules/_macros/list-macro-styles.css')  ) }}
+
+    <ul class="list list-unordered {{list_style}}">
+        {% for list_item in config.list_items %}
+            <li>
+                {{list_item.item_content}}
+            </li>
+        {% endfor %}
+    </ul>
+{%- endmacro %}
+
+{%- macro list_item (config) -%}
+{%- endmacro %}
+
+{# {%- macro list_item_with_definition (config) -%}
+{%- endmacro %} #}
+
+{# 
