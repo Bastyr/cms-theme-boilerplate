@@ -53,17 +53,32 @@
 {% set c_white = theme.global_colors.white.color %};
 
 /* 0b Spacing Integers (NO UNITS) */
-/* 1 */ {% set sp_thin_line = theme.spacing.thin_line %} 
-/* 4 */ {% set sp_fat_line = theme.spacing.fat_line %} 
-/* 5 */ {% set sp_xx_sm = theme.spacing.xx_sm %} 
-/* 10 */ {% set sp_x_sm = theme.spacing.x_sm %} 
-/* 15 */ {% set sp_sm = theme.spacing.sm %} 
-/* 20 */ {% set sp_md = theme.spacing.md %} 
-/* 30 */ {% set sp_lg = theme.spacing.lg %} 
-/* 40 */ {% set sp_x_lg = theme.spacing.x_lg %} 
-/* 80 */ {% set sp_xx_lg = theme.spacing.xx_lg %} 
-/* 120 */ {% set sp_xxx_lg = theme.spacing.xxx_lg %} 
-/* 1200 */ {% set sp_max_width = theme.spacing.content_width %} 
+{% set sp_thin_line = theme.spacing.thin_line %} /* 1 */
+{% set sp_fat_line = theme.spacing.fat_line %} /* 4 */
+{% set sp_xx_sm = theme.spacing.xx_sm %} /* 5 */
+{% set sp_x_sm = theme.spacing.x_sm %} /* 10 */
+{% set sp_sm = theme.spacing.sm %} /* 15 */
+{% set sp_md = theme.spacing.md %} /* 20  */ 
+{% set sp_lg = theme.spacing.lg %} /* 30  */
+{% set sp_x_lg = theme.spacing.x_lg %} /* 40 */
+{% set sp_xx_lg = theme.spacing.xx_lg %} /* 80 */
+{% set sp_xxx_lg = theme.spacing.xxx_lg %} /* 120 */
+{% set sp_max_width = theme.spacing.content_width %} /* 1200 */
+
+/* vertical rhythm units
+1: 18 * 1.4 = 25.2
+.2: 5.04
+.5: 12.6
+.75 18.9
+2: 50.4
+3: 75.6
+4: 100.8
+5: 126
+25: 1209.6
+
+
+*/
+
 
 /* 0c Padding combos */
     /* hor  ver */
