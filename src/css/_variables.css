@@ -198,15 +198,6 @@
 
 {% set header_bg_color = color(theme.header.background.color) %}
 
-
-/* debug
-nav_font_color {{ nav_font_color|pprint }} 
-nav_drop_down_font_color {{ nav_drop_down_font_color|pprint }} 
-nav_drop_down_bg_color {{ nav_drop_down_bg_color|pprint }} 
-nav_drop_down_border {{ nav_drop_down_border|pprint }} 
-header_bg_color {{ header_bg_color|pprint }} 
-    
-    */
 /* 1h. Website footer */
 
 {% set footer_bg_color = color(theme.footer.background.color) %}
