@@ -1,20 +1,22 @@
 {#
   Config Options:
 {
-  'image' : object (image object),
-  'is_image_figure' : boolean //This card's image creates a figure that make sense as an appendix (Yes/No) If so, use <figure> and <figcaption>,
-  'sizing': choice ["contain", "cover"]
-  'position_v': choice ["top", "25%, "center", "75%, "bottom"] // image position vertical
-  'position_h': choice ["left", "25%, "center", "75%, "right"]
-  'image_repeat_x': choice ["repeat", "no-repeat"]
-  'image_repeat_y': choice ["repeat", "no-repeat"]
-  'caption' : string (single line text),
-  'heading' : string (single line text),
-  'heading_style' : choice ['', 'card__heading--rule', 'card__heading--boxed']
-  'heading_size' : choice ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
-  'content' : html (rich text)
-  'layout_direction' : choice ['horizontal', 'vertical'],
-  'card_shadow' : boolean (whether to display a shadow behind the card),
+    'image' : object (image object),
+    'image_bg_color'
+    'is_image_figure' : boolean //This card's image creates a figure that make sense as an appendix (Yes/No) If so, use <figure> and <figcaption>,
+    'sizing': choice ["contain", "cover"]
+    'position_y': choice ["top", "25%, "center", "75%, "bottom"] // image position vertical
+    'position_x': choice ["left", "25%, "center", "75%, "right"]
+    image_padding_class e.g. sp_sm sp_md sp_lg sp_x_lg
+    'image_repeat_x': choice ["repeat", "no-repeat"]
+    'image_repeat_y': choice ["repeat", "no-repeat"]
+    'caption' : string (single line text),
+    'heading' : string (single line text),
+    'heading_style' : choice ['', 'card__heading--rule', 'card__heading--boxed']
+    'heading_size' : choice ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+    'content' : html (rich text)
+    'layout_direction' : choice ['horizontal', 'vertical'],
+    'card_shadow' : boolean (whether to display a shadow behind the card),
 }
 #}
 {#
@@ -67,18 +69,27 @@ implement card list with adjustable gutters
         {% set card_shadow_class = '' %}
     {% endif %}
 
+    {% if config.image_padding_class %}
+        {% set image_padding_class = 'image-padding-' ~ config.image_padding_class %}
+    {% else %}
+        {% set image_padding_class = '' %}
+    {% endif %}
+
     <div class="card__container">
         <div class="card {{card_shadow_class}}">
             <div class="card__image-container">
-                <div class="card__image image" 
-                    style="background-image:url('{{config.image.src}}');
-                    {%- if config.image_sizing -%} background-size: {{config.image_sizing}}; {%- endif -%}
-                    {%- if config.image_position_x -%}  background-position-x: {{config.image_position_x}}; {%- endif -%}
-                    {%- if config.image_position_y -%} background-position-y: {{config.image_position_y}}; {%- endif -%}
-                    {%- if config.image_repeat_x -%} background-repeat-x: {{config.image_repeat_x}}; {%- endif -%}
-                    {%- if config.image_repeat_y -%} background-repeat-y: {{config.image_repeat_y}}; {%- endif -%}"
-                >
+                <div class="image__wrapper {{image_padding_class}}">
+                    <div class="card__image image" 
+                        style="background-image:url('{{config.image.src}}');
+                            {%- if config.image_sizing -%} background-size: {{config.image_sizing}}; {%- endif -%}
+                            {%- if config.image.size_type == 'exact' -%} background-size: {{config.image.width}}px {{config.image.height}}px;{%- endif %}
+                            {%- if config.image_position_x -%}  background-position-x: {{config.image_position_x}}; {%- endif -%}
+                            {%- if config.image_position_y -%} background-position-y: {{config.image_position_y}}; {%- endif -%}
+                            {%- if config.image_repeat_x -%} background-repeat-x: {{config.image_repeat_x}}; {%- endif -%}
+                            {%- if config.image_repeat_y -%} background-repeat-y: {{config.image_repeat_y}}; {%- endif -%}"
+                    >
                 </div>
+            </div>
                 {% if config.caption %}
                 <p class="card__caption h5">
                     {{config.caption}}

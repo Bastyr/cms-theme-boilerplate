@@ -6,26 +6,24 @@
 
   {# Loops through each card in the cards repeater #}
   {% for list_card in module.card_list %}
-
-    {{list_card.card_caption|pprint}}
-
-  {% set card_config = {
-    'heading' : list_card.heading.heading_content,
-    'heading_style' : list_card.heading.heading_style,
-    'heading_size' : list_card.heading.heading_size,
-    'image' : list_card.image,
-    'image_sizing' : list_card.image_options.sizing,
-    'image_position_y' : list_card.image_options.position_y,
-    'image_position_x' : list_card.image_options.position_x,
-    'image_repeat_x' : list_card.image_options.repeat_x,
-    'image_repeat_y' : list_card.image_options.repeat_y,
-    'is_image_figure' : list_card.image_options.is_image_figure,
-    'caption' : list_card.card_caption,
-    'content' : list_card.rich_text_content,
-    'layout_direction' : list_card.style_options.layout_direction,
-    'card_shadow' : list_card.style_options.card_shadow
-    }
-  %}
+    {% set card_config = {
+      'heading' : list_card.text.heading_content,
+      'heading_size' : list_card.text.heading_size,
+      'caption' : list_card.text.card_caption,
+      'content' : list_card.text.rich_text_content,
+      'image' : list_card.image_options.image,
+      'image_padding_class' : list_card.image_options.image_padding_class,
+      'image_bg_color' : list_card.image_options.bg_color,
+      'image_sizing' : list_card.image_options.sizing,
+      'image_position_y' : list_card.image_options.position_y,
+      'image_position_x' : list_card.image_options.position_x,
+      'image_repeat_x' : list_card.image_options.repeat_x,
+      'image_repeat_y' : list_card.image_options.repeat_y,
+      'is_image_figure' : list_card.image_options.is_image_figure,
+      'layout_direction' : list_card.style_options.layout_direction,
+      'card_shadow' : list_card.style_options.card_shadow
+      }
+    %}
 
     {{ card_macro.build_module(card_config) }}
   {% endfor %}

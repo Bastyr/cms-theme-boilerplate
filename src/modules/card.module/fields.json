@@ -41,24 +41,24 @@
     ]
   },
   {
-    "name" : "image",
-    "label" : "Image",
-    "type" : "image",
-    "default" : {
-      "size_type" : "auto",
-      "src" : "",
-      "alt" : null,
-      "loading" : "lazy"
-    },
-    "resizable": true,
-    "responsive": true,
-    "show_loading": false
-  },
-  {
     "name" : "image_options",
-    "label" : "Image Options",
+    "label" : "Image",
     "type" : "group",
     "children" : [
+      {
+        "name" : "image",
+        "label" : "Image",
+        "type" : "image",
+        "default" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "resizable": true,
+        "responsive": true,
+        "show_loading": false
+      },
       {
         "name" : "sizing",
         "label" : "Image Size",
@@ -142,6 +142,19 @@
     "label" : "Style Options",
     "type" : "group",
     "children" : [
+      {
+        "name" : "card_padding",
+        "label" : "Card Padding",
+        "type" : "choice",
+        "choices" : [
+          [ "", "None" ],
+          [ "sp_sm", "Small" ],
+          [ "sp_md", "Medium" ],
+          [ "sp_lg", "Large" ],
+          [ "sp_x_lg", "Extra Large" ]
+        ],
+        "default" : ""
+      },
       {
         "name" : "layout_direction",
         "label" : "Layout Direction",

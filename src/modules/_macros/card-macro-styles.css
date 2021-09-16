@@ -4,6 +4,7 @@
     border-color: var(--c_cloud);
     border-color: var(--c_secondary);
     text-align: left;
+    width: 100%;
 }
 
 .card--shadow {
@@ -15,17 +16,15 @@
     text-align: center;
 }
 
-.card__content-container, .card__caption {
+.card__content-container {
     padding: 1.2rem;
     padding: var(--sp_md);
 }
 
 .card__caption {
     font-style: italic;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    margin: .277778rem 0 0 0;
+    margin: var(--sp_sm) 0 0 0;
     text-align: center;
 }
 
@@ -49,4 +48,24 @@
 .card__image-container {
   width: 100%;
   overflow: hidden;
+}
+
+.image_wrapper {
+    width: 100%;
+}
+
+.image__wrapper.image-padding-sp_sm {
+    padding: var(--sp_sm);
+}
+
+.image__wrapper.image-padding-sp_md {
+    padding: var(--sp_md);
+}
+
+.image__wrapper.image-padding-sp_lg {
+    padding: var(--sp_lg);
+}
+
+.image__wrapper.image-padding-sp_x_lg {
+    padding: var(--sp_x_lg);
 }

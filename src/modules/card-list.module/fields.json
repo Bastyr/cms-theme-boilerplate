@@ -1,6 +1,6 @@
 [
   {
-    "label": "Card",
+    "label": "Card List",
     "name": "card_list",
     "type": "group",
     "required" : true,
@@ -11,8 +11,8 @@
     },
     "children": [
       {
-        "name" : "heading",
-        "label" : "Heading",
+        "name" : "text",
+        "label" : "Text Elements",
         "type" : "group",
         "children" : [
           {
@@ -21,18 +21,6 @@
             "type" : "text",
             "validation_regex" : "",
             "default" : "A compelling headline"
-          },
-          {
-            "name" : "heading_style",
-            "label" : "Heading Style",
-            "type" : "choice",
-            "choices" : [
-              [ "", "None" ],
-              [ "rule", "Rule Under" ],
-              [ "boxed", "Boxed" ]
-            ],
-            "display" : "select",
-            "default" : ""
           },
           {
             "name" : "heading_size",
@@ -48,28 +36,65 @@
               [ "h6", "Heading 6" ]
             ],
             "default" : "h3"
+          },
+          {
+            "name" : "card_caption",
+            "label" : "Caption",
+            "type" : "text",
+            "validation_regex" : "",
+            "default" : "What a lovely image! A picture is worth a thousand words."
+          },
+          {
+            "name" : "rich_text_content",
+            "label" : "Rich Text Content",
+            "type" : "richtext",
+            "default" : "Perhaps some pithy copy to drive the point home. May I interest you in a button? Perhaps a table or a list?"
           }
         ]
       },
       {
-        "name" : "image",
-        "label" : "Image",
-        "type" : "image",
-        "default" : {
-          "size_type" : "auto",
-          "src" : "",
-          "alt" : null,
-          "loading" : "lazy"
-        },
-        "resizable": true,
-        "responsive": true,
-        "show_loading": false
-      },
-      {
         "name" : "image_options",
-        "label" : "Image Options",
+        "label" : "Image",
         "type" : "group",
         "children" : [
+          {
+            "name" : "image",
+            "label" : "Image",
+            "type" : "image",
+            "default" : {
+              "size_type" : "auto",
+              "src" : "",
+              "alt" : null,
+              "loading" : "lazy"
+            },
+            "resizable": true,
+            "responsive": true,
+            "show_loading": false
+          },
+          {
+            "name" : "bg_color",
+            "label" : "Background color",
+            "required" : false,
+            "locked" : false,
+            "type" : "color",
+            "default" : {
+               "color" : "",
+               "opacity" : 100
+            }
+          },
+          {
+            "name" : "image_padding_class",
+            "label" : "Image Padding",
+            "type" : "choice",
+            "choices" : [
+              [ "", "None" ],
+              [ "sp_sm", "Small" ],
+              [ "sp_md", "Medium" ],
+              [ "sp_lg", "Large" ],
+              [ "sp_x_lg", "Extra Large" ]
+            ],
+            "default" : ""
+          },
           {
             "name" : "sizing",
             "label" : "Image Size",
@@ -82,26 +107,26 @@
           },
           {
             "name" : "position_y",
-            "label" : "Vertical Position when size: 'Cover'",
+            "label" : "Vertical Position",
             "type" : "choice",
             "choices" : [
               [ "top", "Top" ],
-              [ "25%", "25% from Top" ],
+              [ "25%", "1/4 Down" ],
               [ "center", "Center" ],
-              [ "75%", "75% from Top" ],
+              [ "75%", "3/4 Down" ],
               [ "bottom", "Bottom" ]
             ],
             "default" : "center"
           },
           {
             "name" : "position_x",
-            "label" : "Horizontal Position when size 'Cover'",
+            "label" : "Horizontal Position",
             "type" : "choice",
             "choices" : [
               [ "left", "Left" ],
-              [ "25%", "25% from Left" ],
+              [ "25%", "1/4 Left" ],
               [ "center", "Center" ],
-              [ "75%", "75% from Left" ],
+              [ "75%", "3/4 Left" ],
               [ "right", "Right" ]
             ],
             "default" : "center"
@@ -125,28 +150,8 @@
               [ "no-repeat", "No Repeat" ]
             ],
             "default" : "no-repeat"
-          },
-          {
-            "name" : "is_image_figure",
-            "label" : "Advanced: this image can be treated as an independent figure because its content could be included e.g. as an appendix item (Yes/No)",
-            "type" : "boolean",
-            "default" : false,
-            "display" : "toggle"
           }
         ]
-      },
-      {
-        "name" : "card_caption",
-        "label" : "Caption",
-        "type" : "text",
-        "validation_regex" : "",
-        "default" : "What a lovely image! A picture is worth a thousand words."
-      },
-      {
-        "name" : "rich_text_content",
-        "label" : "Rich Text Content",
-        "type" : "richtext",
-        "default" : "Perhaps some pithy copy to drive the point home. May I interest you in a button? Perhaps a table or a list?"
       },
       {
         "name" : "style_options",
@@ -174,28 +179,49 @@
     ],
     "default" : [
       {
-        "heading" : {
+        "text" : {
           "heading_content" : "Your compelling card heading goes here",
-          "heading_size" : "h3"
+          "heading_size" : "h3",
+          "card_caption" : "This optional caption shows up under the card unless it's blank.",
+          "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
         },
-        "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more.",
-        "card_caption" : "This optional caption shows up under the card unless it's blank."
+        "image_options" : {
+          "position_y" : "center",
+          "position_x" : "center",
+          "repeat_x" : "no-repeat",
+          "repeat_y" : "no-repeat",
+          "image_size" : "cover"
+        }
       },
       {
-        "heading" : {
+        "text" : {
           "heading_content" : "Your compelling card heading goes here",
-          "heading_size" : "h3"
+          "heading_size" : "h3",
+          "card_caption" : "This optional caption shows up under the card unless it's blank.",
+          "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
         },
-        "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more.",
-        "card_caption" : "This optional caption shows up under the card unless it's blank."
+        "image_options" : {
+          "position_y" : "center",
+          "position_x" : "center",
+          "repeat_x" : "no-repeat",
+          "repeat_y" : "no-repeat",
+          "image_size" : "cover"
+        }
       },
       {
-        "heading" : {
+        "text" : {
           "heading_content" : "Your compelling card heading goes here",
-          "heading_size" : "h3"
+          "heading_size" : "h3",
+          "card_caption" : "This optional caption shows up under the card unless it's blank.",
+          "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
         },
-        "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more.",
-        "card_caption" : "This optional caption shows up under the card unless it's blank."
+        "image_options" : {
+          "position_y" : "center",
+          "position_x" : "center",
+          "repeat_x" : "no-repeat",
+          "repeat_y" : "no-repeat",
+          "image_size" : "cover"
+        }
       }
     ]
   }

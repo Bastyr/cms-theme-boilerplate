@@ -3,7 +3,7 @@
   'heading' : module.heading.heading_content,
   'heading_style' : module.heading.heading_style,
   'heading_size' : module.heading.heading_size,
-  'image' : module.image,
+  'image' : module.image_options.image,
   'image_sizing' : module.image_options.sizing,
   'image_position_y' : module.image_options.position_y,
   'image_position_x' : module.image_options.position_x,
@@ -13,8 +13,9 @@
   'caption' : module.card_caption,
   'content' : module.rich_text_content,
   'layout_direction' : module.style_options.layout_direction,
-  'card_shadow' : module.style_options.card_shadow
+  'card_shadow' : module.style_options.card_shadow,
+  'card_padding' : module.style_options.card_padding
   }
 %}
 
-{{card.build_module(card_config)}}
+{{ card.build_module(card_config) }}
