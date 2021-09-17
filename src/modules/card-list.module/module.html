@@ -2,17 +2,19 @@
 
 {% import "../_macros/card-macro.html" as card_macro %}
 
-<div class="card_list">
-
+<div class="card-list{% if module.card_list_options.list_style %} card-list--{{module.card_list_options.list_style}}{% endif %}"
+  {%- if module.card_list_options.card_list_bg_color.css -%}style="background-color: {{module.card_list_options.card_list_bg_color.css}};"{%- endif -%}}
+>
   {# Loops through each card in the cards repeater #}
   {% for list_card in module.card_list %}
     {% set card_config = {
-      'heading' : list_card.text.heading_content,
-      'heading_size' : list_card.text.heading_size,
+      'title' : list_card.text.title_content,
+      'title_size' : list_card.text.title_size,
       'caption' : list_card.text.card_caption,
       'content' : list_card.text.rich_text_content,
+      'content_padding' : list_card.image_options.image_padding_class,
       'image' : list_card.image_options.image,
-      'image_padding_class' : list_card.image_options.image_padding_class,
+      'image_padding' : list_card.image_options.image_padding_class,
       'image_bg_color' : list_card.image_options.bg_color,
       'image_sizing' : list_card.image_options.sizing,
       'image_position_y' : list_card.image_options.position_y,
@@ -20,12 +22,18 @@
       'image_repeat_x' : list_card.image_options.repeat_x,
       'image_repeat_y' : list_card.image_options.repeat_y,
       'is_image_figure' : list_card.image_options.is_image_figure,
-      'layout_direction' : list_card.style_options.layout_direction,
-      'card_shadow' : list_card.style_options.card_shadow
+      'card_shadow' : list_card.borders_colors.card_shadow,
+      'content_bg_color' : list_card.borders_colors.content_bg_color.css,
+      'card_bg_color' : list_card.borders_colors.card_bg_color.css,
+      'title_bg_color' : list_card.borders_colors.title_bg_color.css,
+      'image_bg_color' : list_card.borders_colors.image_bg_color.css,
+      'caption_bg_color' : list_card.borders_colors.caption_bg_color.css,
+      'card_orientation' : module.card_list_options.card_orientation
       }
     %}
 
     {{ card_macro.build_module(card_config) }}
+
   {% endfor %}
 
 </div>

@@ -7,54 +7,12 @@
     "occurrence": {
       "default": 3,
       "min": 1,
-      "sorting_label_field": "card.heading"
+      "sorting_label_field": "card.title"
     },
     "children": [
       {
-        "name" : "text",
-        "label" : "Text Elements",
-        "type" : "group",
-        "children" : [
-          {
-            "name" : "heading_content",
-            "label" : "Heading",
-            "type" : "text",
-            "validation_regex" : "",
-            "default" : "A compelling headline"
-          },
-          {
-            "name" : "heading_size",
-            "label" : "Heading Size",
-            "type" : "choice",
-            "choices" : [
-              [ "", "Text Size" ],
-              [ "h1", "Heading 1" ],
-              [ "h2", "Heading 2" ],
-              [ "h3", "Heading 3" ],
-              [ "h4", "Heading 4" ],
-              [ "h5", "Heading 5" ],
-              [ "h6", "Heading 6" ]
-            ],
-            "default" : "h3"
-          },
-          {
-            "name" : "card_caption",
-            "label" : "Caption",
-            "type" : "text",
-            "validation_regex" : "",
-            "default" : "What a lovely image! A picture is worth a thousand words."
-          },
-          {
-            "name" : "rich_text_content",
-            "label" : "Rich Text Content",
-            "type" : "richtext",
-            "default" : "Perhaps some pithy copy to drive the point home. May I interest you in a button? Perhaps a table or a list?"
-          }
-        ]
-      },
-      {
         "name" : "image_options",
-        "label" : "Image",
+        "label" : "Media",
         "type" : "group",
         "children" : [
           {
@@ -70,17 +28,6 @@
             "resizable": true,
             "responsive": true,
             "show_loading": false
-          },
-          {
-            "name" : "bg_color",
-            "label" : "Background color",
-            "required" : false,
-            "locked" : false,
-            "type" : "color",
-            "default" : {
-               "color" : "",
-               "opacity" : 100
-            }
           },
           {
             "name" : "image_padding_class",
@@ -154,25 +101,125 @@
         ]
       },
       {
-        "name" : "style_options",
-        "label" : "Style Options",
+        "name" : "text",
+        "label" : "Text",
         "type" : "group",
         "children" : [
           {
-            "name" : "layout_direction",
-            "label" : "Layout Direction",
+            "name" : "title_content",
+            "label" : "Title",
+            "type" : "text",
+            "validation_regex" : "",
+            "default" : "A compelling headline"
+          },
+          {
+            "name" : "title_size",
+            "label" : "Title Size",
             "type" : "choice",
             "choices" : [
-              [ "vertical", "Vertical" ],
-              [ "horizontal", "Horizontal" ]
+              [ "", "Body Text Size" ],
+              [ "h1", "H1 (Heading 1)" ],
+              [ "h2", "H2 (Heading 2)" ],
+              [ "h3", "H3 (Heading 3)" ],
+              [ "h4", "H4 (Heading 4)" ],
+              [ "h5", "H5 (Heading 5)" ],
+              [ "h6", "H6 (Heading 6)" ]
             ],
-            "default" : "vertical"
+            "default" : "h3"
           },
+          {
+            "name" : "card_caption",
+            "label" : "Caption",
+            "type" : "text",
+            "validation_regex" : "",
+            "default" : "What a lovely image! A picture is worth a thousand words."
+          },
+          {
+            "name" : "rich_text_content",
+            "label" : "Rich Text Content",
+            "type" : "richtext",
+            "default" : "Perhaps some pithy copy to drive the point home. May I interest you in a button? Perhaps a table or a list?"
+          },
+          {
+            "name" : "rich_text_padding_class",
+            "label" : "Content Padding",
+            "type" : "choice",
+            "choices" : [
+              [ "", "None" ],
+              [ "sp_sm", "Small" ],
+              [ "sp_md", "Medium" ],
+              [ "sp_lg", "Large" ],
+              [ "sp_x_lg", "Extra Large" ]
+            ],
+            "default" : ""
+          }
+        ]
+      },
+      {
+        "name" : "borders_colors",
+        "label" : "Borders and Colors",
+        "type" : "group",
+        "children" : [
           {
             "name" : "card_shadow",
             "label" : "Card Shadow",
             "type" : "boolean",
             "display" : "toggle"
+          },
+          {
+            "name" : "card_bg_color",
+            "label" : "Card Background Color",
+            "required" : false,
+            "locked" : false,
+            "type" : "color",
+            "default" : {
+               "color" : "",
+               "opacity" : 100
+            }
+          },
+          {
+            "name" : "image_bg_color",
+            "label" : "Image Background Color",
+            "required" : false,
+            "locked" : false,
+            "type" : "color",
+            "default" : {
+               "color" : "",
+               "opacity" : 100
+            }
+          },
+          {
+            "name" : "caption_bg_color",
+            "label" : "Caption Background color",
+            "required" : false,
+            "locked" : false,
+            "type" : "color",
+            "default" : {
+               "color" : "",
+               "opacity" : 100
+            }
+          },
+          {
+            "name" : "title_bg_color",
+            "label" : "Title Background color",
+            "required" : false,
+            "locked" : false,
+            "type" : "color",
+            "default" : {
+               "color" : "",
+               "opacity" : 100
+            }
+          },
+          {
+            "name" : "content_bg_color",
+            "label" : "Rich Text Background Color",
+            "required" : false,
+            "locked" : false,
+            "type" : "color",
+            "default" : {
+               "color" : "",
+               "opacity" : 100
+            }
           }
         ]
       }
@@ -180,8 +227,8 @@
     "default" : [
       {
         "text" : {
-          "heading_content" : "Your compelling card heading goes here",
-          "heading_size" : "h3",
+          "title_content" : "Your compelling card title goes here",
+          "title_size" : "h3",
           "card_caption" : "This optional caption shows up under the card unless it's blank.",
           "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
         },
@@ -195,8 +242,8 @@
       },
       {
         "text" : {
-          "heading_content" : "Your compelling card heading goes here",
-          "heading_size" : "h3",
+          "title_content" : "Your compelling card title goes here",
+          "title_size" : "h3",
           "card_caption" : "This optional caption shows up under the card unless it's blank.",
           "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
         },
@@ -210,8 +257,8 @@
       },
       {
         "text" : {
-          "heading_content" : "Your compelling card heading goes here",
-          "heading_size" : "h3",
+          "title_content" : "Your compelling card title goes here",
+          "title_size" : "h3",
           "card_caption" : "This optional caption shows up under the card unless it's blank.",
           "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
         },
@@ -224,5 +271,47 @@
         }
       }
     ]
+  },
+  {
+    "label": "Card List Options",
+    "name": "card_list_options",
+    "type": "group",
+    "required" : true,
+    "children" : [
+      {
+        "name" : "card_orientation",
+        "label" : "Card Orientation", 
+        "type" : "choice",
+        "choices" : [
+          [ "vertical", "Vertical" ],
+          [ "horizontal", "Horizontal" ]
+        ],
+        "default" : "vertical"
+      },
+      {
+        "name" : "list_style",
+        "label" : "List Style", 
+        "type" : "choice",
+        "choices" : [
+          [ "vertical", "Vertical" ],
+          [ "horizontal", "Horizontal" ]
+        ],
+        "default" : "horizontal"
+      },
+      {
+        "name" : "card_list_bg_color",
+        "label" : "Card List Background Color",
+        "required" : false,
+        "locked" : false,
+        "type" : "color",
+        "default" : {
+          "color" : "",
+          "opacity" : 100
+        }
+      }
+    ],
+    "default" : {
+      "card_list_bg_color" : ""
+    }
   }
 ]

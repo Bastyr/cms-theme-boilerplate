@@ -2,45 +2,28 @@
   Config Options:
 {
     'image' : object (image object),
-    'image_bg_color'
+    'image_bg_color' color
     'is_image_figure' : boolean //This card's image creates a figure that make sense as an appendix (Yes/No) If so, use <figure> and <figcaption>,
     'sizing': choice ["contain", "cover"]
     'position_y': choice ["top", "25%, "center", "75%, "bottom"] // image position vertical
     'position_x': choice ["left", "25%, "center", "75%, "right"]
-    image_padding_class e.g. sp_sm sp_md sp_lg sp_x_lg
+    image_padding : string sp_sm | sp_md | sp_lg | sp_x_lg
     'image_repeat_x': choice ["repeat", "no-repeat"]
     'image_repeat_y': choice ["repeat", "no-repeat"]
     'caption' : string (single line text),
-    'heading' : string (single line text),
-    'heading_style' : choice ['', 'card__heading--rule', 'card__heading--boxed']
-    'heading_size' : choice ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+    caption_bg_color: color
+    'title' : string (single line text),
+    'title_style' : choice ['', 'card__title--rule', 'card__title--boxed']
+    'title_size' : choice ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+    title_bg_color: color
     'content' : html (rich text)
+    content_padding: string sp_sm | sp_md | sp_lg | sp_x_lg
+    content_bg_color: color
     'layout_direction' : choice ['horizontal', 'vertical'],
     'card_shadow' : boolean (whether to display a shadow behind the card),
+    card_orientation horizontal|vertical
+    list_style horizontal|vertical
 }
-#}
-{#
-## done:
-apply heading styles
-apply basic layout alignment
-
-## todo:
-attempt to apply meaningful min-max
-attempt to apply reasonable image size/display control
-implement layout direction (just stick a class on the element and style in card-style.css)
-implement semantic markup
-    if is_article
-        <article>
-        <hx>
-    if is_figure
-        <figure>
-        <figcaption>
-implement semantic styling
-    article, hx
-    figure, figcaption
-
-CARD LIST
-implement card list with adjustable gutters
 #}
 
 {%- macro build_module(config) -%}
@@ -52,14 +35,14 @@ implement card list with adjustable gutters
         tags for semantic markup in the case of stand-alone content, but this may make more sense
         as another module
     #}
-    {% set card_heading_class_string = '' %}
+    {% set card_title_class_string = '' %}
     {% if config.is_article == true %}
         {% set card_element = 'article' %}
-        {% set card_heading_element = '{{config.heading_size}}' %}
+        {% set card_title_element = '{{config.title_size}}' %}
     {% else %}
         {% set card_element = 'div' %}
-        {% set card_heading_element = 'p' %}
-        {%- set card_heading_class_string = card_heading_class_string ~ ' ' ~ config.heading_size -%}
+        {% set card_title_element = 'p' %}
+        {%- set card_title_class_string = card_title_class_string ~ ' ' ~ config.title_size -%}
     {% endif %}
     {# end for article (not in use) #}
 
@@ -69,16 +52,23 @@ implement card list with adjustable gutters
         {% set card_shadow_class = '' %}
     {% endif %}
 
-    {% if config.image_padding_class %}
-        {% set image_padding_class = 'image-padding-' ~ config.image_padding_class %}
+    {% if config.image_padding %}
+        {% set image_padding_class = 'padding-' ~ config.image_padding %}
     {% else %}
         {% set image_padding_class = '' %}
     {% endif %}
+    
+    {% if config.content_padding %}
+        {% set content_padding_class = 'padding-' ~ config.content_padding %}
+    {% else %}
+        {% set content_padding_class = '' %}
+    {% endif %}
 
     <div class="card__container">
-        <div class="card {{card_shadow_class}}">
+        <div class="card {{card_shadow_class}}{% if config.card_orientation %} card--{{config.card_orientation}}{% endif %}" {%- if config.card_bg_color -%}style="background-color: {{config.card_bg_color}};"{%- endif -%}}>
+            {%- if config.image.src -%}
             <div class="card__image-container">
-                <div class="image__wrapper {{image_padding_class}}">
+                <div class="image__wrapper {{image_padding_class}}" {%- if config.image_bg_color -%}style="background-color: {{config.image_bg_color}};"{%- endif -%}}>
                     <div class="card__image image" 
                         style="background-image:url('{{config.image.src}}');
                             {%- if config.image_sizing -%} background-size: {{config.image_sizing}}; {%- endif -%}
@@ -88,17 +78,18 @@ implement card list with adjustable gutters
                             {%- if config.image_repeat_x -%} background-repeat-x: {{config.image_repeat_x}}; {%- endif -%}
                             {%- if config.image_repeat_y -%} background-repeat-y: {{config.image_repeat_y}}; {%- endif -%}"
                     >
-                </div>
-            </div>
+                    </div><!--card__image-->
+                </div><!--image__wrapper-->
                 {% if config.caption %}
-                <p class="card__caption h5">
+                <p class="card__caption h5" {%- if config.caption_bg_color -%}style="background-color: {{config.caption_bg_color}};"{%- endif -%}}>
                     {{config.caption}}
                 </p>
-                {% endif %}
+                {% endif %}    
             </div> <!-- card__image-container -->
-            <div class="card__content-container">
-                <p class="card__heading {{card_heading_class_string}}">
-                    {{config.heading}}
+            {%- endif -%} {# if config.image #}
+            <div class="card__content-container {{content_padding_class}}" {%- if config.content_bg_color -%}style="background-color: {{config.content_bg_color}};"{%- endif -%}}>
+                <p class="card__title {{card_title_class_string}}" {%- if config.title_bg_color -%}style="background-color: {{config.title_bg_color}};"{%- endif -%}}>
+                    {{config.title}}
                 </p>
                 <div class="card__rich-text-container">
                     {{ config.content }}
