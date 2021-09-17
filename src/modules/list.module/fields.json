@@ -1,5 +1,18 @@
 [
-  {
+{
+    "id" : "list_type",
+    "name" : "list_type",
+    "label" : "List Type",
+    "type" : "choice",
+    "choices" : [
+        ["unordered", "Unordered List"],
+        ["description", "Description List"],
+        ["ordered", "Ordered List"]
+    ],
+    "default" : "unordered",
+    "help_text" : "For example, Unordered for a bullet list, Ordered for a numbered list, and Description for a dictionary. Choice affects available styling options.<br><br>Description lists require two fields: 'term' to be described, plus 'description'."
+    },
+    {
       "name" : "list_items",
       "label" : "List Items",
       "type" : "group",
@@ -11,14 +24,32 @@
       },
       "children" : [
           {
-              "name" : "item_content",
-              "label" : "Item Content",
-              "type" : "richtext",
-              "default" : "<p>This list contains 'rich text' items. You can put bullet lists, videos, or whatever here. But it's styled as a basic bullet list and intended to house simple text.</p>"
+              "name" : "content",
+              "label" : "Content",
+              "type" : "text",
+              "default" : "Replace the text of this list item!."
+          },
+          {
+            "name" : "description",
+            "label" : "Description",
+            "type" : "text",
+            "visibility" : {
+                "controlling_field" : "list_type",
+                "controlling_value_regex" : "description",
+                "operator" : "equal"
+            },
+            "default" : "Replace the text of this list item!."
           }
       ],
       "default" : [
         {}
+      ]
+  },
+  {
+      "name" : "list_settings",
+      "label" : "List Settings",
+      "type" : "group",
+      "children" : [
       ]
   },
   {
