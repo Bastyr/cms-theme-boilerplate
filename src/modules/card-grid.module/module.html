@@ -1,0 +1,38 @@
+{# Module styles #}
+
+{% import "../_macros/card-macro.html" as card_macro %}
+
+<div class="card-grid"
+  {%- if module.card_grid_options.card_list_bg_color.css -%}style="background-color: {{module.card_grid_options.card_list_bg_color.css}};"{%- endif -%}}
+>
+{# Loops through each card in the cards repeater #}
+  {% for grid_card in module.card_grid %}
+    {% set card_config = {
+      'title' : grid_card.text.title_content,
+      'title_size' : grid_card.text.title_size,
+      'caption' : grid_card.text.card_caption,
+      'content' : grid_card.text.rich_text_content,
+      'content_padding' : grid_card.text.content_padding_class,
+      'image' : grid_card.image_options.image,
+      'image_padding' : grid_card.image_options.image_padding_class,
+      'image_bg_color' : grid_card.image_options.bg_color,
+      'image_sizing' : grid_card.image_options.cropping,
+      'image_aspect_ratio' : grid_card.image_options.aspect_ratio,
+      'image_position_y' : grid_card.image_options.position_y,
+      'image_position_x' : grid_card.image_options.position_x,
+      'image_repeat_x' : grid_card.image_options.repeat_x,
+      'image_repeat_y' : grid_card.image_options.repeat_y,
+      'is_image_figure' : grid_card.image_options.is_image_figure,
+      'card_shadow' : grid_card.borders_colors.card_shadow,
+      'content_bg_color' : grid_card.borders_colors.content_bg_color.css,
+      'card_bg_color' : grid_card.borders_colors.card_bg_color.css,
+      'title_bg_color' : grid_card.borders_colors.title_bg_color.css,
+      'image_bg_color' : grid_card.borders_colors.image_bg_color.css,
+      'caption_bg_color' : grid_card.borders_colors.caption_bg_color.css,
+      'card_orientation' : module.card_grid_options.card_orientation
+      }
+    %}
+
+    {{ card_macro.build_module(card_config) }}    
+  {% endfor %}
+</div>

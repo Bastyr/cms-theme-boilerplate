@@ -1,5 +1,5 @@
 {#
-  Config Options:
+Config Options:
 {
     'image' : object (image object),
     'image_bg_color' color
@@ -8,6 +8,7 @@
     'position_y': choice ["top", "25%, "center", "75%, "bottom"] // image position vertical
     'position_x': choice ["left", "25%, "center", "75%, "right"]
     image_padding : string sp_sm | sp_md | sp_lg | sp_x_lg
+    image_aspect_ratio : choice 1-1 | 16-9 | 4-3 | 3-2 | 9-16 | 3-4 | 2-3
     'image_repeat_x': choice ["repeat", "no-repeat"]
     'image_repeat_y': choice ["repeat", "no-repeat"]
     'caption' : string (single line text),
@@ -31,7 +32,7 @@
 
     {# 
         for article
-        not currently in use... can use these to change markup to use article and hx (h1, etc) 
+        planned / NOT in use yet .. can use these to change markup to use article and hx (h1, etc) 
         tags for semantic markup in the case of stand-alone content, but this may make more sense
         as another module
     #}
@@ -69,7 +70,7 @@
             {%- if config.image.src -%}
             <div class="card__image-container">
                 <div class="image__wrapper {{image_padding_class}}" {%- if config.image_bg_color -%}style="background-color: {{config.image_bg_color}};"{%- endif -%}}>
-                    <div class="card__image image" 
+                    <div class="card__image card__image--{{config.image_aspect_ratio}} image" 
                         style="background-image:url('{{config.image.src}}');
                             {%- if config.image_sizing -%} background-size: {{config.image_sizing}}; {%- endif -%}
                             {%- if config.image.size_type == 'exact' -%} background-size: {{config.image.width}}px {{config.image.height}}px;{%- endif %}

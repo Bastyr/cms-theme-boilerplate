@@ -1,7 +1,7 @@
 [
   {
-    "label": "Card List",
-    "name": "card_list",
+    "label": "Card Grid",
+    "name": "card_grid",
     "type": "group",
     "required" : true,
     "occurrence": {
@@ -329,8 +329,8 @@
     ]
   },
   {
-    "label": "Card List Options",
-    "name": "card_list_options",
+    "label": "Card Grid Options",
+    "name": "card_grid_options",
     "type": "group",
     "required" : true,
     "children" : [

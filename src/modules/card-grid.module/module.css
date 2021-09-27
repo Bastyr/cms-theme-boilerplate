@@ -1,0 +1,85 @@
+/* TEST */
+/* 
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-grid .card__container {
+  width: 24%;
+  flex: 0 1 calc(25% - 1em);
+}
+
+.card-grid .card__container:not(:last-child) {
+  margin: 0 20px 0 0 ;
+  margin: 0 var(--sp_md) 0 0 ;
+} */
+
+.card-grid {
+  display: grid;
+}
+
+.card-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card-grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card-grid.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card-grid.five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+  
+.card-grid.six {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+    
+.card-grid.seven {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+  
+.card-grid.eight {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.card .container {
+}
+
+/* .card-list {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.card__container {
+  display: inline-block;
+  display: flex;
+}
+
+
+
+.card__image {
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.card__text {
+  padding: 0 0.7rem;
+  width: 100%;
+}
+
+.card-list--vertical {
+  flex-direction: column;
+}
+
+.card-list--horizontal {
+  flex-direction: row;
+  margin-bottom: 20px;
+} */
