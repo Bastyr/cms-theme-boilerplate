@@ -4,50 +4,52 @@
     list_type : ordered | description | unordered
 } #}
 
-
 {#
 ____list_item config options
     * content
 #}
 {%- macro list_item (item) -%}
-    <li>
-        {{item}}
-    </li>
+    <div class="list-item__wrapper dl--stacked">
+        <li>
+            <span class="list-item__content">{{item}}</span>
+        </li>
+    </div>
 {%- endmacro %}
 
 {#
-
 ____list_item_deflist config options
     * term
     * description
- #}
+#}
 {%- macro list_item_dl (config) -%}
-    <dt>{{config.term}}</dt>
-    <dd>{{config.description}}</dd>
-{%- endmacro %} #}
+    <div class="list-item__wrapper dl--stacked">
+        <dt class="inline-heading">{{config.term}}</dt>
+        <dd>{{config.description}}</dd>
+    </div>
+{%- endmacro %}
 
 {%- macro build_module(config) -%}
     {{ require_css(  get_asset_url('/bastyr21/modules/_macros/list-macro-styles.css')  ) }}
 
     {%- if config.list_type == 'ordered' -%}
-    <ol>
+    <ol class="circled-counter">
         {% for item in config.list_items %}
             {{list_item(item.content)}}
         {% endfor %}
     </ol>
 
     {% elif config.list_type == 'unordered'  %}
-    <ul>
+    <ul class="boxed-items">
         {% for item in config.list_items %}
         {{list_item(item.content)}}
         {% endfor %}
     </ul>
 
     {% else config.list_type == 'description' %}
-    <dl>
+    <dl class="boxed-items">
         {% for item in config.list_items %}
             {% set config = {
-                'content' : item.content,
+                'term' : item.content,
                 'description' : item.description 
             } %}
             {{list_item_dl(config)}}

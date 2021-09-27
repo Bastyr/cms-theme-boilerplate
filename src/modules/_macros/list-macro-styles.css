@@ -1,0 +1,63 @@
+.boxed-items .list-item__wrapper {
+    background-color: #f6f6f5;
+    background-color: var(--c_eggshell);
+    display: block;
+    list-style: inside;
+    margin-bottom: 10px;
+    margin-bottom: var(--sp_x_sm);
+    padding: 30px 20px;
+    padding: var(--sp_lg) var(--sp_md);
+}
+
+.boxed-items {
+    padding: 0;
+}
+
+.dl--stacked dd, .dl--stacked dt {
+    display: inline-block;
+    margin-left: 30px;
+    margin-left: var(--sp_lg);
+}
+
+.dl--stacked dd {
+    display: block;
+    margin: 10px 0 0 30px;
+    margin: var(--sp_x_sm) 0 0 var(--sp_lg);
+}
+
+dt.inline-heading:before {
+    content: "";
+    display: list-item;
+    list-style: disc;
+    float: left;
+}
+
+.circled-counter {
+    counter-reset: circled;
+    list-style: none;
+    margin-bottom: .5rem;
+    padding: 0;
+}
+
+.circled-counter li {
+    align-items: center;
+    counter-increment: circled;
+    display: flex;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.circled-counter li:before {
+    border: 1px solid #93282c;
+    border: 1px solid var(--c_cranberry);
+    border-radius: 100%;
+    content: counter(circled) "";
+    display: inline-block;
+    font-family: "Libre Baskerville";
+    height: 1rem;
+    line-height: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 1rem;
+}

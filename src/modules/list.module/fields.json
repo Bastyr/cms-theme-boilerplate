@@ -27,7 +27,7 @@
               "name" : "content",
               "label" : "Content",
               "type" : "text",
-              "default" : "Replace the text of this list item!."
+              "default" : "Replace the text of this list item!"
           },
           {
             "name" : "description",
@@ -38,7 +38,7 @@
                 "controlling_value_regex" : "description",
                 "operator" : "equal"
             },
-            "default" : "Replace the text of this list item!."
+            "default" : "Replace the text of this list item!"
           }
       ],
       "default" : [
