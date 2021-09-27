@@ -10,46 +10,78 @@
   width: 24%;
   flex: 0 1 calc(25% - 1em);
 }
+*/
+
+/* simple fallback for css grid*/
+.card-grid {
+  text-align: center;
+}
+
+.card-grid .card__container {
+  display: inline-block;
+  max-width: 22rem;
+}
+/* end simple fallback for css grid */
 
 .card-grid .card__container:not(:last-child) {
-  margin: 0 20px 0 0 ;
-  margin: 0 var(--sp_md) 0 0 ;
-} */
-
-.card-grid {
-  display: grid;
+  margin: 0 20px 20px 0 ;
+  margin: 0 var(--sp_md) var(--sp_md) 0 ;
 }
 
-.card-grid.two {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.card-grid .card__container {
+  margin-bottom: 20px;
+  margin-bottom: var(--sp_md);
 }
 
-.card-grid.three {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
+@supports (display: grid) {
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-column-gap: 20px;
+    grid-column-gap: var(--sp_md);
+    grid-row-gap: 20px;
+    grid-row-gap: var(--sp_md);
+  }
 
-.card-grid.four {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
+  .card-grid .card__container {
+    /* max-width: initial; */
+  }
 
-.card-grid.five {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
+  .card-grid .card__container:not(:last-child), .card-grid .card__container {
+    /* width: unset; */
+    margin: 0;
+  }
   
-.card-grid.six {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
+  .card-grid.two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .card-grid.three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .card-grid.four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .card-grid.five {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
     
-.card-grid.seven {
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-}
-  
-.card-grid.eight {
-  grid-template-columns: repeat(8, minmax(0, 1fr));
+  .card-grid.six {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+      
+  .card-grid.seven {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+    
+  .card-grid.eight {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
 }
 
-.card .container {
-}
 
 /* .card-list {
   display: flex;

@@ -11,24 +11,33 @@
     },
     "children": [
       {
+        "name" : "image",
+        "label" : "Image",
+        "type" : "image",
+        "default" : {
+          "size_type" : "auto",
+          "src" : "",
+          "alt" : null,
+          "loading" : "lazy"
+        },
+        "resizable": true,
+        "responsive": true,
+        "show_loading": false
+      },
+      {
+        "name" : "card_caption",
+        "label" : "Caption",
+        "type" : "text",
+        "label" : "Caption",
+        "type" : "text",
+        "validation_regex" : "",
+        "default" : "Hey, nice grid card!"
+      },
+      {
         "name" : "image_options",
-        "label" : "Media",
+        "label" : "Image Options",
         "type" : "group",
         "children" : [
-          {
-            "name" : "image",
-            "label" : "Image",
-            "type" : "image",
-            "default" : {
-              "size_type" : "auto",
-              "src" : "",
-              "alt" : null,
-              "loading" : "lazy"
-            },
-            "resizable": true,
-            "responsive": true,
-            "show_loading": false
-          },
           {
             "name" : "aspect_ratio",
             "label" : "Image Aspect Ratio",
@@ -116,61 +125,6 @@
         ]
       },
       {
-        "name" : "text",
-        "label" : "Text",
-        "type" : "group",
-        "children" : [
-          {
-            "name" : "title_content",
-            "label" : "Title",
-            "type" : "text",
-            "validation_regex" : "",
-            "default" : "A compelling headline"
-          },
-          {
-            "name" : "title_size",
-            "label" : "Title Size",
-            "type" : "choice",
-            "choices" : [
-              [ "", "Body Text Size" ],
-              [ "h1", "H1 (Heading 1)" ],
-              [ "h2", "H2 (Heading 2)" ],
-              [ "h3", "H3 (Heading 3)" ],
-              [ "h4", "H4 (Heading 4)" ],
-              [ "h5", "H5 (Heading 5)" ],
-              [ "h6", "H6 (Heading 6)" ]
-            ],
-            "default" : "h3"
-          },
-          {
-            "name" : "card_caption",
-            "label" : "Caption",
-            "type" : "text",
-            "validation_regex" : "",
-            "default" : "What a lovely image! A picture is worth a thousand words."
-          },
-          {
-            "name" : "rich_text_content",
-            "label" : "Rich Text Content",
-            "type" : "richtext",
-            "default" : "Perhaps some pithy copy to drive the point home. May I interest you in a button? Perhaps a table or a list?"
-          },
-          {
-            "name" : "content_padding_class",
-            "label" : "Content Padding",
-            "type" : "choice",
-            "choices" : [
-              [ "", "None" ],
-              [ "sp_sm", "Small" ],
-              [ "sp_md", "Medium" ],
-              [ "sp_lg", "Large" ],
-              [ "sp_x_lg", "Extra Large" ]
-            ],
-            "default" : "sp_md"
-          }
-        ]
-      },
-      {
         "name" : "borders_colors",
         "label" : "Borders and Colors",
         "type" : "group",
@@ -206,28 +160,6 @@
           {
             "name" : "caption_bg_color",
             "label" : "Caption Background color",
-            "required" : false,
-            "locked" : false,
-            "type" : "color",
-            "default" : {
-               "color" : "",
-               "opacity" : 100
-            }
-          },
-          {
-            "name" : "title_bg_color",
-            "label" : "Title Background color",
-            "required" : false,
-            "locked" : false,
-            "type" : "color",
-            "default" : {
-               "color" : "",
-               "opacity" : 100
-            }
-          },
-          {
-            "name" : "content_bg_color",
-            "label" : "Rich Text Background Color",
             "required" : false,
             "locked" : false,
             "type" : "color",
@@ -283,10 +215,7 @@
     "default" : [
       {
         "text" : {
-          "title_content" : "Your compelling card title goes here",
-          "title_size" : "h3",
-          "card_caption" : "This optional caption shows up under the card unless it's blank.",
-          "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
+          "card_caption" : "This optional caption shows up under the card unless it's blank."
         },
         "image_options" : {
           "position_y" : "center",
@@ -298,10 +227,7 @@
       },
       {
         "text" : {
-          "title_content" : "Your compelling card title goes here",
-          "title_size" : "h3",
-          "card_caption" : "This optional caption shows up under the card unless it's blank.",
-          "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
+          "card_caption" : "This optional caption shows up under the card unless it's blank."
         },
         "image_options" : {
           "position_y" : "center",
@@ -313,10 +239,7 @@
       },
       {
         "text" : {
-          "title_content" : "Your compelling card title goes here",
-          "title_size" : "h3",
-          "card_caption" : "This optional caption shows up under the card unless it's blank.",
-          "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
+          "card_caption" : "This optional caption shows up under the card unless it's blank."
         },
         "image_options" : {
           "position_y" : "center",
@@ -335,27 +258,18 @@
     "required" : true,
     "children" : [
       {
-        "name" : "card_orientation",
-        "label" : "Card Orientation", 
+        "name" : "grid_style",
+        "label" : "Grid Style -- presets or individual options? maybe remove.", 
         "type" : "choice",
         "choices" : [
-          [ "vertical", "Vertical" ],
-          [ "horizontal", "Horizontal" ]
+          ["a", "not yet implemented"],
+          ["b", "not yet implemented"],
+          ["c", "not yet implemented"]
         ],
-        "default" : "vertical"
+        "default" : "a"
       },
       {
-        "name" : "list_style",
-        "label" : "List Style", 
-        "type" : "choice",
-        "choices" : [
-          [ "vertical", "Vertical" ],
-          [ "horizontal", "Horizontal" ]
-        ],
-        "default" : "horizontal"
-      },
-      {
-        "name" : "card_list_bg_color",
+        "name" : "card_grid_bg_color",
         "label" : "Card List Background Color",
         "required" : false,
         "locked" : false,

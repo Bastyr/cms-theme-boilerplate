@@ -8,12 +8,8 @@
 {# Loops through each card in the cards repeater #}
   {% for grid_card in module.card_grid %}
     {% set card_config = {
-      'title' : grid_card.text.title_content,
-      'title_size' : grid_card.text.title_size,
-      'caption' : grid_card.text.card_caption,
-      'content' : grid_card.text.rich_text_content,
-      'content_padding' : grid_card.text.content_padding_class,
-      'image' : grid_card.image_options.image,
+      'caption' : grid_card.card_caption,
+      'image' : grid_card.image,
       'image_padding' : grid_card.image_options.image_padding_class,
       'image_bg_color' : grid_card.image_options.bg_color,
       'image_sizing' : grid_card.image_options.cropping,
@@ -22,16 +18,30 @@
       'image_position_x' : grid_card.image_options.position_x,
       'image_repeat_x' : grid_card.image_options.repeat_x,
       'image_repeat_y' : grid_card.image_options.repeat_y,
+      'card_bg_color' : grid_card.borders_colors.card_bg_color.css,
       'is_image_figure' : grid_card.image_options.is_image_figure,
       'card_shadow' : grid_card.borders_colors.card_shadow,
       'content_bg_color' : grid_card.borders_colors.content_bg_color.css,
-      'card_bg_color' : grid_card.borders_colors.card_bg_color.css,
+      'card_orientation' : "vertical",
+      'icon' : grid_card.icon,
+      'icon_position' : grid_card.icon_position,
+      'icon_size' : grid_card.icon_size,
+      'icon_color' : grid_card.icon_color,
+      'card_grid_bg_color' : module.card_grid_options.card_grid_bg_options
+      }
+    %}
+
+    {# removed
+      'title_size' : grid_card.text.title_size,
+      'title' : grid_card.text.title_content,
+      'content_padding' : grid_card.text.content_padding_class,
+      'content' : grid_card.text.rich_text_content,   
       'title_bg_color' : grid_card.borders_colors.title_bg_color.css,
       'image_bg_color' : grid_card.borders_colors.image_bg_color.css,
       'caption_bg_color' : grid_card.borders_colors.caption_bg_color.css,
-      'card_orientation' : module.card_grid_options.card_orientation
-      }
-    %}
+
+    #}
+
 
     {{ card_macro.build_module(card_config) }}    
   {% endfor %}
