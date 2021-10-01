@@ -1,0 +1,45 @@
+
+.bg-image--16-9 {
+    padding-bottom: 56.25%;
+}
+
+.bg-image--3-2 {
+    padding-bottom: 66.66667%;
+}
+
+.bg-image--4-3 {
+    padding-bottom: 75%;
+}
+
+.bg-image--1-1 {
+    padding-bottom: 100%;
+}
+
+.bg-image--9-16 {
+    padding-bottom: 177.777778%;
+}
+
+.bg-image--2-3 {
+    padding-bottom: 150%;
+}
+
+.bg-image--3-4 {
+    padding-bottom: 133.333333%;
+}
+
+
+.padding-sp_sm {
+    padding: var(--sp_sm);
+}
+
+.padding-sp_md {
+    padding: var(--sp_md);
+}
+
+.padding-sp_lg {
+    padding: var(--sp_lg);
+}
+
+.padding-sp_x_lg {
+    padding: var(--sp_x_lg);
+}

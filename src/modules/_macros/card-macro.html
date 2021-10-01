@@ -22,8 +22,17 @@ Config Options:
     content_bg_color: color
     'layout_direction' : choice ['horizontal', 'vertical'],
     'card_shadow' : boolean (whether to display a shadow behind the card),
-    card_orientation horizontal|vertical
-    list_style horizontal|vertical
+    card_orientation: choice horizontal|vertical
+    list_style: choice horizontal|vertical
+
+
+    NOT YET IMPLEMENTED IN CARD MACRO *OR* LIST+GRID MODULES
+    border_locations: choice: choice  around_card | around_image | around_card_and_image | none
+    border_color: color
+    title_position: choice above_image | below_image
+    horizontal_rules: choice 
+    icon
+    icon_position
 }
 #}
 
@@ -70,7 +79,7 @@ Config Options:
             {%- if config.image.src -%}
             <div class="card__image-container">
                 <div class="image__wrapper {{image_padding_class}}" {%- if config.image_bg_color -%}style="background-color: {{config.image_bg_color}};"{%- endif -%}}>
-                    <div class="card__image card__image--{{config.image_aspect_ratio}} image" 
+                    <div class="card__image bg-image--{{config.image_aspect_ratio}} image" 
                         style="background-image:url('{{config.image.src}}');
                             {%- if config.image_sizing -%} background-size: {{config.image_sizing}}; {%- endif -%}
                             {%- if config.image.size_type == 'exact' -%} background-size: {{config.image.width}}px {{config.image.height}}px;{%- endif %}
@@ -88,6 +97,8 @@ Config Options:
                 {% endif %}    
             </div> <!-- card__image-container -->
             {%- endif -%} {# if config.image #}
+            {%- if config.title or config.content -%}
+                title: {{config.title}} <br> {{config.content}}<br>
             <div class="card__content-container {{content_padding_class}}" {%- if config.content_bg_color -%}style="background-color: {{config.content_bg_color}};"{%- endif -%}}>
                 <p class="card__title {{card_title_class_string}}" {%- if config.title_bg_color -%}style="background-color: {{config.title_bg_color}};"{%- endif -%}}>
                     {{config.title}}
@@ -96,6 +107,7 @@ Config Options:
                     {{ config.content }}
                 </div>
             </div> <!-- card__content-container -->
+            {%- endif %} {# if title or content #}
         </div>  <!-- card -->
     </div> <!-- card__container :) -->
 

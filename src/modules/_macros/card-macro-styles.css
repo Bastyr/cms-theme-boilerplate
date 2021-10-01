@@ -65,35 +65,6 @@
 /* this rule needs to stay above the aspect ratio rules e.g. card__image--1-1 */
 .card__image {
     background-size: cover;
-    padding-bottom: 100%; /*default*/
-}
-
-.card__image--16-9 {
-    padding-bottom: 56.25%;
-}
-
-.card__image--3-2 {
-    padding-bottom: 66.66667%;
-}
-
-.card__image--4-3 {
-    padding-bottom: 75%;
-}
-
-.card__image--1-1 {
-    padding-bottom: 100%;
-}
-
-.card__image--9-16 {
-    padding-bottom: 177.777778%;
-}
-
-.card__image--2-3 {
-    padding-bottom: 150%;
-}
-
-.card__image--3-4 {
-    padding-bottom: 133.333333%;
 }
 
 .card__image-container {
@@ -103,20 +74,4 @@
 
 .image_wrapper {
     width: 100%;
-}
-
-.padding-sp_sm {
-    padding: var(--sp_sm);
-}
-
-.padding-sp_md {
-    padding: var(--sp_md);
-}
-
-.padding-sp_lg {
-    padding: var(--sp_lg);
-}
-
-.padding-sp_x_lg {
-    padding: var(--sp_x_lg);
 }
