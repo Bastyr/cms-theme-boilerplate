@@ -37,6 +37,12 @@
   padding: {{ dnd_section_padding }};
 }
 
+/* allow truly full-width columns */
+.dnd_area-row-0-force-full-width-section .dnd-column {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .dnd-section > .row-fluid {
   max-width: {{ container_width }};
 }
@@ -78,6 +84,9 @@ a {
   {{ anchor_font.style }};
   color: {{ anchor_font.color }};
 }
+
+/* anchor font  {{anchor_font|pprint}}
+color {{anchor_font.color|pprint}} */
 
 a:hover,
 a:focus {
@@ -140,6 +149,19 @@ h6, .h6 {
   text-transform: {{ h6_text_transform }};
 }
 
+/* TODO replace with fields.json */
+.inline-heading {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Libre Baskerville", "Sans Serif";
+}
+
+.label {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: Lato, "Sans Serif";
+}
+
 /* Blockquote */
 
 blockquote {
@@ -154,7 +176,7 @@ button,
 .button,
 .hs-button
 {
-  font-family: {{button_font}};
+  font-family: {{button_font.font}};
   background-color: {{ button_bg_color }};
   border: {{ button_border }};
   border-radius: {{ button_corner_radius }};
