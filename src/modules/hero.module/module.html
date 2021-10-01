@@ -1,0 +1,28 @@
+{# 
+    module.heading text
+    module.subheading text
+    module.cartouche text
+    module.background_image image
+    module.cropping choice ["cover", "contain"]
+    module.background.aspect_ratio : choice 1-1 | 16-9 | 4-3 | 3-2 | 9-16 | 3-4 | 2-3
+    module.background.position_y choice ["top", "25%, "center", "75%, "bottom"] // image position vertical
+    module.background.position_x choice ["left", "25%, "center", "75%, "right"]
+    module.layout choice lockup_over_background | lockup_lapping_background
+#}
+
+{% set macro_config = {
+        'field' : module.field
+    }
+%}
+
+<div class="hero cover hero__background hero--content-bottom" style="background-image: url({{module.background_image.src}})">
+    <div class="hero__headings-container hero-lockup hero-lockup--a">
+        <h1 class="hero__heading">{{module.heading}}</h1>
+        {% if module.subheading %}
+        <p class="hero__subheading">{{module.subheading}}</p>
+        {% endif %}
+    </div>
+</div>
+{% if module.cartouche %}
+<p class="hero-lockup hero-lockup--b hero__cartouche background--tumeric">{{module.cartouche}}</p>
+{% endif %}

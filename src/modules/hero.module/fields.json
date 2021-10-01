@@ -1,0 +1,146 @@
+[
+    {
+        "name" : "heading",
+        "label" : "Heading",
+        "type" : "text",
+        "default" : "I'm holding out for a hero til the end of the night",
+        "required" : true
+    },
+    {
+        "name" : "subheading",
+        "label" : "Subheading",
+        "type" : "text",
+        "default" : "He's gotta be strong, and he's gotta be fast, and he's gotta be larger than life",
+        "required" : false
+    },
+    {
+        "name" : "cartouche",
+        "label" : "Cartouche",
+        "type" : "text",
+        "default" : "Frou Frou Covers Bonnie Tyler",
+        "required" : false
+    },
+    {
+        "name" : "background_image",
+        "label" : "Background Image",
+        "type" : "image",
+        "required" : false,
+        "default" : {
+            "size_type" : "auto",
+            "src" : "",
+            "alt" : null,
+            "loading" : "lazy"
+        },
+        "resizable": true,
+        "responsive": true,
+        "show_loading": false
+    },
+    {
+        "name" : "layout",
+        "label" : "Layout",
+        "type" : "choice",
+        "choices" : [
+            ["lockup_over_background","Lockup Over Background"],
+            ["lockup_lapping_background","Lockup Lapping Background"]
+        ],
+        "default" : "lockup_over_background"
+    },
+    {
+        "name" : "background",
+        "label" : "Background Image",
+        "type" : "group",
+        "children" : [
+            {
+                "name" : "aspect_ratio",
+                "label" : "Image Aspect Ratio",
+                "type" : "choice",
+                "choices" : [
+                    ["16-9", "16:9 Landscape"],
+                    ["3-2", "3:2 Landscape"],
+                    ["4-3", "4:3 Landscape"],
+                    ["1-1", "1:1 Square"],
+                    ["9-16", "9:16 Portrait"],
+                    ["2-3", "2:3 Portrait"],
+                    ["3-4", "3:4 Portrait"]
+                ],
+                "default" : "1-1"
+            },
+            {
+                "name" : "cropping",
+                "label" : "Cropping Mode",
+                "type" : "choice",
+                "choices" : [
+                    [ "cover", "Cover" ],
+                    [ "contain", "Contain" ]
+                    ],
+                "default" : "cover"
+            },
+            {
+                "name" : "position_y",
+                "label" : "Vertical Position",
+                "type" : "choice",
+                "choices" : [
+                    [ "top", "Top" ],
+                    [ "25%", "1/4 Down" ],
+                    [ "center", "Center" ],
+                    [ "75%", "3/4 Down" ],
+                    [ "bottom", "Bottom" ]
+                ],
+                "default" : "center"
+            },
+                {
+                "name" : "position_x",
+                "label" : "Horizontal Position",
+                "type" : "choice",
+                "choices" : [
+                    [ "left", "Left" ],
+                    [ "25%", "1/4 Left" ],
+                    [ "center", "Center" ],
+                    [ "75%", "3/4 Left" ],
+                    [ "right", "Right" ]
+                ],
+                "default" : "center"
+            },
+            {
+                "name" : "repeat_y",
+                "label" : "Repeat Vertically",
+                "type" : "choice",
+                "choices" : [
+                    [ "repeat", "Repeat Vertically" ],
+                    [ "no-repeat", "No Repeat" ]
+                ],
+                "default" : "no-repeat"
+            },
+            {
+                "name" : "repeat_x",
+                "label" : "Repeat Horizontally",
+                "type" : "choice",
+                "choices" : [
+                    [ "repeat", "Repeat Horzontally" ],
+                    [ "no-repeat", "No Repeat" ]
+                ],
+                "default" : "no-repeat"
+            }
+        ]
+    },
+    {
+        "label": "Styles",
+        "name": "styles",
+        "type": "group",
+        "tab": "STYLE",
+        "children": [
+            {
+                "label": "Style Group",
+                "name": "style_group",
+                "type": "group",
+                "children": [
+                    {
+                        "name" : "module",
+                        "label" : "module.module",
+                        "type" : "number"       
+                    }
+                ]
+            }
+        ]
+    }
+  ]
