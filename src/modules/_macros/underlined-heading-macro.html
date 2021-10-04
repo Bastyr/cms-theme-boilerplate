@@ -1,0 +1,23 @@
+{# 
+Card Config Mapping:
+
+These are all of the parameters that a card can take
+It is up to you to configure the module fields appropriately. 
+***YOU DO NOT NEED TO INCLUDE ALL OPTIONS IN YOUR MODULE***
+only include the options you need. Pass them in as an object to this macro.
+
+Config options:
+{
+    heading: text
+    heading_level: choice h1|h2|h3|h4
+    underline_width: width value (%, rem, em, px, etc) -- e.g. 100% | 60% | 30% | 18rem | 4rem
+    underline_color: css color var (e.g. c_cranberry, c_tumeric, c_midnight)
+}
+#}
+
+{%- macro build_module(config) -%}
+    {{ require_css(  get_asset_url('/bastyr21/modules/_macros/underlined-heading-macro-styles.css')  ) }}
+
+    <{{config.heading_level}} style="text-align:center">{{config.heading}}</{{config.heading_level}}>
+    <hr class="underline" style="border-color:var(--{{config.underline_color}}); width: {{config.underline_width}}; border-width: 2px;">
+{%- endmacro %}

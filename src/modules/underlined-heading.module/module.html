@@ -1,4 +1,10 @@
-{% import "../_macros/boilerplate-macro.html" as macro %}
+{% import "../_macros/underlined-heading-macro.html" as macro %}
 
-<{{module.heading_level}} style="text-align:center">{{module.heading}}</{{module.heading_level}}>
-<hr class="underline" style="border-color:var(--{{module.underline_color}}); width: {{module.underline_width}}; border-width: 2px;">
+{% set config = {
+    heading : module.heading,
+    heading_level : module.heading_level,
+    underline_width : module.underline_width,
+    underline_color : module.underline_color
+}%}
+
+{{ macro.build_module(config) }}
