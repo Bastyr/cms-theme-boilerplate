@@ -1,0 +1,46 @@
+[
+    {
+        "name" : "heading",
+        "label" : "Heading",
+        "type" : "text",
+        "required" : true,
+        "default" : "Your heading here"
+    },
+    {
+        "name" : "heading_level",
+        "label" : "Heading Level",
+        "type" : "choice",
+        "required" : true,
+        "choices" : [
+            ["h1", "Heading 1 (H1)"],
+            ["h2", "Heading 2 (H2)"],
+            ["h3", "Heading 3 (H3)"],
+            ["h4", "Heading 4 (H4)"]
+        ],
+        "default" : "h2"
+    },
+    {
+        "name" : "underline_width",
+        "label" : "Underline Width",
+        "type" : "choice",
+        "choices" : [
+            ["100%", "Full"],
+            ["60%", "60%"],
+            ["30%", "30%"],
+            ["18rem", "Wide Fixed"],
+            ["4rem", "Narrow Fixed"]
+        ],
+        "default" : "30%"
+    },
+    {
+        "name" : "underline_color",
+        "label" : "Underline Color",
+        "type" : "choice",
+        "choices" : [
+            ["c_cranberry", "Cranberry"],
+            ["c_tumeric", "Tumeric"],
+            ["c_midnight", "Midnight"]
+        ],
+        "default" : "c_cranberry"
+    }
+]
