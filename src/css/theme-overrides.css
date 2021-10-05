@@ -81,8 +81,15 @@ p {
 /* Anchors */
 
 a {
-  {{ anchor_font.style }};
-  color: {{ anchor_font.color }};
+  color: {{ anchor_font_color }};
+  text-decoration: underline;
+}
+/*! debug {{anchor_font|pprint}} !*/
+
+a.hs-button {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
 }
 
 /* anchor font  {{anchor_font|pprint}}
