@@ -1,0 +1,36 @@
+[
+    {
+        "name" : "heading",
+        "label" : "Heading",
+        "type" : "text",
+        "default" : "A tremendous education ... providing holistic care ..."
+    },
+    {
+        "name" : "video_share_url",
+        "label" : "YouTube Share URL",
+        "type" : "text"
+    },
+    {
+        "name" : "quote",
+        "label" : "Quote",
+        "type" : "text",
+        "default" : "To be or not to be..."
+    },
+    {
+        "name" : "headshot",
+        "label" : "Headshot",
+        "type" : "image"
+    },
+    {
+        "name" : "testimonial_name",
+        "label" : "Testimonial Name",
+        "type" : "text",
+        "default" : "First Last"
+    },
+    {
+        "name" : "testimonial_byline",
+        "label" : "Testimonial Byline",
+        "type" : "text",
+        "default" : "Level Program 'yy"
+    }
+]

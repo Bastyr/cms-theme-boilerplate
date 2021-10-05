@@ -1,0 +1,9 @@
+.underlined-heading-container {
+    margin-bottom: 30px;
+    margin-bottom: var(--sp_lg);
+}
+
+.underlined-heading {
+    text-align: center;
+    margin-bottom: 20px;
+}

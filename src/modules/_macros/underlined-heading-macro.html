@@ -18,6 +18,8 @@ Config options:
 {%- macro build_module(config) -%}
     {{ require_css(  get_asset_url('/bastyr21/modules/_macros/underlined-heading-macro-styles.css')  ) }}
 
-    <{{config.heading_level}} style="text-align:center">{{config.heading}}</{{config.heading_level}}>
-    <hr class="underline" style="border-color:var(--{{config.underline_color}}); width: {{config.underline_width}}; border-width: 2px;">
+    <div class="underlined-heading-container">
+        <{{config.heading_level}} class="underlined-heading">{{config.heading}}</{{config.heading_level}}>
+        <hr class="underline" style="border-color:var(--{{config.underline_color}}); width: {{config.underline_width}}; border-width: 2px;">
+    </div>
 {%- endmacro %}

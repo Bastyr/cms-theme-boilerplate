@@ -27,7 +27,7 @@
             ["100%", "Full"],
             ["60%", "60%"],
             ["30%", "30%"],
-            ["18rem", "Wide Fixed"],
+            ["19.2222rem", "Wide Fixed"],
             ["4rem", "Narrow Fixed"]
         ],
         "default" : "30%"

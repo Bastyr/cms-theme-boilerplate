@@ -1,0 +1,50 @@
+.module-testimonial {
+    text-align: center;
+    padding-bottom: 120px;
+    padding-top: 120px;
+    padding-bottom: var(--sp_xxx_lg);
+    padding-top: var(--sp_xxx_lg);
+    background-color: #f6f6f5;
+    background-color: var(--c_eggshell);
+}
+
+.module-testimonial__content-wrapper {
+    max-width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.module-testimonial__quote {
+    margin-top: 80px;
+    margin-top: var(--sp_xx_lg);
+    margin-bottom: 40px;
+    margin-bottom: var(--sp_x_lg);
+}
+
+.module-testimonial__headshot {
+    background-size: cover;
+    background-position: center center;
+    border-color: #cc8a00;
+    border-color: var(--c_tumeric);
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 90px;
+    width: 90px;
+}
+
+.module-testimonial__name {
+    font-family: "Libre Baskerville", serif;
+    font-weight: bold;
+    font-size: 1.222222rem;
+    margin-bottom: 2px;
+}
+
+.module-testimonial__program {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    margin-bottom: 0;
+}

@@ -1,0 +1,21 @@
+{# 
+Create YouTube embed from YouTube Share Link.
+
+Config options:
+{
+    video_share_url : string
+    video_provider : string
+}
+
+#}
+
+{%- macro build_module(config) -%}
+        {% set urlparts = config.video_share_url|split("/") %}
+        {% set video_id = urlparts|last %}
+    <iframe 
+        width="870" height="489" style="max-width:100%"
+        src="https://www.youtube.com/embed/{{video_id}}?modestbranding=1&rel=0&controls=0&widget_referrer=educate.bastyr.edu" title="Bastyr Student Testimonial" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+        picture-in-picture" allowfullscreen>
+    </iframe>
+{%- endmacro %}
