@@ -15,10 +15,20 @@
     },
     {
         "name" : "cartouche",
-        "label" : "Cartouche",
+        "label" : "Cartouche Text",
         "type" : "text",
         "default" : "Frou Frou Covers Bonnie Tyler",
         "required" : false
+    },
+    {
+        "name" : "cartouche_background_color",
+        "label" : "Cartouche Background Color",
+        "type" : "color"
+    },
+    {
+        "name" : "cartouche_text_color",
+        "label" : "Cartouche Text Color",
+        "type" : "color"
     },
     {
         "name" : "background_image",
