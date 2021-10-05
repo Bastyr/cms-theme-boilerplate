@@ -107,6 +107,7 @@ h1, .h1 {
   font-size: {{ h1_font.size ~ h1_font.size_unit }};
   line-height: {{ h1.line_height }};
   text-transform: {{ h1_text_transform }};
+  font-weight: bold;
 }
   
 h2, .h2 {
@@ -115,6 +116,7 @@ h2, .h2 {
   font-size: {{ h2_font.size ~ h2_font.size_unit }};
   line-height: {{ h2_line_height }};
   text-transform: {{ h2_text_transform }};
+  font-weight: bold;
 }
 
 h3, .h3 {
@@ -123,6 +125,7 @@ h3, .h3 {
   font-size: {{ h3_font.size ~ h3_font.size_unit }};
   line-height: {{ h3_line_height }};
   text-transform: {{ h3_text_transform }};
+  font-weight: bold;
 }
 
 h4, .h4 {
@@ -137,6 +140,7 @@ h5, .h5 {
   {{ h5_font.style }};
   color: {{ h5_font.color }};
   font-size: {{ h5_font.size ~ h5_font.size_unit }};
+  font-weight: bold;
   line-height: {{ h5_line_height }};
   text-transform: {{ h5_text_transform }};
 }
@@ -166,6 +170,13 @@ h6, .h6 {
 
 blockquote {
   border-left-color: {{ secondary_color }};
+}
+
+.quote {
+  font-size: 1.33333rem;
+  font-family: "Lato", sans-serif;
+  line-height: 1.5;
+  font-style: italic;
 }
 
 {###########################################################################}
@@ -204,8 +215,16 @@ button:active,
 {##############################   5. Forms   ###############################}
 {###########################################################################}
 
-form {
+.widget-type-form {
   background-color: {{ form_bg_color }};
+  padding-bottom: 40px;
+  padding-bottom: var(--sp_x_lg);
+  padding-left: 40px;
+  padding-left: var(--sp_x_lg);
+  padding-right: 40px;
+  padding-right: var(--sp_x_lg);
+  padding-top: 30px;
+  padding-top: var(--sp_lg);  
 }
 
 form,
@@ -223,6 +242,9 @@ form,
 
 form label {
   color: {{ form_label_font_color }};
+  font-size: .8888888rem;
+  font-weight: 700;
+  font-family: "Libre Baskerville";
 }
 
 /* Help text */
@@ -294,6 +316,7 @@ form .hs-button {
   border-radius: {{ button_corner_radius }};
   color: {{ button_font.color }};
   font-size: {{ button_font.size ~ button_font.size_unit }};
+  font-weight: 700;
   text-transform: {{ button_text_transform }};
 }
 
