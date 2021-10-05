@@ -20,6 +20,16 @@
         "default" : "h2"
     },
     {
+        "name" : "heading_alignment",
+        "label" : "Heading Alignment",
+        "type" : "choice",
+        "choices" : [
+            ["left", "Left Align"],
+            ["center", "Center Align"],
+            ["right", "Right Align"]
+        ]
+    },
+    {
         "name" : "underline_width",
         "label" : "Underline Width",
         "type" : "choice",
@@ -35,12 +45,11 @@
     {
         "name" : "underline_color",
         "label" : "Underline Color",
-        "type" : "choice",
-        "choices" : [
-            ["c_cranberry", "Cranberry"],
-            ["c_tumeric", "Tumeric"],
-            ["c_midnight", "Midnight"]
-        ],
-        "default" : "c_cranberry"
+        "type" : "color"
+    },
+    {
+        "name" : "heading_color",
+        "label" : "Heading Color",
+        "type" : "color"
     }
 ]
