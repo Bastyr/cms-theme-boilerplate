@@ -433,7 +433,8 @@
               "size": 2.888888,
               "size_unit": "rem",
               "styles": {
-                "text-decoration": "none"
+                "text-decoration": "none",
+                "font-weight" : "bold"
               }
             }
           },
@@ -479,7 +480,8 @@
               "size": 1.777777,
               "size_unit": "rem",
               "styles": {
-                "text-decoration": "none"
+                "text-decoration": "none",
+                "font-weight" : "bold"
               }
             }
           },
@@ -525,7 +527,8 @@
               "size": 1.444444,
               "size_unit": "rem",
               "styles": {
-                "text-decoration": "none"
+                "text-decoration": "none",
+                "font-weight" : "bold"
               }
             }
           },
@@ -615,10 +618,11 @@
               }
             },
             "default": {
-              "size": 0.777777,
+              "size": 1,
               "size_unit": "rem",
               "styles": {
-                "text-decoration": "none"
+                "text-decoration": "none",
+                "font-weight" : "bold"
               }
             }
           },
