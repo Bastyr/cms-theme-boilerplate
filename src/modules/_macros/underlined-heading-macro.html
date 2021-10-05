@@ -19,13 +19,19 @@ Config options:
 
 {%- macro build_module(config) -%}
     {{ require_css(  get_asset_url('/bastyr21/modules/_macros/underlined-heading-macro-styles.css')  ) }}
+
     <style>
         .underlined-heading:after {
-            border-color: {{config.underline_color.color}};
+            max-width: {{config.underline_width}};
         }
     </style>
 
     <div class="underlined-heading-container">
-        <{{config.heading_level}} class="underlined-heading {{config.heading_alignment}}" style="color: {{config.heading_color.color}}">{{config.heading}}</{{config.heading_level}}>
+        <{{config.heading_level}} 
+        class="underlined-heading {{config.heading_alignment}}" 
+        style="color: {{config.heading_color.color}}; border-color: {{config.underline_color.color}}"
+        >
+            {{config.heading}}
+        </{{config.heading_level}}>
     </div>
 {%- endmacro %}

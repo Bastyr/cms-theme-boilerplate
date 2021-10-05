@@ -13,7 +13,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
     display: block;
-    max-width: 100px;
+    border-color: inherit!important;
 }
 
 .underlined-heading.center, .underlined-heading.center:after {
