@@ -14,11 +14,18 @@
     margin-right: auto;
 }
 
-.module-testimonial__quote {
+.quote__wrapper {
     margin-top: 80px;
     margin-top: var(--sp_xx_lg);
     margin-bottom: 40px;
     margin-bottom: var(--sp_x_lg);
+    min-height: 15rem;
+    background-size: 15rem;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .module-testimonial__headshot {

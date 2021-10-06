@@ -12,14 +12,17 @@
     heading : module.heading,
     heading_level : "h2",
     underline_width : "20rem",
-    underline_color : "c_cranberry"
+    underline_color : {color: "#93282c"},
+    heading_alignment: 'center'
 }%}
 
 <div class="module-testimonial" style="text-align: center">
-    <div class="module-testimonial__content-wrapper">
+    <div class="module-testimonial__content-wrapper background-quote" >
         {{ underlined_heading.build_module(heading_macro_config) }}
         {{ video_embed.build_module(video_embed_macro_config) }}
-        <p class="quote module-testimonial__quote">{{module.quote}}</p>
+        <div class="quote__wrapper" style="background-image: url('{{ get_asset_url("/bastyr21/images/module-images/testimonial-quote-mark.svg") }}')">
+            <p class="quote module-testimonial__quote">{{module.quote}}</p>
+        </div>
         <div 
             class="module-testimonial__headshot" 
             style="background-color: var(--c_cranberry); background-image: url('{{module.headshot.src}}'); height: 90px; width: 90px;"
