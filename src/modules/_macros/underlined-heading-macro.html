@@ -10,7 +10,7 @@ Config options:
 {
     heading: text
     heading_level: choice h1|h2|h3|h4
-    underline_width: width value (%, rem, em, px, etc) -- e.g. 100% | 60% | 30% | 18rem | 4rem
+    underline_width: width value (%, rem, em, px, etc) -- e.g. 100 | 60 | 30 | wide | narrow
     underline_color: text (css color var for now) (e.g. c_cranberry, c_tumeric, c_midnight)
     heading_color : color
     heading_alignment : choice left|center|right
@@ -20,15 +20,9 @@ Config options:
 {%- macro build_module(config) -%}
     {{ require_css(  get_asset_url('/bastyr21/modules/_macros/underlined-heading-macro-styles.css')  ) }}
 
-    <style>
-        .underlined-heading:after {
-            max-width: {{config.underline_width}};
-        }
-    </style>
-
     <div class="underlined-heading-container">
-        <{{config.heading_level}} 
-        class="underlined-heading {{config.heading_alignment}}" 
+        <{{config.heading_level}}
+        class="underlined-heading {{config.heading_alignment}} {{"underlined-heading--" ~ config.underline_width}}"
         style="color: {{config.heading_color.color}}; border-color: {{config.underline_color.color}}"
         >
             {{config.heading}}

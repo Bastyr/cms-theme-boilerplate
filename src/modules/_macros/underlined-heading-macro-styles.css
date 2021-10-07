@@ -13,8 +13,35 @@
     margin-top: 15px;
     margin-bottom: 15px;
     display: block;
-    border-color: inherit!important;
+    border-color: inherit!important; /*     underline color is set on each instance 
+    ****                                    of the .underline-heading */
 }
+
+/* This is necessary because :after can't be inlined as an element style, and 
+this approach avoids different module instance's styles overriding one another. 
+Otherwise we'd need to generate element ID's and create style tags specifically for each ID.
+*/
+.underlined-heading.underlined-heading--100:after {
+    max-width: 100%;
+}
+
+.underlined-heading.underlined-heading--60:after {
+    max-width: 60%;
+}
+
+.underlined-heading.underlined-heading--30:after {
+    max-width: 30%;
+}
+
+.underlined-heading.underlined-heading--wide:after {
+    max-width: 19rem;
+}
+
+.underlined-heading.underlined-heading--narrow:after {
+    max-width: 4rem;
+}
+
+
 
 .underlined-heading.center, .underlined-heading.center:after {
     text-align: center;

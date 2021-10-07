@@ -34,13 +34,13 @@
         "label" : "Underline Width",
         "type" : "choice",
         "choices" : [
-            ["100%", "Full"],
-            ["60%", "60%"],
-            ["30%", "30%"],
-            ["19.2222rem", "Wide Fixed"],
-            ["4rem", "Narrow Fixed"]
+            ["100", "Full"],
+            ["60", "60%"],
+            ["30", "30%"],
+            ["wide", "Wide Fixed"],
+            ["narrow", "Narrow Fixed"]
         ],
-        "default" : "30%"
+        "default" : "30"
     },
     {
         "name" : "underline_color",
