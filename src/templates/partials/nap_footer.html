@@ -1,0 +1,53 @@
+<!--
+  templateType: global_partial
+  label: NAP Footer
+-->
+<footer class="footer footer--nap">
+
+<div class="container-fluid footer__container content-wrapper">
+  <div class="row-fluid-wrapper">
+    <div class="row-fluid">
+      <div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
+
+        <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section">
+          <div class="row-fluid ">
+            <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+              <div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-row">
+                Wrapped
+              <div class="row-fluid ">
+
+            </div><!--end widget-span -->
+          </div><!--end row-->
+        </div><!--end row-wrapper -->
+
+      </div><!--end widget-span -->
+    </div>
+  </div>
+</div>
+
+    {% dnd_area 'footer'
+    label='Footer',
+    class='footer__container content-wrapper'
+  %}
+    {% dnd_section %}
+      {% dnd_column %}
+        {% dnd_row %}
+        {% end_dnd_row %}
+        {% dnd_row
+          margin={
+            'top': 12,
+            'bottom': 12
+          }
+        %}
+          {% dnd_module
+            path='@hubspot/rich_text',
+            html='<hr style="border-color:#393938">
+            <div style="text-align: center; font-size: 0.7rem;"><span style="color:#fff; font-size: 14px;">© {{ year }} Bastyr University</span></div>'
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+</footer>

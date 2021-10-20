@@ -1,13 +1,13 @@
 <!--
   templateType: page
-  isAvailableForNewContent: false
+  isAvailableForNewContent: true
   label: Landing page
   screenshotPath: ../images/template-previews/landing-page.png
 -->
 {% extends './layouts/base.html' %}
 
 {% block header %}
-  {% global_partial path='./partials/header-no-navigation.html' %}
+  {% global_partial path='./partials/header-phone.html' %}
 {% endblock header %}
 
 {% block body %}
@@ -41,3 +41,6 @@
   {% end_dnd_area %}
 </main>
 {% endblock body %}
+{% block footer %}
+{# override footer block from src/layouts/base.html--"temporarily" using module instead #}
+{% endblock footer %}

@@ -8,12 +8,9 @@
     module.background.position_y choice ["top", "25%, "center", "75%, "bottom"] // image position vertical
     module.background.position_x choice ["left", "25%, "center", "75%, "right"]
     module.layout choice lockup_over_background | lockup_lapping_background
+    module.cartouche_background_color color
+    module.cartouche_text_color
 #}
-
-{% set macro_config = {
-        'field' : module.field
-    }
-%}
 
 <div class="hero cover hero__background hero--content-bottom" style="background-image: url({{module.background_image.src}})">
     <div class="hero__headings-container hero-lockup hero-lockup--a">
@@ -24,5 +21,5 @@
     </div>
 </div>
 {% if module.cartouche %}
-<p class="hero-lockup hero-lockup--b hero__cartouche" style="background-color: {{module.cartouche_background_color.color}}">{{module.cartouche}}</p>
+<p class="hero-lockup hero-lockup--b hero__cartouche" style="color: {{module.cartouche_text_color.color}}; background-color: {{module.cartouche_background_color.color}}">{{module.cartouche}}</p>
 {% endif %}

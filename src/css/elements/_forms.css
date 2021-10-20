@@ -28,6 +28,7 @@ form input[type=number],
 form input[type=file],
 form select,
 form textarea {
+  box-sizing: border-box;
   display: inline-block;
   font-size: 0.875rem;
   padding: 0.7rem;

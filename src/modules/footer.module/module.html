@@ -1,0 +1,41 @@
+{% import "../_macros/boilerplate-macro.html" as macro %}
+
+{% macro address_info(config) %}
+    <p class="nap__lockup nap--horizontal nap--address-only">
+        <span class="nap__city">
+            {{config.city}}
+        </span>
+        <span class="nap__address">
+            {{config.address}}
+        </span>
+    </p>
+{% endmacro %}
+
+<style>
+    .nap__city::after {
+        background-image: url('{{ get_asset_url('/bastyr21/images/module-images/icon-location@3x.png') }}')
+    }
+</style>
+
+<footer class="footer dark">
+    <div class="footer__contents">
+        <div class="footer__naps">
+            {% if module.display_kenmore_nap %}
+                {{address_info({
+                    'city' : 'Seattle',
+                    'address' : '14500 Juanita Drive NE, Kenmore, WA 98028'
+                })}}
+            {% endif %}
+
+            {% if module.display_sd_nap %}
+                {{address_info({
+                    'city' : 'San Diego',
+                    'address' : '4106 Sorrento Valley Boulevard, San Diego, CA 92121'
+                })}}
+            {% endif %}
+        </div> <!-- .footer__naps -->
+        <img class="footer__logo" src="{{ get_asset_url('/bastyr21/images/module-images/bastyr-logo-white.svg') }}" alt="Bastyr University Logo in white">
+    </div>
+    <hr style="border-color:#393938">
+    <div style="text-align: center; font-size: 0.7rem;"><span style="color:#fff; font-size: 14px;">© {{ year }} Bastyr University</span></div>'
+</footer>

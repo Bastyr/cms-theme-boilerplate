@@ -9,7 +9,7 @@
 
 .underlined-heading:after {
     content: " ";
-    border: 1px solid;
+    border-bottom: 2px solid;
     margin-top: 15px;
     margin-bottom: 15px;
     display: block;
@@ -34,14 +34,12 @@ Otherwise we'd need to generate element ID's and create style tags specifically 
 }
 
 .underlined-heading.underlined-heading--wide:after {
-    max-width: 19rem;
+    max-width: 18rem;
 }
 
 .underlined-heading.underlined-heading--narrow:after {
     max-width: 4rem;
 }
-
-
 
 .underlined-heading.center, .underlined-heading.center:after {
     text-align: center;

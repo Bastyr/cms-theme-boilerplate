@@ -1,0 +1,20 @@
+{# 
+    phone number macro
+
+    {
+        phone_number : string
+        use_link : bool
+        style : icon
+    }
+#}
+
+{% macro build_module(config) %}
+    {{ require_css(  get_asset_url('/bastyr21/modules/_macros/phone-number-macro-styles.css')  ) }}
+
+    <div class="phone-number">
+    <a class="phone-number__a" href="tel:{{config.phone_number}}">
+        <span style="background-image: url({{ get_asset_url('/bastyr21/images/module-images/phone-icon.svg') }});" class="phone-number__icon"></span>
+        <span class="phone-number__number">{{config.phone_number}}</span>
+    </a>
+    </div>
+{% endmacro %}

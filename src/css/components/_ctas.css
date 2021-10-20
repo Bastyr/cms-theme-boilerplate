@@ -1,0 +1,32 @@
+/* cursor: pointer;
+color: #fff;
+background-color: #cc8a00;
+padding-top: 1.11111111rem;
+padding-bottom: 1.11111111rem;
+padding-left: 2.777777777777rem;
+padding-right: 2.777777777777rem;
+border-radius: 0;
+font-size: 24px;
+text-decoration: none; */
+
+.cta_button {
+    text-decoration: none;
+    background-color: #93282c;
+    background-color: var(--c_cranberry);
+    color: var(--c_white);
+    display: inline-block;
+    text-decoration: none;
+    padding-top: 1.11111rem;
+    padding-bottom: 1.11111rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.cta-button--tumeric {
+    background-color: #cc8a00;
+    background-color: var(--c_tumeric);
+    color: var(--c_white);
+}
+
+.cta-button--arrow::after {
+}

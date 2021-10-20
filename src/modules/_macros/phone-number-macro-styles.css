@@ -1,0 +1,27 @@
+.phone-number {
+    text-align: center;
+}
+
+.phone-number__a {
+    text-decoration: none;
+}
+
+.phone-number__number {
+    font-size: 1.33333333rem;
+    font-weight: bold;
+    font-family: "Libre Baskerville", serif;
+    color: #0d181c;
+    color: var(--c_midnight);
+}
+
+.phone-number__icon {
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 1.2222222rem;
+    width: 1.2222222rem;
+    margin-right: 1rem;
+    position: relative;
+    top: 0.2222222rem;
+}

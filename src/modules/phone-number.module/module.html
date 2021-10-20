@@ -1,0 +1,10 @@
+{% import "../_macros/phone-number-macro.html" as phone_number %}
+
+{% set phone_number_config = {
+        "phone_number" : "425-602-3332",
+        "use_link" : true,
+        "style" : "icon"
+    }
+%}
+
+{{ phone_number.build_module(phone_number_config) }}

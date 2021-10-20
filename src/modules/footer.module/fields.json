@@ -1,0 +1,12 @@
+[
+    {
+        "name" : "display_kenmore_nap",
+        "label" : "Display Kenmore Information",
+        "type" : "boolean"
+    },
+    {
+        "name" : "display_sd_nap",
+        "label" : "Display San Diego Information",
+        "type" : "boolean"
+    }
+]

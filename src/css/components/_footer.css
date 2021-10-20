@@ -1,0 +1,5 @@
+.footer--nap {
+    background-color: #2a2a29;
+    background-color: var(--c_midnight);
+    padding-top: 50px;
+}

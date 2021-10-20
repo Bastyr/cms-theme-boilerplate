@@ -1,6 +1,17 @@
 {% import '../_variables.css' %}
 
+.align-items-center {
+  align-items: center;
+}
+
 /* Header DND sections */
+
+/* this rule was tacked on to a previous, more complex header design */
+/* refactor this into unified header template when possible... ugh rushing this sucks */
+.header--phone {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 
 .header .dnd-section {
   padding: 0;
@@ -80,7 +91,7 @@
   display: flex;
   height: auto;
   margin-right: auto;
-  max-width: 200px;
+  max-width: 150px;
   overflow: hidden;
 }
 

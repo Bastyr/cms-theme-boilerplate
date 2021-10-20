@@ -1,0 +1,37 @@
+<!--
+  templateType: global_partial
+  label: Header phone
+-->
+
+<header class="header header--phone header--no-navigation">
+
+  {# Top header drag and drop area #}
+
+  {% dnd_area 'header-top'
+    label='Top header',
+    class='content-wrapper'
+  %}
+  {% end_dnd_area %}
+
+  {# Main header #}
+
+  <div class="header__container content-wrapper align-items-center">
+
+    {# Logo #}
+
+    <img class="header__logo" src="{{ get_asset_url('/bastyr21/images/module-images/bastyr-logo-cran-2x.png') }}" alt="Bastyr Logo">
+
+    {% module "phone_number" path="../../modules/phone-number.module",
+        location="string"
+    %}
+  </div>
+
+  {# Bottom header drag and drop area #}
+
+  {% dnd_area 'header-bottom'
+    label='Bottom header',
+    class='content-wrapper'
+  %}
+  {% end_dnd_area %}
+
+</header>

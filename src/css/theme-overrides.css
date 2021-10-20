@@ -86,11 +86,12 @@ a {
 }
 /*! debug {{anchor_font|pprint}} !*/
 
-a.hs-button {
+a.hs-button, a.cta-button {
   display: inline-block;
   text-align: center;
   text-decoration: none;
 }
+
 
 /* anchor font  {{anchor_font|pprint}}
 color {{anchor_font.color|pprint}} */
@@ -277,6 +278,7 @@ form textarea {
   border-radius: {{ form_field_corner_radius }};
   background-color: {{ form_field_bg_color }};
   color: {{ form_field_font_color }};
+  width: 100%!important; /* some awful inline style tag setting width to 95%, and I can't find it... */
 }
 
 /* Form placeholder text */
