@@ -1,0 +1,208 @@
+[
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "b0b5ae67-3f86-03d2-23a8-b2cbaa55b21b",
+        "label": "Filter Bastyr Programs",
+        "locked": false,
+        "name": "filter_bastyr_programs",
+        "required": false,
+        "type": "boolean"
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "bd15d8c8-e23f-9eac-6dad-a395a2ec1ade",
+        "label": "Acupuncture_and_East_Asian_Medicine",
+        "locked": false,
+        "name": "acupuncture_and_east_asian_medicine",
+        "required": false,
+        "type": "boolean",
+        "visibility": {
+            "controlling_field": "b0b5ae67-3f86-03d2-23a8-b2cbaa55b21b",
+            "operator": "NOT_EMPTY"
+        }
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "153841b9-267b-2b59-d843-b7b0cf0c8dfd",
+        "label": "Acupuncture, Doctoral",
+        "locked": false,
+        "name": "acupuncture_doctoral",
+        "required": false,
+        "type": "boolean",
+        "visibility": {
+            "controlling_field": "b0b5ae67-3f86-03d2-23a8-b2cbaa55b21b",
+            "operator": "NOT_EMPTY"
+        }
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "3e9b0c88-4c30-ec4e-6b05-a7ee5c03c552",
+        "label": "Maternal_Child_Health_Systems",
+        "locked": false,
+        "name": "maternal_child_health_systems",
+        "required": false,
+        "type": "boolean",
+        "visibility": {
+            "controlling_field": "b0b5ae67-3f86-03d2-23a8-b2cbaa55b21b",
+            "operator": "NOT_EMPTY"
+        }
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "5bee1270-c0f2-c81b-1fa8-15c4bb4886e9",
+        "label": "Naturopathic_Medicine",
+        "locked": false,
+        "name": "naturopathic_medicine",
+        "required": false,
+        "type": "boolean",
+        "visibility": {
+            "controlling_field": "b0b5ae67-3f86-03d2-23a8-b2cbaa55b21b",
+            "operator": "NOT_EMPTY"
+        }
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "096eca47-caed-3360-1371-b64961118096",
+        "label": "Nutrition",
+        "locked": false,
+        "name": "nutrition",
+        "required": false,
+        "type": "boolean",
+        "visibility": {
+            "controlling_field": "b0b5ae67-3f86-03d2-23a8-b2cbaa55b21b",
+            "operator": "NOT_EMPTY"
+        }
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "d18f4f34-bd21-fe32-e09b-2e04ac37c048",
+        "label": "Counseling_and_Health_Psychology",
+        "locked": false,
+        "name": "counseling_and_health_psychology",
+        "required": false,
+        "type": "boolean",
+        "visibility": {
+            "controlling_field": "b0b5ae67-3f86-03d2-23a8-b2cbaa55b21b",
+            "operator": "NOT_EMPTY"
+        }
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "108fd9c7-b57e-b628-5362-ea39f4a1c828",
+        "label": "Midwifery",
+        "locked": false,
+        "name": "midwifery",
+        "required": false,
+        "type": "boolean",
+        "visibility": {
+            "controlling_field": "b0b5ae67-3f86-03d2-23a8-b2cbaa55b21b",
+            "operator": "NOT_EMPTY"
+        }
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "e53e1096-a1ae-0e4b-f79f-72055508a5ff",
+        "label": "Herbal_Sciences",
+        "locked": false,
+        "name": "herbal_sciences",
+        "required": false,
+        "type": "boolean"
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "24a45848-5310-1c38-8a9a-dd5ba2537fcf",
+        "label": "Integrated_Human_Biology",
+        "locked": false,
+        "name": "integrated_human_biology",
+        "required": false,
+        "type": "boolean"
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "50d8f278-35a7-4673-bc6f-3be28d69afcb",
+        "label": "Exercise_Science",
+        "locked": false,
+        "name": "exercise_science",
+        "required": false,
+        "type": "boolean",
+        "visibility": {
+            "controlling_field": "b0b5ae67-3f86-03d2-23a8-b2cbaa55b21b",
+            "operator": "NOT_EMPTY"
+        }
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "ed47e749-dccd-5e43-60ee-9dac44d90f8e",
+        "label": "Holistic_Landscape_Design",
+        "locked": false,
+        "name": "holistic_landscape_design",
+        "required": false,
+        "type": "boolean"
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "31b070ff-a0e2-67b3-3421-a8a07f0f36e8",
+        "label": "Public_Health",
+        "locked": false,
+        "name": "public_health",
+        "required": false,
+        "type": "boolean"
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "520bb838-a402-7562-642c-0a31d1c12dcb",
+        "label": "Graduate_Programs",
+        "locked": false,
+        "name": "graduate_programs",
+        "required": false,
+        "type": "boolean"
+    },
+    {
+        "default": false,
+        "display": "checkbox",
+        "id": "7364cfbb-ca19-ecd6-2460-39d04a8923e5",
+        "label": "Undergraduate_Programs",
+        "locked": false,
+        "name": "undergraduate_programs",
+        "required": false,
+        "type": "boolean"
+    },
+    {
+        "choices": [
+            [
+                "-1",
+                "Both"
+            ],
+            [
+                "0",
+                "Kenmore"
+            ],
+            [
+                "7",
+                "San Diego"
+            ]
+        ],
+        "default": "-1",
+        "display": "select",
+        "id": "7c21ee85-8a75-e9ab-98e6-77d7667bae28",
+        "label": "Campus preference",
+        "locked": false,
+        "name": "campus_preference",
+        "required": false,
+        "type": "choice"
+    }
+]

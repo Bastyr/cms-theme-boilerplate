@@ -1,0 +1,116 @@
+{% set AOI = '{"Acupuncture_Doctoral":["2","11","80"],"Acupuncture_and_East_Asian_Medicine":["2","3","11","17","80","86","MS in Acupuncture (MSA)"],"Naturopathic_Medicine":["27","70"],"Nutrition":["33","38","74","56","44","61","46","37","85"],"Counseling_and_Health_Psychology":["68","58","85","78"],"Midwifery":["60"],"Maternal_Child_Health_Systems":["76"],"Herbal_Sciences":["20"],"Integrated_Human_Biology":["65"],"Exercise_Science":["46"],"Holistic_Landscape_Design":["64"],"Public_Health":["75"],"Graduate_Programs":["27","2","3","68","76","60","75","38","32","74","56"],"Undergraduate_Programs":["58","48","20","65","33","61","46"]}'%}
+    <script>
+    
+        let ScriptFixed = false;
+        let rfiSettings = [];
+        const AreasOfInterest = JSON.parse({{AOI|tojson}}.toLowerCase());
+    //	const AreasOfInterest = JSON.parse('{"Acupuncture_and_East_Asian_Medicine":[2,3,17],"Naturopathic_Medicine":[27,70],"Nutrition":[38,32,74,56,44,61,46,37],"Counseling_and_Health_Psychology":[68,58,48,77],"Midwifery":[76,60,83],"Herbal_Sciences":[20],"Integrated_Human_Biology":[65],"Exercise_Science":[46],"Holistic_Landscape_Design":[64],"Public_Health":[75]}'.toLowerCase());
+    
+    let campusSelect = {{ module.campus_preference }};
+    let programFilters = [];
+    
+    <!-- HTML to show when checked -->
+    
+    {% if module.acupuncture_doctoral %}
+        programFilters = programFilters.concat(AreasOfInterest['acupuncture_doctoral']);
+    {% endif %}
+    {% if module.acupuncture_and_east_asian_medicine %}
+        programFilters = programFilters.concat(AreasOfInterest['acupuncture_and_east_asian_medicine']);
+    {% endif %}
+    {% if module.naturopathic_medicine %}
+        <!-- HTML to show when checked -->
+        programFilters = programFilters.concat(AreasOfInterest['naturopathic_medicine']);		
+    {% endif %}
+    {% if module.nutrition %}
+        <!-- HTML to show when checked -->
+        programFilters = programFilters.concat(AreasOfInterest['nutrition']);
+            {% endif %}
+    {% if module.counseling_and_health_psychology %}
+        <!-- HTML to show when checked -->
+            programFilters = programFilters.concat(AreasOfInterest['counseling_and_health_psychology']);
+    {% endif %}
+    {% if module.midwifery %}
+        <!-- HTML to show when checked -->
+            programFilters = programFilters.concat(AreasOfInterest['midwifery']);
+    {% endif %}
+    {% if module.maternal_child_health_systems %}
+        <!-- HTML to show when checked -->
+            programFilters = programFilters.concat(AreasOfInterest['maternal_child_health_systems']);
+    {% endif %}
+    {% if module.herbal_sciences %}
+        <!-- HTML to show when checked -->
+            programFilters = programFilters.concat(AreasOfInterest['herbal_sciences']);
+    {% endif %}
+    {% if module.integrated_human_biology %}
+        <!-- HTML to show when checked -->
+            programFilters = programFilters.concat(AreasOfInterest['integrated_human_biology']);
+    {% endif %}
+    {% if module.exercise_science %}
+        <!-- HTML to show when checked -->
+            programFilters = programFilters.concat(AreasOfInterest['exercise_science']);
+    {% endif %}
+    {% if module.holistic_landscape_design %}
+        <!-- HTML to show when checked -->
+            programFilters = programFilters.concat(AreasOfInterest['holistic_landscape_design']);
+    {% endif %}
+    {% if module.public_health %}
+        <!-- HTML to show when checked -->
+            programFilters = programFilters.concat(AreasOfInterest['public_health']);
+    {% endif %}
+    {% if module.graduate_programs %}
+        <!-- HTML to show when checked -->
+            programFilters = programFilters.concat(AreasOfInterest['graduate_programs']);
+    {% endif %}
+    {% if module.undergraduate_programs %}
+        <!-- HTML to show when checked -->
+            programFilters = programFilters.concat(AreasOfInterest['undergraduate_programs']);
+    {% endif %}
+    
+      selectElementQuery = "[name='bastyr_programs']";
+      rfiSettings['acceptedProgramIds'] = programFilters;	
+      rfiSettings['AreasOfInterest'] = AreasOfInterest;	
+      rfiSettings['campus'] = campusSelect;	
+    
+    window.addEventListener('message', function(event) {
+      if(event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormReady') {
+        var form = document.querySelector("[data-form-id='"+event.data.id+"']");
+        var bastyrProgramsSelect = $(form.querySelector(selectElementQuery));
+        if (bastyrProgramsSelect === null) return;
+        //console.log("Event:", event, '\nselect element', bastyrProgramsSelect, "\nFilters:", rfiSettings.acceptedProgramIds, "\nAreas:", rfiSettings.AreasOfInterest, "\nCampus:", rfiSettings.campusSelect, "\nform:", form);
+    
+        bastyrProgramsSelect
+          .find('option')
+          .each ( function(index){
+            var option = $(this);
+            var val = option.val();
+            if ($.inArray(val, rfiSettings.acceptedProgramIds) === -1 && val !== "" && val !== '52') { // '52' = undecided
+              option.remove()
+            }
+          })
+    
+        //list all options that aren't empty (to hide the select if there's only one)
+        var retainedOptions = bastyrProgramsSelect.find('option[value!=""]');
+        var undecidedUndergradOption = bastyrProgramsSelect.find('option[value="52"]');
+    
+        if (retainedOptions.length > 1 && retainedOptions.has('option[value="52"]')) {
+          undecidedUndergradOption.remove();
+        }
+    
+        //set it again, because the length will be shorter now that 52 (undecided undergraduate) has been removed
+        retainedOptions = bastyrProgramsSelect.find('option[value!=""]');
+    
+        if (retainedOptions.length === 1) {
+          $(retainedOptions[0]).prop('selected', true).attr('selected',true).parent().change().closest('.hs_bastyr_programs').hide();
+        }
+        else {
+          //sort alphabetically
+          retainedOptions.detach().sort(function(a,b) {
+            var at = $(a).text();
+            var bt = $(b).text();
+            return (at > bt)?1:((at < bt)?-1:0);
+          })
+          retainedOptions.appendTo(bastyrProgramsSelect);
+           $(bastyrProgramsSelect).find('option[value=""]').prop('selected', true).attr('selected',true).parent().change();
+        }
+    }});
+    </script>
