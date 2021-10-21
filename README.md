@@ -1,6 +1,10 @@
-hs upload ./src ./bastyr2021
 
-<h1 align="center">Bastyr's Fork of HubSpot CMS Boilerplate</h1>
+## Upload all files at once
+hs upload ./src /bastyr21
+## Watch and upload on save
+hs watch ./src /bastyr21
+## Watch or upload to production
+hs watch --account=bastyr ./src /bastyr21
 
 * Used for brand guide
 * Intended for future use on landing pages
