@@ -22,7 +22,6 @@ Config Options:
     content_bg_color: color
     'layout_direction' : choice ['horizontal', 'vertical'],
     'card_shadow' : boolean (whether to display a shadow behind the card),
-    card_orientation: choice horizontal|vertical
     list_style: choice horizontal|vertical
 
 
@@ -75,8 +74,8 @@ Config Options:
     {% endif %}
 
     <div class="card__container">
-        <div class="card {{card_shadow_class}}{% if config.card_orientation %} card--{{config.card_orientation}}{% endif %}" {%- if config.card_bg_color -%}style="background-color: {{config.card_bg_color}};"{%- endif -%}}>
-            {%- if config.image.src -%}
+        <div class="card {{card_shadow_class}}" {%- if config.card_bg_color -%}style="background-color: {{config.card_bg_color}};"{%- endif -%}}>
+        {%- if config.image.src -%}
             <div class="card__image-container">
                 <div class="image__wrapper {{image_padding_class}}" {%- if config.image_bg_color -%}style="background-color: {{config.image_bg_color}};"{%- endif -%}}>
                     <div class="card__image bg-image--{{config.image_aspect_ratio}} image" 
@@ -94,11 +93,10 @@ Config Options:
                 <p class="card__caption h5" {%- if config.caption_bg_color -%}style="background-color: {{config.caption_bg_color}};"{%- endif -%}}>
                     {{config.caption}}
                 </p>
-                {% endif %}    
+                {% endif %}
             </div> <!-- card__image-container -->
             {%- endif -%} {# if config.image #}
             {%- if config.title or config.content -%}
-                title: {{config.title}} <br> {{config.content}}<br>
             <div class="card__content-container {{content_padding_class}}" {%- if config.content_bg_color -%}style="background-color: {{config.content_bg_color}};"{%- endif -%}}>
                 <p class="card__title {{card_title_class_string}}" {%- if config.title_bg_color -%}style="background-color: {{config.title_bg_color}};"{%- endif -%}}>
                     {{config.title}}

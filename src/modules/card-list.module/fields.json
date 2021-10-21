@@ -5,7 +5,7 @@
     "type": "group",
     "required" : true,
     "occurrence": {
-      "default": 3,
+      "default": 1,
       "min": 1,
       "sorting_label_field": "card.title"
     },
@@ -21,7 +21,7 @@
             "type" : "image",
             "default" : {
               "size_type" : "auto",
-              "src" : "",
+              "src" : "https://static.hubspot.com/final/img/content/email-template-images/placeholder_200x200.png",
               "alt" : null,
               "loading" : "lazy"
             },
@@ -55,7 +55,7 @@
               [ "sp_lg", "Large" ],
               [ "sp_x_lg", "Extra Large" ]
             ],
-            "default" : ""
+            "default" : "sp_md"
           },
           {
             "name" : "cropping",
@@ -153,7 +153,7 @@
             "name" : "rich_text_content",
             "label" : "Rich Text Content",
             "type" : "richtext",
-            "default" : "Perhaps some pithy copy to drive the point home. May I interest you in a button? Perhaps a table or a list?"
+            "default" : "Perhaps some pithy copy to drive the point home. May I interest you in a button? Perhaps a table or a list? XXx"
           },
           {
             "name" : "content_padding_class",
@@ -293,57 +293,20 @@
           "position_x" : "center",
           "repeat_x" : "no-repeat",
           "repeat_y" : "no-repeat",
-          "image_size" : "cover"
-        }
-      },
-      {
-        "text" : {
-          "title_content" : "Your compelling card title goes here",
-          "title_size" : "h3",
-          "card_caption" : "This optional caption shows up under the card unless it's blank.",
-          "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
-        },
-        "image_options" : {
-          "position_y" : "center",
-          "position_x" : "center",
-          "repeat_x" : "no-repeat",
-          "repeat_y" : "no-repeat",
-          "image_size" : "cover"
-        }
-      },
-      {
-        "text" : {
-          "title_content" : "Your compelling card title goes here",
-          "title_size" : "h3",
-          "card_caption" : "This optional caption shows up under the card unless it's blank.",
-          "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
-        },
-        "image_options" : {
-          "position_y" : "center",
-          "position_x" : "center",
-          "repeat_x" : "no-repeat",
-          "repeat_y" : "no-repeat",
-          "image_size" : "cover"
+          "image_size" : "cover",
+          "aspect_ratio" : "1-1",
+          "image_padding": "sp_md"
         }
       }
     ]
   },
   {
-    "label": "Card List Options",
-    "name": "card_list_options",
+    "label": "Styles",
+    "name": "styles",
     "type": "group",
+    "tab" : "STYLE",
     "required" : true,
     "children" : [
-      {
-        "name" : "card_orientation",
-        "label" : "Card Orientation", 
-        "type" : "choice",
-        "choices" : [
-          [ "vertical", "Vertical" ],
-          [ "horizontal", "Horizontal" ]
-        ],
-        "default" : "vertical"
-      },
       {
         "name" : "list_style",
         "label" : "List Style", 
@@ -364,6 +327,24 @@
           "color" : "",
           "opacity" : 100
         }
+      },
+      {
+        "name" : "border_locations",
+        "label" : "Border Locations",
+        "type" : "choice",
+        "choices" : [
+          ["none", "None"],
+          ["around_card", "Around Card"],
+          ["around_image", "Around Image"],
+          ["around_card_and_image", "Around Card & Image"]
+        ],
+        "default" : "around_card"
+      },
+      {
+        "name" : "border_color",
+        "label" : "Border Color",
+        "type" : "color",
+        "default" : "#e8e8e7"
       }
     ],
     "default" : {
