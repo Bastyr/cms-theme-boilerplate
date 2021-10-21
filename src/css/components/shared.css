@@ -1,3 +1,13 @@
+.stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stack > * + * {
+    margin-top: 1.111px;
+    margin-top: var(--sp_md);
+}
 
 .bg-image--16-9 {
     padding-bottom: 56.25%;
