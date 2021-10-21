@@ -8,29 +8,6 @@
 
 /* Grid layout breakpoints */
 
-/* Content breakpoints */
-
-{% set mq_mw_a = 'max-width: 15em' %}
-{% set mq_mw_b = 'max-width: 22em' %}
-{% set mq_mw_c = 'max-width: 29em' %}
-{% set mq_mw_d = 'max-width: 35em' %}
-{% set mq_mw_e = 'max-width: 42em' %}
-{% set mq_mw_f = 'max-width: 49em' %}
-{% set mq_mw_g = 'max-width: 56em' %}
-{% set mq_mw_h = 'max-width: 56em' %}
-{% set mq_mw_i = 'max-width: 63em' %}
-{% set mq_mw_j = 'max-width: 70em' %}
-{% set mq_mw_l = 'max-width: 76em' %}
-{% set mq_mw_m = 'max-width: 84em' %}
-{% set mq_mw_n = 'max-width: 91em' %}
-{% set mq_mw_o = 'max-width: 98em' %}
-{% set mq_mw_p = 'max-width: 105em' %}
-{% set mq_mw_q = 'max-width: 112em' %}
-{% set mq_mw_r = 'max-width: 118em' %}
-{% set mq_mw_s = 'max-width: 125em' %}
-{% set mq_mw_t = 'max-width: 132em' %}
-{% set mq_mw_u = 'max-width: 139em' %}
-
 /* 0a Colors */
 {% set c_salmon = theme.global_colors.salmon.color %};
 {% set c_rhubarb = theme.global_colors.rhubarb.color %};
@@ -143,6 +120,7 @@
 {% set body_font = theme.text.body_text.font %}
 
 {% set anchor_font = theme.text.links.font %}
+{% set anchor_font_color = c_cranberry %}
 
 /* 1d. Buttons */
 {% set button_font = theme.buttons.primary.text.font %}
@@ -165,11 +143,11 @@
 {% set form_help_text_font_color = theme.forms.help_text.text.color.color %}
 {% set form_field_bg_color = c_white %}
 {% set form_field_placeholder_color = c_storm %}
-{% set form_input_border = primary_color %}
+{% set form_input_border = c_cloud %}
 {% set form_input_border_width = sp_thin_line ~ 'px' %}
 {% set form_input_border_style = 'solid' %}
 {% set form_field_font_color = primary_color %}
-{% set form_field_corner_radius = thin_line ~ 'px' %}
+{% set form_field_corner_radius = sp_thin_line ~ 'px' %}
 
 /* 1f. Tables */
 
