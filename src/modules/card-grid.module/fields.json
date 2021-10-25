@@ -278,6 +278,24 @@
           "color" : "",
           "opacity" : 100
         }
+      },
+      {
+        "name" : "border_locations",
+        "label" : "Border Locations",
+        "type" : "choice",
+        "choices" : [
+          ["none", "None"],
+          ["around_card", "Around Card"],
+          ["around_image", "Around Image"],
+          ["around_card_and_image", "Around Card & Image"]
+        ],
+        "default" : "around_card"
+      },
+      {
+        "name" : "border_color",
+        "label" : "Border Color",
+        "type" : "color",
+        "default" : "#e8e8e7"
       }
     ],
     "default" : {
