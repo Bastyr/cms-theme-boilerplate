@@ -1,10 +1,9 @@
 {#
 Config Options:
 {
-    'image' : object (image object),
+    'image' : object (image object)
     'image_bg_color' color
-    'is_image_figure' : boolean //This card's image creates a figure that make sense as an appendix (Yes/No) If so, use <figure> and <figcaption>,
-    'sizing': choice ["contain", "cover"]
+    'image_sizing': choice ["contain", "cover"]
     'position_y': choice ["top", "25%, "center", "75%, "bottom"] // image position vertical
     'position_x': choice ["left", "25%, "center", "75%, "right"]
     image_padding : string sp_sm | sp_md | sp_lg | sp_x_lg
@@ -14,14 +13,13 @@ Config Options:
     'caption' : string (single line text),
     caption_bg_color: color
     'title' : string (single line text),
+    'card_title_class': h1 | h2 | h3 | h4 | h5 | h6
     'title_style' : choice ['', 'card__title--rule', 'card__title--boxed']
-    'title_size' : choice ['', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']
     title_bg_color: color
     'content' : html (rich text)
     content_padding: string sp_sm | sp_md | sp_lg | sp_x_lg
     content_bg_color: color
     'layout_direction' : choice ['horizontal', 'vertical'],
-    'card_shadow' : boolean (whether to display a shadow behind the card),
     list_style: choice horizontal|vertical
 
 
@@ -44,17 +42,6 @@ Config Options:
         tags for semantic markup in the case of stand-alone content, but this may make more sense
         as another module
     #}
-    {% set card_title_class_string = '' %}
-    {% if config.is_article == true %}
-        {% set card_element = 'article' %}
-        {% set card_title_element = '{{config.title_size}}' %}
-    {% else %}
-        {% set card_element = 'div' %}
-        {% set card_title_element = 'p' %}
-        {%- set card_title_class_string = card_title_class_string ~ ' ' ~ config.title_size -%}
-    {% endif %}
-    {# end for article (not in use) #}
-
     {% if config.card_shadow %}
         {% set card_shadow_class = 'card--shadow' %}
     {% else %}
@@ -74,7 +61,7 @@ Config Options:
     {% endif %}
 
     <div class="card__container">
-        <div class="card {{card_shadow_class}}" {%- if config.card_bg_color -%}style="background-color: {{config.card_bg_color}};"{%- endif -%}}>
+        <div class="card stack {{card_shadow_class}}" {%- if config.card_bg_color -%}style="background-color: {{config.card_bg_color}};"{%- endif -%}}>
         {%- if config.image.src -%}
             <div class="card__image-container">
                 <div class="image__wrapper {{image_padding_class}}" {%- if config.image_bg_color -%}style="background-color: {{config.image_bg_color}};"{%- endif -%}}>
@@ -98,7 +85,7 @@ Config Options:
             {%- endif -%} {# if config.image #}
             {%- if config.title or config.content -%}
             <div class="card__content-container {{content_padding_class}}" {%- if config.content_bg_color -%}style="background-color: {{config.content_bg_color}};"{%- endif -%}}>
-                <p class="card__title {{card_title_class_string}}" {%- if config.title_bg_color -%}style="background-color: {{config.title_bg_color}};"{%- endif -%}}>
+                <p class="card__title {{config.card_title_class}}" {%- if config.title_bg_color -%}style="background-color: {{config.title_bg_color}};"{%- endif -%}}>
                     {{config.title}}
                 </p>
                 <div class="card__rich-text-container">

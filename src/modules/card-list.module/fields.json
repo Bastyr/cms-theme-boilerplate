@@ -1,17 +1,17 @@
 [
   {
-    "label": "Card List",
+    "label": "Cards",
     "name": "card_list",
     "type": "group",
     "required" : true,
     "occurrence": {
-      "default": 1,
-      "min": 1,
-      "sorting_label_field": "card.title"
+      "default": 2,
+      "min": 2,
+      "sorting_label_field": "card_list.title_content"
     },
     "children": [
       {
-        "name" : "image_options",
+        "name" : "media",
         "label" : "Media",
         "type" : "group",
         "children" : [
@@ -19,43 +19,9 @@
             "name" : "image",
             "label" : "Image",
             "type" : "image",
-            "default" : {
-              "size_type" : "auto",
-              "src" : "https://static.hubspot.com/final/img/content/email-template-images/placeholder_200x200.png",
-              "alt" : null,
-              "loading" : "lazy"
-            },
             "resizable": true,
             "responsive": true,
             "show_loading": false
-          },
-          {
-            "name" : "aspect_ratio",
-            "label" : "Image Aspect Ratio",
-            "type" : "choice",
-            "choices" : [
-              ["16-9", "16:9 Landscape"],
-              ["3-2", "3:2 Landscape"],
-              ["4-3", "4:3 Landscape"],
-              ["1-1", "1:1 Square"],
-              ["9-16", "9:16 Portrait"],
-              ["2-3", "2:3 Portrait"],
-              ["3-4", "3:4 Portrait"]
-            ],
-            "default" : "1-1"
-          },
-          {
-            "name" : "image_padding_class",
-            "label" : "Padding Around Image",
-            "type" : "choice",
-            "choices" : [
-              [ "", "None" ],
-              [ "sp_sm", "Small" ],
-              [ "sp_md", "Medium" ],
-              [ "sp_lg", "Large" ],
-              [ "sp_x_lg", "Extra Large" ]
-            ],
-            "default" : "sp_md"
           },
           {
             "name" : "cropping",
@@ -128,32 +94,17 @@
             "default" : "A compelling headline"
           },
           {
-            "name" : "title_size",
-            "label" : "Title Size",
-            "type" : "choice",
-            "choices" : [
-              [ "", "Body Text Size" ],
-              [ "h1", "H1 (Heading 1)" ],
-              [ "h2", "H2 (Heading 2)" ],
-              [ "h3", "H3 (Heading 3)" ],
-              [ "h4", "H4 (Heading 4)" ],
-              [ "h5", "H5 (Heading 5)" ],
-              [ "h6", "H6 (Heading 6)" ]
-            ],
-            "default" : "h3"
-          },
-          {
             "name" : "card_caption",
             "label" : "Caption",
             "type" : "text",
             "validation_regex" : "",
-            "default" : "What a lovely image! A picture is worth a thousand words."
+            "default" : "A picture is worth a thousand words."
           },
           {
             "name" : "rich_text_content",
             "label" : "Rich Text Content",
             "type" : "richtext",
-            "default" : "Perhaps some pithy copy to drive the point home. May I interest you in a button? Perhaps a table or a list? XXx"
+            "default" : "Rich text content: try adding headlines, text, images, tables, buttons, and more."
           },
           {
             "name" : "content_padding_class",
@@ -175,12 +126,6 @@
         "label" : "Borders and Colors",
         "type" : "group",
         "children" : [
-          {
-            "name" : "card_shadow",
-            "label" : "Card Shadow",
-            "type" : "boolean",
-            "display" : "toggle"
-          },
           {
             "name" : "card_bg_color",
             "label" : "Card Background Color",
@@ -279,25 +224,6 @@
           }
         ]
       }
-    ],
-    "default" : [
-      {
-        "text" : {
-          "title_content" : "Your compelling card title goes here",
-          "title_size" : "h3",
-          "card_caption" : "This optional caption shows up under the card unless it's blank.",
-          "rich_text_content" : "Content here. Don't forget to add an image. This is rich text, so you can add buttons, tables, and more."
-        },
-        "image_options" : {
-          "position_y" : "center",
-          "position_x" : "center",
-          "repeat_x" : "no-repeat",
-          "repeat_y" : "no-repeat",
-          "image_size" : "cover",
-          "aspect_ratio" : "1-1",
-          "image_padding": "sp_md"
-        }
-      }
     ]
   },
   {
@@ -309,13 +235,67 @@
     "children" : [
       {
         "name" : "list_style",
-        "label" : "List Style", 
+        "label" : "List Layout", 
         "type" : "choice",
         "choices" : [
           [ "vertical", "Vertical" ],
           [ "horizontal", "Horizontal" ]
         ],
         "default" : "horizontal"
+      },
+      {
+        "name" : "card_style",
+        "label" : "Card Style", 
+        "type" : "choice",
+        "choices" : [
+          [ "image_text", "Image + Rich Text" ],
+          [ "image_caption", "Image + Caption"],
+          [ "image_label", "Image + Label" ]
+        ],
+        "default" : "image_text"
+      },
+      {
+        "name" : "title_size",
+        "label" : "Title Size",
+        "type" : "choice",
+        "choices" : [
+          [ "", "Body Text Size" ],
+          [ "h1", "H1 (Heading 1)" ],
+          [ "h2", "H2 (Heading 2)" ],
+          [ "h3", "H3 (Heading 3)" ],
+          [ "h4", "H4 (Heading 4)" ],
+          [ "h5", "H5 (Heading 5)" ],
+          [ "h6", "H6 (Heading 6)" ]
+        ],
+        "default" : "h3"
+      },
+      {
+        "name" : "image_aspect_ratio",
+        "label" : "Image Aspect Ratio",
+        "type" : "choice",
+        "choices" : [
+          ["16-9", "16:9 Landscape"],
+          ["3-2", "3:2 Landscape"],
+          ["4-3", "4:3 Landscape"],
+          ["1-1", "1:1 Square"],
+          ["9-16", "9:16 Portrait"],
+          ["2-3", "2:3 Portrait"],
+          ["3-4", "3:4 Portrait"]
+        ],
+        "default" : "1-1"
+      },
+      {
+        "name" : "image_padding_class",
+        "label" : "Image Padding",
+        "type" : "choice",
+        "choices" : [
+          [ "", "None" ],
+          [ "sp_sm", "Small" ],
+          [ "sp_md", "Medium" ],
+          [ "sp_lg", "Large" ],
+          [ "sp_x_lg", "Extra Large" ]
+        ],
+        "default" : "sp_md"
       },
       {
         "name" : "card_list_bg_color",
@@ -346,9 +326,6 @@
         "type" : "color",
         "default" : "#e8e8e7"
       }
-    ],
-    "default" : {
-      "card_list_bg_color" : ""
-    }
+    ]
   }
 ]
