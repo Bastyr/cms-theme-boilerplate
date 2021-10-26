@@ -77,6 +77,52 @@
 
   </div>
 
+  {# after-menu header drag and drop area #}
+
+  {% dnd_area 'header-bottom'
+    label='Bottom header',
+    class='content-wrapper'
+  %}
+  {% end_dnd_area %}
+
+
+{# Breadcrumbs #}
+<!-- { % set menu_id = module.renamed_from_id || module.menu % } -->
+
+{% set menu_id = navigation_id %}
+  {% set node = menu(menu_id,"breadcrumb") %}
+    
+  {# if node null means it's pretty much the home page, so don't display it #}
+  {% if node != null %}
+  <ul class="hs-breadcrumb-menu">
+  
+  
+  {# Add the home page in #}
+  {%  if node.level > '0' %}
+      <li class="hs-breadcrumb-menu-item first-crumb">
+        <a href="/" class="hs-breadcrumb-label">Home</a>
+        <span class="hs-breadcrumb-menu-divider"></span>
+      </li>
+  {% endif %}
+  ][
+
+  {# Add the level in between if it's level 2 #}
+  
+  {%  if node.level > '1' %}
+      <li class="hs-breadcrumb-menu-item first-crumb">
+        <a href="{{node.parentNode.url}}" class="hs-breadcrumb-label">{{node.parentNode.label}}</a>
+        <span class="hs-breadcrumb-menu-divider"></span>
+      </li>
+  {% endif %}
+  
+  {# ADD the CURRENT PAGE #}
+  
+  <li class="hs-breadcrumb-menu-item last-crumb">
+    <span class="hs-breadcrumb-label">{{node.label}}</span>
+  </li>
+  </ul>
+{% endif %}
+
   {# Bottom header drag and drop area #}
 
   {% dnd_area 'header-bottom'
