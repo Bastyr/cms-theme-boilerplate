@@ -177,7 +177,8 @@
 
 .submenu.level-1 > li.has-submenu:hover .submenu.level-2,
 .submenu.level-1 > li.has-submenu.focus .submenu.level-2 {
-  left: 0;
+  left: auto;
+  right: 0;
   opacity: 1;
 }
 
