@@ -201,6 +201,7 @@ button,
   border-radius: {{ button_corner_radius }};
   color: {{ button_font_color }};
   padding: {{ button_spacing }};
+  text-decoration: none;
 }
 
 button:hover,
@@ -210,6 +211,7 @@ button:focus,
   {{ button_font.style }};
   background-color: rgba({{ color_variant(theme.buttons.background.color.color, -40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
   border-color: {{ color_variant(theme.buttons.border.border.top.color, -40) }};
+  text-decoration: underline;
 }
 
 button:active,
@@ -217,6 +219,7 @@ button:active,
   {{ button_font.style }};
   background-color: rgba({{ color_variant(theme.buttons.background.color.color, 40)|convert_rgb }}, {{ theme.buttons.background.color.opacity / 100 }});
   border-color: {{ color_variant(theme.buttons.border_color.color, 40) }};
+  text-decoration: underline;
 }
 
 {###########################################################################}
