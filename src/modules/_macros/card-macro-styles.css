@@ -61,7 +61,6 @@
 
 /* keep uniform padding in box below image */
 .card__rich-text-container *:last-child {
-    padding-bottom: 0;
     margin-bottom: 0;
     border-bottom: 0;
 }
