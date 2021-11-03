@@ -187,6 +187,26 @@ blockquote {
   font-style: italic;
 }
 
+.text-bold {
+  font-weight: 900;
+}
+
+.text-small {
+  font-size: .666666666666666rem;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
 {###########################################################################}
 {############################   4. Buttons   ###############################}
 {###########################################################################}

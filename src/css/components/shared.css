@@ -52,3 +52,7 @@
 .padding-sp_x_lg {
     padding: var(--sp_x_lg);
 }
+
+.padding-zero {
+    padding: 0;
+}
