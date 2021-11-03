@@ -9,10 +9,7 @@
   {% for list_card in module.card_list %}
 
     {% set card_config = {
-      'title' : list_card.text.title_content,
-      'caption' : list_card.text.card_caption,
-      'content' : list_card.text.rich_text_content,
-      'content_padding' : list_card.text.content_padding_class,
+      'card_label' : list_card.card_label.label_text,
       'image' : list_card.media.image,
       'image_bg_color' : list_card.media.bg_color,
       'image_sizing' : list_card.media.cropping,
@@ -20,6 +17,16 @@
       'image_position_x' : list_card.media.position_x,
       'image_repeat_x' : list_card.media.repeat_x,
       'image_repeat_y' : list_card.media.repeat_y,
+      'title' : list_card.text.title_text,
+      'caption' : list_card.text.media_caption,
+      'content' : list_card.text.rich_text_content,
+      'link' : list_card.link.link,
+      'link_presentation' : list_card.link_presentation,
+      'link_text' : list_card.link.link_text,
+      'card_label_position_class' : module.styles.label_styles.label_position_class,
+      'label_style_class' : module.styles.label_styles.label_style_class,
+      'label_alignment_class' : module.styles.label_styles.label_alignment_class,
+      'content_padding' : module.styles.content_padding_class,
       'content_bg_color' : list_card.borders_colors.content_bg_color.css,
       'card_bg_color' : list_card.borders_colors.card_bg_color.css,
       'title_bg_color' : list_card.borders_colors.title_bg_color.css,
@@ -36,6 +43,3 @@
   {% endfor %}
 
 </div>
-
-
-

@@ -3,11 +3,10 @@
     "label": "Cards",
     "name": "card_list",
     "type": "group",
-    "required" : true,
     "occurrence": {
-      "default": 2,
-      "min": 2,
-      "sorting_label_field": "card_list.title_content"
+      "default": 1,
+      "min" : 1,
+      "sorting_label_field": "card_list.title_text"
     },
     "children": [
       {
@@ -22,6 +21,13 @@
             "resizable": true,
             "responsive": true,
             "show_loading": false
+          },
+          {
+            "name" : "media_caption",
+            "label" : "Caption",
+            "type" : "text",
+            "validation_regex" : "",
+            "default" : "A picture is worth a thousand words."
           },
           {
             "name" : "cropping",
@@ -82,42 +88,67 @@
         ]
       },
       {
-        "name" : "text",
-        "label" : "Text",
+        "name" : "card_label",
+        "label" : "Card Label",
         "type" : "group",
         "children" : [
           {
-            "name" : "title_content",
+            "name" : "label_text",
+            "label" : "Card Label",
+            "type" : "text",
+            "validation_regex" : "",
+            "default" : "Card Label"
+          }
+        ]
+      },
+      {
+        "name" : "text",
+        "label" : "Card Text",
+        "type" : "group",
+        "children" : [
+          {
+            "name" : "title_text",
             "label" : "Title",
             "type" : "text",
-            "validation_regex" : "",
-            "default" : "A compelling headline"
-          },
-          {
-            "name" : "card_caption",
-            "label" : "Caption",
-            "type" : "text",
-            "validation_regex" : "",
-            "default" : "A picture is worth a thousand words."
+            "default" : "Title"
           },
           {
             "name" : "rich_text_content",
             "label" : "Rich Text Content",
             "type" : "richtext",
-            "default" : "Rich text content: try adding headlines, text, images, tables, buttons, and more."
+            "default" : "Rich text (tables, links, images, headers, etc)"
+          }
+        ]
+      },
+      {
+        "name" : "link",
+        "label" : "Button or Link",
+        "type" : "group",
+        "children" : [
+          {
+            "name" : "link_text",
+            "label" : "Link Text",
+            "type" : "text",
+            "default" : "Learn More"
           },
           {
-            "name" : "content_padding_class",
-            "label" : "Content Padding",
-            "type" : "choice",
-            "choices" : [
-              [ "", "None" ],
-              [ "sp_sm", "Small" ],
-              [ "sp_md", "Medium" ],
-              [ "sp_lg", "Large" ],
-              [ "sp_x_lg", "Extra Large" ]
-            ],
-            "default" : "sp_md"
+            "name" : "link",
+            "label" : "Link",
+            "required" : false,
+            "locked" : false,
+            "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+            "type" : "link",
+            "default" : {
+              "url" : {
+                "content_id" : null,
+                "type" : "EXTERNAL",
+                "href" : ""
+              },
+              "open_in_new_tab" : false,
+              "no_follow" : false,
+              "sponsored" : false,
+              "user_generated_content" : false
+            }
           }
         ]
       },
@@ -231,7 +262,6 @@
     "name": "styles",
     "type": "group",
     "tab" : "STYLE",
-    "required" : true,
     "children" : [
       {
         "name" : "list_style",
@@ -244,19 +274,47 @@
         "default" : "horizontal"
       },
       {
-        "name" : "card_style",
-        "label" : "Card Style", 
-        "type" : "choice",
-        "choices" : [
-          [ "image_text", "Image + Rich Text" ],
-          [ "image_caption", "Image + Caption"],
-          [ "image_label", "Image + Label" ]
-        ],
-        "default" : "image_text"
+        "label": "Label Styles",
+        "name": "label_styles",
+        "type": "group",
+        "children" : [
+          {
+            "name" : "label_position_class",
+            "label" : "Label Position", 
+            "type" : "choice",
+            "choices" : [
+              [ "", "Auto" ],
+              [ "card__label--top", "Top" ],
+              [ "card__label--bottom", "Bottom" ]
+            ],
+            "default" : "card__label--top"
+          },
+          {
+            "name" : "label_style_class",
+            "label" : "Label Text Style", 
+            "type" : "choice",
+            "choices" : [
+              [ "text-bold", "Bold" ],
+              [ "text-small", "Small" ]
+            ],
+            "default" : "text-small"
+          },
+          {
+            "name" : "label_alignment_class",
+            "label" : "Label Alignment", 
+            "type" : "choice",
+            "choices" : [
+              [ "text-left", "Left" ],
+              [ "text-center", "Center" ],
+              [ "text-right", "Right" ]
+            ],
+            "default" : "text-left"
+          }          
+        ]
       },
       {
         "name" : "title_size",
-        "label" : "Title Size",
+        "label" : "Title Style",
         "type" : "choice",
         "choices" : [
           [ "", "Body Text Size" ],
@@ -268,6 +326,19 @@
           [ "h6", "H6 (Heading 6)" ]
         ],
         "default" : "h3"
+      },
+      {
+        "name" : "content_padding_class",
+        "label" : "Text Content Padding",
+        "type" : "choice",
+        "choices" : [
+          [ "", "None" ],
+          [ "sp_sm", "Small" ],
+          [ "sp_md", "Medium" ],
+          [ "sp_lg", "Large" ],
+          [ "sp_x_lg", "Extra Large" ]
+        ],
+        "default" : "sp_md"
       },
       {
         "name" : "image_aspect_ratio",
@@ -289,13 +360,14 @@
         "label" : "Image Padding",
         "type" : "choice",
         "choices" : [
-          [ "", "None" ],
+          [ "use-card", "Use Card Padding" ],
+          [ "zero", "Zero" ],
           [ "sp_sm", "Small" ],
           [ "sp_md", "Medium" ],
           [ "sp_lg", "Large" ],
           [ "sp_x_lg", "Extra Large" ]
         ],
-        "default" : "sp_md"
+        "default" : "zero"
       },
       {
         "name" : "card_list_bg_color",
