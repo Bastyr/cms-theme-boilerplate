@@ -227,27 +227,6 @@
             "default" : null
           },
           {
-            "name" : "icon_position",
-            "label" : "Icon Position",
-            "type" : "choice",
-            "choices" : [
-              ["top-left", "Top Left"],
-              ["top-right", "Top Right"],
-              ["bottom-left", "Bottom Left"],
-              ["bottom-right", "Bottom Right"]
-            ]
-          },
-          {
-            "name" : "icon_size",
-            "label" : "Icon Size",
-            "type" : "choice",
-            "choices" : [
-              ["sp_sm", "Small"],
-              ["sp_md", "Medium"],
-              ["sp_lg", "Large"]
-            ]
-          },
-          {
             "name" : "icon_color",
             "label" : "Icon Color",
             "type" : "color",
@@ -272,6 +251,41 @@
           [ "horizontal", "Horizontal" ]
         ],
         "default" : "horizontal"
+      },
+      {
+        "label": "Card Text Styles",
+        "name": "card_text_styles",
+        "type": "group",
+        "children" : [
+          {
+            "name" : "title_size",
+            "label" : "Title Style",
+            "type" : "choice",
+            "choices" : [
+              [ "", "Body Text Size" ],
+              [ "h1", "H1 (Heading 1)" ],
+              [ "h2", "H2 (Heading 2)" ],
+              [ "h3", "H3 (Heading 3)" ],
+              [ "h4", "H4 (Heading 4)" ],
+              [ "h5", "H5 (Heading 5)" ],
+              [ "h6", "H6 (Heading 6)" ]
+            ],
+            "default" : "h3"
+          },
+          {
+            "name" : "content_padding_class",
+            "label" : "Text Content Padding",
+            "type" : "choice",
+            "choices" : [
+              [ "", "None" ],
+              [ "sp_sm", "Small" ],
+              [ "sp_md", "Medium" ],
+              [ "sp_lg", "Large" ],
+              [ "sp_x_lg", "Extra Large" ]
+            ],
+            "default" : "sp_md"
+          }
+        ]
       },
       {
         "label": "Label Styles",
@@ -309,36 +323,8 @@
               [ "text-right", "Right" ]
             ],
             "default" : "text-left"
-          }          
+          }
         ]
-      },
-      {
-        "name" : "title_size",
-        "label" : "Title Style",
-        "type" : "choice",
-        "choices" : [
-          [ "", "Body Text Size" ],
-          [ "h1", "H1 (Heading 1)" ],
-          [ "h2", "H2 (Heading 2)" ],
-          [ "h3", "H3 (Heading 3)" ],
-          [ "h4", "H4 (Heading 4)" ],
-          [ "h5", "H5 (Heading 5)" ],
-          [ "h6", "H6 (Heading 6)" ]
-        ],
-        "default" : "h3"
-      },
-      {
-        "name" : "content_padding_class",
-        "label" : "Text Content Padding",
-        "type" : "choice",
-        "choices" : [
-          [ "", "None" ],
-          [ "sp_sm", "Small" ],
-          [ "sp_md", "Medium" ],
-          [ "sp_lg", "Large" ],
-          [ "sp_x_lg", "Extra Large" ]
-        ],
-        "default" : "sp_md"
       },
       {
         "name" : "image_aspect_ratio",
@@ -370,6 +356,58 @@
         "default" : "zero"
       },
       {
+        "name": "link_alignment",
+        "label": "Link Alignment",
+        "required": false,
+        "type": "choice",
+        "choices" : [
+          ["left", "Left"],
+          ["center", "Center"],
+          ["right", "Right"]
+        ],
+        "default": "center"
+      },
+      {
+        "label": "Icon Styles",
+        "name": "icon_styles",
+        "type": "group",
+        "children" : [
+          {
+            "name" : "icon_location",
+            "label" : "Icon Location", 
+            "type" : "choice", 
+            "choices" : [
+              ["icon-by-label", "By Label"],
+              ["icon-on-image", "On Image"]
+            ],
+            "default" : "icon-on-image"
+          },
+          {
+            "name" : "icon_size",
+            "label" : "Icon Size",
+            "type" : "choice",
+            "choices" : [
+              ["1", "Small"],
+              ["2", "Medium"],
+              ["4", "Large"]
+            ],
+            "default" : "2"
+          },
+          {
+            "name" : "icon_position_classes",
+            "label" : "Icon Size",
+            "type" : "choice",
+            "choices" : [
+              ["card__icon--top card__icon--left", "Top Left"],
+              ["card__icon--top card__icon--right", "Top Right"],
+              ["card__icon--bottom card__icon--left", "Bottom Left"],
+              ["card__icon--bottom card__icon--right", "Bottom Right"]
+            ],
+            "default" : "card__icon--top card__icon--left"
+          }
+        ]
+      },
+      {
         "name" : "card_list_bg_color",
         "label" : "Card List Background Color",
         "required" : false,
@@ -381,14 +419,14 @@
         }
       },
       {
-        "name" : "border_locations",
-        "label" : "Border Locations",
+        "name" : "border_location",
+        "label" : "Border Location",
         "type" : "choice",
         "choices" : [
           ["none", "None"],
           ["around_card", "Around Card"],
-          ["around_image", "Around Image"],
-          ["around_card_and_image", "Around Card & Image"]
+          ["around_media", "Around Media"],
+          ["around_content", "Around Content"]
         ],
         "default" : "around_card"
       },

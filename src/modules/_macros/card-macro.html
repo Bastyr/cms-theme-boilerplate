@@ -22,17 +22,21 @@ Config Options:
     content_bg_color : color
     card_botton_link
     link_presentation : option primary_button | secondary_button | clickable_card | link
-        clickable_card is not yet implemented
+        *** clickable_card is not yet implemented ***
     'layout_direction' : choice ['horizontal', 'vertical'],
     list_style: choice horizontal|vertical
+    border_location : "around_card" | "around_media" | around_content
 
     NOT YET IMPLEMENTED IN CARD MACRO *OR* LIST+GRID MODULES
     border_locations: choice: choice  around_card | around_image | around_card_and_image | none
     border_color: color
     title_position: choice above_image | below_image
     horizontal_rules: choice 
-    icon
-    icon_position
+
+    icon: icon
+    icon_color: color
+    icon_location: choice icon-by-label | icon-on-image 
+    icon_size: choice sp_sm | sp_md | sp_lg
 }
 #}
 
@@ -64,10 +68,20 @@ Config Options:
     {% endif %}
 
     <div class="card__wrapper">
-        {% if config.card_label %} <p class="card__label {{config.card_label_position_class ~ " " ~ config.label_style_class ~ " " ~ config.label_alignment_class }}">{{config.card_label}}</p> {% endif %}
+        {% if config.card_label %} 
+            <p class="card__label {{config.card_label_position_class ~ " " ~ config.label_style_class ~ " " ~ config.label_alignment_class }}">
+                {% if config.icon && config.icon_location=="icon-by-label" %}
+                    {{icon(config.icon, config.icon_color, config.icon_size)}}
+                {% endif %}
+                {{config.card_label}}
+            </p> 
+        {% endif %}
         <div class="card {{card_shadow_class}} {{content_padding_class}}" {%- if config.card_bg_color -%}style="background-color: {{config.card_bg_color}};"{%- endif -%}}>
         {%- if config.image.src -%}
             <div class="card__image-container">
+                    {% if config.icon && config.icon_location=="icon-on-image" %}
+                        {{icon(config.icon, config.icon_color, config.icon_size, config.icon_position_classes, image_padding_class)}}
+                    {% endif %}
                 <div class="image__wrapper {{image_padding_class}}" {%- if config.image_bg_color -%}style="background-color: {{config.image_bg_color}};"{%- endif -%}}>
                     <div class="card__image bg-image--{{config.image_aspect_ratio}} image" 
                         style="background-image:url('{{config.image.src}}');
@@ -89,20 +103,41 @@ Config Options:
             {%- endif -%} {# if config.image #}
             {%- if config.title or config.content -%} {# it helps to have an empty dummy element for the purposes of flexbox styling in cases where e.g. one card in a series has a title but another doesn't #}
             <div class="card__content-container" {%- if config.content_bg_color -%}style="background-color: {{config.content_bg_color}};"{%- endif -%}}>
+                {%- if config.title -%}
                 <p class="card__title {{config.card_title_class}}" {%- if config.title_bg_color -%}style="background-color: {{config.title_bg_color}};"{%- endif -%}}>
                     {{config.title}}
                 </p>
+                {%- endif -%}
                 <div class="card__rich-text-container">
                     {{ config.content }}
                 </div>
                 {%- if config.link.url.href and config.link_text -%} {# clickable card not yet implemented #}
-                <div class="card__link {{config.link_presentation}}">
-                    <a href="{{config.link.url.href}}">{{config.link_text}}</a>
+                <div class="card__link card__link--{{config.link_alignment}} {{config.link_presentation}}">
+                    <a class="button" href="{{config.link.url.href}}">{{config.link_text}}</a>
                 </div>
                 {%- endif -%}
             </div> <!-- card__content-container -->
             {%- endif %} {# if title or content #}
         </div>  <!-- card -->
+
     </div> <!-- card__container :) -->
 
+{%- endmacro -%}
+
+{%- macro icon(icon_config, icon_config_color, icon_config_size, icon_position_classes, icon_padding_class) -%}
+    {% set _icon_config_size = 2 %} {# default #}
+    {% if icon_config_size %}
+        {% set _icon_config_size = icon_config_size %}
+    {% endif %}
+
+    <span class="card__icon {{icon_position_classes}} {{icon_padding_class}}" style="fill: {{icon_config_color.color}}; width: {{_icon_config_size}}rem">
+
+    {% icon 
+        name='{{ icon_config.name }}'
+        style='{{ icon_config.type }}'
+        unicode='{{ icon_config.unicode }}'
+        icon_set='{{ icon_config.icon_set }}'
+        size='10px'
+    %}
+    </span>
 {%- endmacro -%}

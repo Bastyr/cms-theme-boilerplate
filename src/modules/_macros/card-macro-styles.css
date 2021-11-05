@@ -26,45 +26,56 @@
 }
 
 /* pad card top and bottom while card includes text content */
-.card--padding-sp_sm .card__title, .card--padding-sp_sm .card__rich-text-container {
-    padding-top: var(--sp_sm);
+.card--padding-sp_sm .card__title, 
+.card--padding-sp_sm .card__rich-text-container, 
+.card--padding-sp_sm .image__wrapper+*  {
     padding-bottom: var(--sp_sm);
 }
 
-.card--padding-sp_md .card__title, .card--padding-sp_md .card__rich-text-container {
-    padding-top: var(--sp_md);
+.card--padding-sp_md .card__title, 
+.card--padding-sp_md .card__rich-text-container, 
+.card--padding-sp_md .image__wrapper+*  {
     padding-bottom: var(--sp_md);
 
 }
 
-.card--padding-sp_lg .card__title, .card--padding-sp_lg .card__rich-text-container {
-    padding-top: var(--sp_lg);
+.card--padding-sp_lg .card__title, 
+.card--padding-sp_lg .card__rich-text-container, 
+.card--padding-sp_lg .image__wrapper+*  {
     padding-bottom: var(--sp_lg);
-
 }
 
-.card--padding-sp_x_lg .card__title, .card--padding-sp_x_lg .card__rich-text-container {
-    padding-top: var(--sp_x_lg);
+.card--padding-sp_x_lg .card__title, 
+.card--padding-sp_x_lg .card__rich-text-container, 
+.card--padding-sp_x_lg .image__wrapper+*  {
     padding-bottom: var(--sp_x_lg);
 
 }
 
-.card--padding-sp_sm>*, .card--padding-sp_sm .image__wrapper.padding-use-card {
+.card--padding-sp_sm>*, 
+.card--padding-sp_sm .image__wrapper.padding-use-card,
+ {
     padding-left: var(--sp_sm);
     padding-right: var(--sp_sm);
 }
 
-.card--padding-sp_md>*, .card--padding-sp_md .image__wrapper.padding-use-card {
+.card--padding-sp_md>*, 
+.card--padding-sp_md .image__wrapper.padding-use-card,
+ {
     padding-left: var(--sp_md);
     padding-right: var(--sp_md);
 }
 
-.card--padding-sp_lg>*, .card--padding-sp_lg .image__wrapper.padding-use-card {
+.card--padding-sp_lg>*, 
+.card--padding-sp_lg .image__wrapper.padding-use-card,
+ {
     padding-left: var(--sp_lg);
     padding-right: var(--sp_lg);
 }
 
-.card--padding-sp_x_lg>*, .card--padding-sp_x_lg .image__wrapper.padding-use-card {
+.card--padding-sp_x_lg>*, 
+.card--padding-sp_x_lg .image__wrapper.padding-use-card,
+ {
     padding-left: var(--sp_x_lg);
     padding-right: var(--sp_x_lg);
 }
@@ -144,9 +155,57 @@
   width: 100%;
   overflow: hidden;
   padding: 0; /* padding handled by child */
+  position: relative; /* so that icon can be positioned relative to this element using position:absolute */
 }
 
+.card__image-container>.card__icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.card__image-container>.card__icon--top {
+    top: 1rem;
+    bottom: unset;
+}
+
+.card__image-container>.card__icon--bottom {
+    bottom: 1rem;
+    top: unset;
+}
+
+.card__image-container>.card__icon--left {
+    left: 1rem;
+    right: unset;
+}
+
+.card__image-container>.card__icon--right {
+    right: 1rem;
+    left: unset;
+}
 .image_wrapper {
     width: 100%;
 }
 
+.card__link {
+    margin-top: 1.11111111111111112rem;
+    margin-bottom: 2.77777777777777rem;
+}
+
+.card__link--right{
+    text-align: right;
+}
+
+.card__link--left {
+    text-align: left;
+}
+
+.card__link--center {
+    text-align: center;
+}
+
+.card__label .card__icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .25em;
+}
