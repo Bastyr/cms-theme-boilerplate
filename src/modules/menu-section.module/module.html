@@ -71,9 +71,10 @@
 
 {% macro renderNavigation(menuTree) %}
   {% set level = level + 1 %}
+
   <ul class="submenu level-{{ level }}" aria-hidden="{{ level != 1 }}">
     {% for node in menuTree.children %}
-      {{ link(node) }}
+    {{ link(node) }}
     {% endfor %}
   </ul>
 {% endmacro %}
@@ -90,7 +91,6 @@
 {% if module.menu_alignment == "right" %}
   {% set menu_alignment = "navigation-right" %}
 {% endif %}
-
 
 <nav aria-label="Main menu" class="navigation-primary {{ menu_alignment }}">
   {{ renderNavigation(menu(module.primary_menu_field)) }}
