@@ -68,9 +68,11 @@ Config Options:
     {% endif %}
 
     <div class="card__wrapper">
-        {% if config.card_label %} 
+
+
+    {% if config.card_label %} 
             <p class="card__label {{config.card_label_position_class ~ " " ~ config.label_style_class ~ " " ~ config.label_alignment_class }}">
-                {% if config.icon && config.icon_location=="icon-by-label" %}
+                {% if config.icon.unicode && config.icon_location=="icon-by-label" %}
                     {{icon(config.icon, config.icon_color, config.icon_size)}}
                 {% endif %}
                 {{config.card_label}}
@@ -79,7 +81,7 @@ Config Options:
         <div class="card {{card_shadow_class}} {{content_padding_class}}" {%- if config.card_bg_color -%}style="background-color: {{config.card_bg_color}};"{%- endif -%}}>
         {%- if config.image.src -%}
             <div class="card__image-container">
-                    {% if config.icon && config.icon_location=="icon-on-image" %}
+                    {% if config.icon.unicode && config.icon_location=="icon-on-image" %}
                         {{icon(config.icon, config.icon_color, config.icon_size, config.icon_position_classes, image_padding_class)}}
                     {% endif %}
                 <div class="image__wrapper {{image_padding_class}}" {%- if config.image_bg_color -%}style="background-color: {{config.image_bg_color}};"{%- endif -%}}>

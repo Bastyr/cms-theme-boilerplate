@@ -30,12 +30,14 @@
 .card--padding-sp_sm .card__rich-text-container, 
 .card--padding-sp_sm .image__wrapper+*  {
     padding-bottom: var(--sp_sm);
+    padding-top: var(--sp_sm);
 }
 
 .card--padding-sp_md .card__title, 
 .card--padding-sp_md .card__rich-text-container, 
 .card--padding-sp_md .image__wrapper+*  {
     padding-bottom: var(--sp_md);
+    padding-top: var(--sp_md);
 
 }
 
@@ -43,13 +45,14 @@
 .card--padding-sp_lg .card__rich-text-container, 
 .card--padding-sp_lg .image__wrapper+*  {
     padding-bottom: var(--sp_lg);
+    padding-top: var(--sp_lg);
 }
 
 .card--padding-sp_x_lg .card__title, 
 .card--padding-sp_x_lg .card__rich-text-container, 
 .card--padding-sp_x_lg .image__wrapper+*  {
     padding-bottom: var(--sp_x_lg);
-
+    padding-top: var(--sp_x_lg);
 }
 
 .card--padding-sp_sm>*, 
