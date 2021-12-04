@@ -7,8 +7,8 @@
 {% extends './layouts/base.html' %}
 
 {% block header %}
-  {% set sitename = "Brand Guide" %}
-  {% set header_reverse_logo = true %}
+  {% set sitename = "Brand Guide - Bastyr University" %}
+  {% set header_reverse_logo = false %}
     {% set navigation_id = 41418721219 %}
     {{ super() }}
   {% global_partial path='./partials/microsite-header.html' %}
@@ -35,4 +35,8 @@
 
   {% end_dnd_area %}
 </main>
+
 {% endblock body %}
+{% block footer %}
+  {# override footer block from src/layouts/base.html--"temporarily" using module instead #}
+{% endblock footer %}
