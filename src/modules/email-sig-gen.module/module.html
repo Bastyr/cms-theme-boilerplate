@@ -1,0 +1,278 @@
+{# 
+documentation related to browser clipboard api
+
+https://web.dev/async-clipboard/
+
+https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
+and support table
+https://developer.mozilla.org/en-US/docs/Web/API/Clipboard#browser_compatibility
+
+May have to use canvas to create blob from image, then create image with blob as source, in order to copy?
+
+Multi-mime to clipboard... what OS support? Pastable at HTML in email client? Instructions for pasting?
+https://blog.tomayac.com/2020/03/20/multi-mime-type-copying-with-the-async-clipboard-api/
+
+#}
+
+<div class="row-fluid-wrapper row-depth-1 row-number-4 dnd-section">
+    <div class="row-fluid ">
+        <div class="span8 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell" data-x="0"
+            data-w="8">
+
+            <div class="row-fluid-wrapper row-depth-1 row-number-5 dnd-row">
+                <div class="row-fluid ">
+                    <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                        data-widget-type="custom_widget" data-x="0" data-w="12">
+
+                        {#
+                        BEGIN email sig gen form
+                        #}
+
+
+                        {#
+                        <div class="row-fluid ">
+                            <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell"
+                                data-x="0" data-w="12">
+
+                                <div class="row-fluid-wrapper row-depth-1 row-number-5 dnd-row">
+                                    <div class="row-fluid ">
+                                        <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                                            data-widget-type="custom_widget" data-x="0" data-w="12">
+                                            #}
+                                            <div class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-form"
+                                                style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                                                <form novalidate="" accept-charset="UTF-8" id="emsig-form"
+                                                    class="hs-form stacked hs-custom-form hs-form-private">
+                                                    <div
+                                                        class="hs_full_name hs-full_name hs-fieldtype-text field hs-form-field">
+                                                        <label placeholder="Enter your Full Name"><span>Full
+                                                                Name</span></label>
+                                                        <legend class="hs-field-desc"></legend>
+                                                        <div class="input">
+                                                            <input id="emsig-full-name" class="hs-input" type="text"
+                                                                name="full_name" value="" placeholder=""
+                                                                inputmode="text">
+                                                        </div>
+                                                    </div>
+
+                                                    <div
+                                                        class="hs-fieldtype-text field hs-form-field">
+                                                        <label placeholder="Enter your Job Title"><span>Job Title</span></label>
+                                                        <legend class="hs-field-desc"></legend>
+                                                        <div class="input">
+                                                            <input id="emsig-job-title" class="hs-input" type="text"
+                                                                name="job_title" value="" placeholder=""
+                                                                inputmode="text">
+                                                        </div>
+                                                    </div>
+
+                                                    
+                                                    <div
+                                                        class="hs_school_or_department hs-school_or_department hs-fieldtype-text field hs-form-field">
+                                                        <label class=""
+                                                            placeholder="Enter your School or Department">School or
+                                                            Department
+                                                            </span></label>
+                                                        <legend class="hs-field-desc" style="display:none;"></legend>
+                                                        <div class="input">
+                                                            <input id="emsig-school-or-department" class="hs-input"
+                                                                type="text" name="school_or_department" value=""
+                                                                placeholder="" inputmode="text">
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="hs_phone hs-phone hs-fieldtype-text field hs-form-field">
+                                                        <label class="" placeholder="Enter your Phone number"
+                                                            for="emsig-phone">
+                                                            <span>Phone number</span>
+                                                        </label>
+                                                        <legend class="hs-field-desc" style="display:none;"
+                                                            data-reactid=".hbspt-forms-0.1:$3.1">
+                                                        </legend>
+                                                        <div class="input"><input id="emsig-phone" class="hs-input"
+                                                                type="tel" name="phone" value="" placeholder=""
+                                                                autocomplete="tel" inputmode="tel"></div>
+                                                    </div>
+                                                    <div
+                                                        class="hs_pronouns hs-pronouns hs-fieldtype-text field hs-form-field">
+                                                        <label id="" class="" placeholder="Enter your Pronouns"
+                                                            for="emsig-pronouns">
+                                                            <span>Pronouns</span></label>
+                                                        <legend class="hs-field-desc" style="display:none;"></legend>
+                                                        <div class="input"><input id="emsig-pronouns" class="hs-input"
+                                                                type="text" name="pronouns" value="" placeholder=""
+                                                                inputmode="text"></div>
+                                                    </div>
+                                                    <div class="hs_submit hs-submit">
+                                                        <div class="hs-field-desc" style="display:none;"></div>
+                                                        <div class="actions"><input type="submit"
+                                                                value="Generate Signature and Copy to Clipboard"
+                                                                class="hs-button primary large"></div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            {#
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <!--end widget-span -->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <!--end row-wrapper -->
+
+                        </div>
+                        <!--end widget-span -->
+                    </div> #}
+
+                    {#
+                    end email sig gen form
+                    #}
+
+                </div>
+                <!--end widget-span -->
+            </div>
+            <!--end row-->
+        </div>
+        <!--end row-wrapper -->
+
+    </div>
+    <!--end widget-span -->
+    <div class="span4 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell" data-x="8" data-w="4">
+
+        <div class="row-fluid-wrapper row-depth-1 row-number-6 dnd-row">
+            <div class="row-fluid ">
+                <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                    data-widget-type="custom_widget" data-x="0" data-w="12">
+                    <p class="hidden" id="status-message">Copied to Clipboard!</p>
+                    <div id="emsig-prev"></div>
+                </div>
+                <!--end widget-span -->
+            </div>
+            <!--end row-->
+        </div>
+        <!--end row-wrapper -->
+
+    </div>
+    <!--end widget-span -->
+</div>
+<!--end row-->
+</div>
+
+{# x
+x
+x
+x
+x
+x
+x
+
+Simplifiy
+
+x
+x
+x
+x
+x
+x
+x #}
+
+
+
+{# x
+x
+x
+x
+x
+x
+x
+
+Original
+
+x
+x
+x
+x
+x
+x
+x #}
+{#
+<div class="row-fluid ">
+    <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+        <div class="row-fluid-wrapper row-depth-1 row-number-5 dnd-row">
+            <div class="row-fluid ">
+                <div class="span12 widget-span widget-type-custom_widget dnd-module" style=""
+                    data-widget-type="custom_widget" data-x="0" data-w="12">
+                    <div id="hs_cos_wrapper_widget_1637266818860"
+                        class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module widget-type-form"
+                        style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+                        <span id="hs_cos_wrapper_widget_1637266818860_"
+                            class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_form" style=""
+                            data-hs-cos-general-type="widget" data-hs-cos-type="form">
+                            <div id="hs_form_target_widget_1637266818860">
+                                <form novalidate="" accept-charset="UTF-8"
+                                    class="hs-form stacked hs-custom-form hs-form-private">
+                                    <div class="hs_email hs-email hs-fieldtype-text field hs-form-field"
+                                        placeholder="Enter your Email">
+                                        <span>Email</span><span class="hs-form-required">*</span></label>
+                                        <legend class="hs-field-desc" style="display:none;"></legend>
+                                        <div class="input" data-reactid=".hbspt-forms-0.1:$0.$email"><input
+                                                id="emsig-email" class="hs-input" type="email" name="email" required=""
+                                                placeholder="" value="" inputmode="email"></div>
+                                    </div>
+                                    <div class="hs_full_name hs-full_name hs-fieldtype-text field hs-form-field">
+                                        <label placeholder="Enter your Full Name"><span>Full Name</span></label>
+                                        <legend class="hs-field-desc"></legend>
+                                        <div class="input">
+                                            <input id="emsig-full-name" class="hs-input" type="text" name="full_name"
+                                                value="" placeholder="" inputmode="text">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="hs_school_or_department hs-school_or_department hs-fieldtype-text field hs-form-field">
+                                        <label class="" placeholder="Enter your School or Department">School or
+                                            Department
+                        </span></label>
+                        <legend class="hs-field-desc" style="display:none;"></legend>
+                        <div class="input">
+                            <input id="emsig-school-or-department" class="hs-input" type="text"
+                                name="school_or_department" value="" placeholder="" inputmode="text">
+                        </div>
+                    </div>
+                    <div class="hs_phone hs-phone hs-fieldtype-text field hs-form-field">
+                        <label class="" placeholder="Enter your Phone number" for="emsig-phone">
+                            <span>Phone number</span>
+                        </label>
+                        <legend class="hs-field-desc" style="display:none;" data-reactid=".hbspt-forms-0.1:$3.1">
+                        </legend>
+                        <div class="input"><input id="emsig-phone" class="hs-input" type="tel" name="phone" value=""
+                                placeholder="" autocomplete="tel" inputmode="tel"></div>
+                    </div>
+                    <div class="hs_pronouns hs-pronouns hs-fieldtype-text field hs-form-field">
+                        <label id="" class="" placeholder="Enter your Pronouns" for="emsig-pronouns">
+                            <span>Pronouns</span></label>
+                        <legend class="hs-field-desc" style="display:none;"></legend>
+                        <div class="input"><input id="emsig-pronouns" class="hs-input" type="text" name="pronouns"
+                                value="" placeholder="" inputmode="text"></div>
+                    </div>
+                    <div class="hs_submit hs-submit">
+                        <div class="hs-field-desc" style="display:none;"></div>
+                        <div class="actions"><input type="submit" value="Submit" class="hs-button primary large"></div>
+                    </div>
+                    </form>
+                </div>
+                </span>
+            </div>
+
+        </div>
+        <!--end widget-span -->
+    </div>
+    <!--end row-->
+</div>
+<!--end row-wrapper -->
+
+</div>
+<!--end widget-span -->
+</div> #}
