@@ -33,3 +33,13 @@
   flex-direction: row;
   margin-bottom: 20px;
 }
+
+@media screen and (max-width: 760px) {
+  .card-list--horizontal {
+    flex-direction: column;
+  }
+
+  .card-list--horizontal .card__wrapper {
+    margin-bottom: 2rem;
+  }
+}
