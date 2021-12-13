@@ -1,0 +1,34 @@
+{# 
+Card Config Mapping:
+
+These are all of the parameters that a card can take
+It is up to you to configure the module fields appropriately. 
+***YOU DO NOT NEED TO INCLUDE ALL OPTIONS IN YOUR MODULE***
+only include the options you need. Pass them in as an object to this macro.
+
+Config options:
+{
+    id string
+        {# e.g. use HuBl { { name } } for *module instance id* 
+        or for a *repeater { % for item in ... % } { { name ~ loop.index } } #}
+    space: choice var(--sp_sm), var(--sp_md), var(--sp_lg)
+    recursive
+    content macro callback
+}
+#}
+
+<style>
+{{config.module_name}} > * + * {
+  margin-top: var(--s1);
+}
+</style>
+
+{%- macro build_module(config) -%}
+    {{ require_css(  get_asset_url('/bastyr21/modules/_macros/stack-macro-styles.css')  ) }}
+
+    <div class="stack-l">
+        <p>x</p>
+        <p>y</p>
+        <p>z</p>
+    </div>
+{%- endmacro %}

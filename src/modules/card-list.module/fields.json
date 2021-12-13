@@ -327,45 +327,59 @@
         ]
       },
       {
-        "name" : "image_aspect_ratio",
-        "label" : "Image Aspect Ratio",
-        "type" : "choice",
-        "choices" : [
-          ["16-9", "16:9 Landscape"],
-          ["3-2", "3:2 Landscape"],
-          ["4-3", "4:3 Landscape"],
-          ["1-1", "1:1 Square"],
-          ["9-16", "9:16 Portrait"],
-          ["2-3", "2:3 Portrait"],
-          ["3-4", "3:4 Portrait"]
-        ],
-        "default" : "1-1"
+        "label": "Media Styles",
+        "name": "media_styles",
+        "type": "group",
+        "children" : [
+          {
+            "name" : "media_aspect_ratio",
+            "label" : "Media Aspect Ratio",
+            "type" : "choice",
+            "choices" : [
+              ["16-9", "16:9 Landscape"],
+              ["3-2", "3:2 Landscape"],
+              ["4-3", "4:3 Landscape"],
+              ["1-1", "1:1 Square"],
+              ["9-16", "9:16 Portrait"],
+              ["2-3", "2:3 Portrait"],
+              ["3-4", "3:4 Portrait"]
+            ],
+            "default" : "1-1"
+          },
+          {
+            "name" : "image_padding_class",
+            "label" : "Space Around Media",
+            "type" : "choice",
+            "choices" : [
+              [ "use-card", "Use Card Padding" ],
+              [ "zero", "Zero" ],
+              [ "sp_sm", "Small" ],
+              [ "sp_md", "Medium" ],
+              [ "sp_lg", "Large" ],
+              [ "sp_x_lg", "Extra Large" ]
+            ],
+            "default" : "zero"
+          }
+        ]
       },
       {
-        "name" : "image_padding_class",
-        "label" : "Image Padding",
-        "type" : "choice",
-        "choices" : [
-          [ "use-card", "Use Card Padding" ],
-          [ "zero", "Zero" ],
-          [ "sp_sm", "Small" ],
-          [ "sp_md", "Medium" ],
-          [ "sp_lg", "Large" ],
-          [ "sp_x_lg", "Extra Large" ]
-        ],
-        "default" : "zero"
-      },
-      {
-        "name": "link_alignment",
-        "label": "Link Alignment",
-        "required": false,
-        "type": "choice",
-        "choices" : [
-          ["left", "Left"],
-          ["center", "Center"],
-          ["right", "Right"]
-        ],
-        "default": "center"
+        "label": "Link Styles",
+        "name": "link_styles",
+        "type": "group",
+        "children" : [
+          {
+            "name": "link_alignment",
+            "label": "Link Alignment",
+            "required": false,
+            "type": "choice",
+            "choices" : [
+              ["left", "Left"],
+              ["center", "Center"],
+              ["right", "Right"]
+            ],
+            "default": "center"
+          }    
+        ]
       },
       {
         "label": "Icon Styles",
@@ -408,33 +422,40 @@
         ]
       },
       {
-        "name" : "card_list_bg_color",
-        "label" : "Card List Background Color",
-        "required" : false,
-        "locked" : false,
-        "type" : "color",
-        "default" : {
-          "color" : "",
-          "opacity" : 100
-        }
-      },
-      {
-        "name" : "border_location",
-        "label" : "Border Location",
-        "type" : "choice",
-        "choices" : [
-          ["none", "None"],
-          ["around_card", "Around Card"],
-          ["around_media", "Around Media"],
-          ["around_content", "Around Content"]
-        ],
-        "default" : "around_card"
-      },
-      {
-        "name" : "border_color",
-        "label" : "Border Color",
-        "type" : "color",
-        "default" : "#e8e8e7"
+        "label": "Card Borders and Colors",
+        "name": "borders_and_colors",
+        "type": "group",
+        "children" : [
+          {
+            "name" : "card_list_bg_color",
+            "label" : "Card List Background Color",
+            "required" : false,
+            "locked" : false,
+            "type" : "color",
+            "default" : {
+              "color" : "",
+              "opacity" : 100
+            }
+          },
+          {
+            "name" : "border_location",
+            "label" : "Border Location",
+            "type" : "choice",
+            "choices" : [
+              ["none", "None"],
+              ["around_card", "Around Card"],
+              ["around_media", "Around Media"],
+              ["around_content", "Around Content"]
+            ],
+            "default" : "around_card"
+          },
+          {
+            "name" : "border_color",
+            "label" : "Border Color",
+            "type" : "color",
+            "default" : "#e8e8e7"
+          }
+        ]
       }
     ]
   }

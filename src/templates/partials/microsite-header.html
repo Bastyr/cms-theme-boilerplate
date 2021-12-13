@@ -67,8 +67,7 @@
         <div class="header__navigation header--element">
         {% module "menu-section" path="../../modules/menu-section.module",
           sticky_menu_selector=".header__row.two",
-          label="Menu",
-          primary_menu_field="{{navigation_id}}"
+          label="Menu"
         %}
         </div>
       </div>
@@ -76,7 +75,7 @@
     </div>
 
   </div>
-
+  
   {# after-menu header drag and drop area #}
 
   {% dnd_area 'header-bottom'
@@ -85,13 +84,20 @@
   %}
   {% end_dnd_area %}
 
+  {# Bottom header drag and drop area #}
 
+  {% dnd_area 'header-bottom'
+    label='Bottom header',
+    class='content-wrapper'
+  %}
+  {% end_dnd_area %}
+
+{# copied from a hubspot community post as a starting point #}
 {# Breadcrumbs #}
-<!-- { % set menu_id = module.renamed_from_id || module.menu % } -->
-
-{% set menu_id = navigation_id %}
+{% set menu_id = module.renamed_from_id || module.menu %}
   {% set node = menu(menu_id,"breadcrumb") %}
-    
+  
+  
   {# if node null means it's pretty much the home page, so don't display it #}
   {% if node != null %}
   <ul class="hs-breadcrumb-menu">
@@ -104,7 +110,6 @@
         <span class="hs-breadcrumb-menu-divider"></span>
       </li>
   {% endif %}
-  ][
 
   {# Add the level in between if it's level 2 #}
   
@@ -123,12 +128,7 @@
   </ul>
 {% endif %}
 
-  {# Bottom header drag and drop area #}
+{# end breadcrumbs #}
 
-  {% dnd_area 'header-bottom'
-    label='Bottom header',
-    class='content-wrapper'
-  %}
-  {% end_dnd_area %}
 
 </header>

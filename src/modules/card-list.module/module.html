@@ -3,7 +3,7 @@
 
 <div 
   class="card-list{% if module.styles.list_style %} card-list--{{module.styles.list_style}}{% endif %}"
-  {%- if module.styles.card_list_bg_color.css -%}style="background-color: {{module.styles.card_list_bg_color.css}};"{%- endif -%}}
+  {%- if module.styles.borders_and_colors.card_list_bg_color.css -%}style="background-color: {{module.styles.borders_and_colors.card_list_bg_color.css}};"{%- endif -%}}
 >
   {# Loops through each card in the cards repeater #}
   {% for list_card in module.card_list %}
@@ -28,16 +28,17 @@
       'card_label_position_class' : module.styles.label_styles.label_position_class,
       'label_style_class' : module.styles.label_styles.label_style_class,
       'label_alignment_class' : module.styles.label_styles.label_alignment_class,
-      'image_padding' : module.styles.image_padding_class,
-      'image_aspect_ratio' : module.styles.image_aspect_ratio,
+      'image_padding' : module.styles.media_styles.image_padding_class,
+      'image_aspect_ratio' : module.styles.media_styles.media_aspect_ratio,
       'card_title_class' : module.styles.card_text_styles.title_size,
       'content_padding' : module.styles.card_text_styles.content_padding_class,
       'content_bg_color' : list_card.borders_colors.content_bg_color.css,
-      'link_alignment' : module.styles.link_alignment,
+      'link_alignment' : module.styles.link_styles.link_alignment,
       'icon_location': module.styles.icon_styles.icon_location,
       'icon_size': module.styles.icon_styles.icon_size,
       'icon_position_classes' : module.styles.icon_styles.icon_position_classes,
-      'border_location' : module.styles.border_location,
+      'border_location' : module.styles.colors_and_borders.border_location,
+      'border_color' : module.styles.colors_and_borders.border_color,
       'card_bg_color' : list_card.borders_colors.card_bg_color.css,
       'title_bg_color' : list_card.borders_colors.title_bg_color.css,
       'image_bg_color' : list_card.borders_colors.image_bg_color.css,
