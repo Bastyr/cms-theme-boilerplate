@@ -25,13 +25,7 @@ Config Options:
         *** clickable_card is not yet implemented ***
     'layout_direction' : choice ['horizontal', 'vertical'],
     list_style: choice horizontal|vertical
-    border_location : "around_card" | "around_media" | around_content
-
-    NOT YET IMPLEMENTED IN CARD MACRO *OR* LIST+GRID MODULES
-    border_locations: choice: choice  around_card | around_image | around_card_and_image | none
-    border_color: color
-    title_position: choice above_image | below_image
-    horizontal_rules: choice 
+    border_location : "around_card" | "around_media" | around_content | none
 
     icon: icon
     icon_color: color
@@ -69,7 +63,6 @@ Config Options:
 
     <div class="card__wrapper">
 
-
     {% if config.card_label %} 
             <p class="card__label {{config.card_label_position_class ~ " " ~ config.label_style_class ~ " " ~ config.label_alignment_class }}">
                 {% if config.icon.unicode && config.icon_location=="icon-by-label" %}
@@ -78,7 +71,7 @@ Config Options:
                 {{config.card_label}}
             </p> 
         {% endif %}
-        <div class="card {{card_shadow_class}} {{content_padding_class}}" {%- if config.card_bg_color -%}style="background-color: {{config.card_bg_color}};"{%- endif -%}}>
+        <div class="card {{card_shadow_class}} {{content_padding_class}} card--border_{{config.border_location}}" {%- if config.card_bg_color -%}style="background-color: {{config.card_bg_color}};"{%- endif -%}}>
         {%- if config.image.src -%}
             <div class="card__image-container">
                     {% if config.icon.unicode && config.icon_location=="icon-on-image" %}
