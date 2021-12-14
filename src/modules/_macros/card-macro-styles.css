@@ -238,3 +238,8 @@ border-color: var(--c_secondary);
     border-color: var(--c_cloud);
     border-color: var(--c_secondary);
 }
+
+.card--border_around_card .card__content-container, .card--border_around_content .card__content-container {
+    padding-left: .25rem;
+    padding-right: .25rem;
+}
