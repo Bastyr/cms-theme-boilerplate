@@ -128,3 +128,5 @@ hubspot.config.yml
 # Lock files
 package-lock.json
 yarn.lock
+
+cms-theme-bastyr.code-workspace.code-workspace
