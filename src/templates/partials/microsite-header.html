@@ -20,48 +20,38 @@
 
   <div class="header__container content-wrapper">
 
-    {# Header logo column #}
-
-    <div class="header__logo header__logo--main">
-      {% module 'site_logo' path='@hubspot/logo' %}
-    </div>
-
-    {# Header navigation column #}
-
     <div class="header__column">
 
       {# Header navigation row one #}
 
       <div class="header__row-1">
-        {% if content.translated_content.values()|selectattr('published')|length || is_listing_view && group.translations %}
-          <div class="header__language-switcher header--element">
-            <div class="header__language-switcher--label">
-              {% module 'language-switcher'
-                path='@hubspot/language_switcher',
-                label='Language switcher',
-                display_mode='localized'
-              %}
-              <div class="header__language-switcher--label-current"> {{ locale_name(locale) }}</div>
-            </div>
+
+
+      <div class="logo__lockup">
+        <div class="header__logo header__logo--main">
+        {% module 'site_logo' path='@hubspot/logo' %}
+        </div>
+        {% if site_name %}
+          <div class="site-name h3">
+            {{site_name}}
           </div>
         {% endif %}
-        <div class="header__search header--element">
+      </div>
+        
+        <div class="header__search">
           {% module 'site_search'
             path='@hubspot/search_input',
             label='Search',
             field_label='Search',
-            placeholder=''
+            placeholder='brand colors'
           %}
         </div>
       </div>
-
+      
       {# Header navigation row two #}
 
-      <div class="header__row-2">
+      <div class="header__row-2 header__row two">
         <div class="header--toggle header__navigation--toggle"></div>
-        {% if content.translated_content|length || is_listing_view && group.translations %}
-          <div class="header--toggle header__language-switcher--toggle"></div>
-        {% endif %}
         <div class="header--toggle header__search--toggle"></div>
         <div class="header__close--toggle"></div>
         <div class="header__navigation header--element">
@@ -99,7 +89,7 @@
   
   
   {# if node null means it's pretty much the home page, so don't display it #}
-  {% if node != null %}
+{% if node != null %}
   <ul class="hs-breadcrumb-menu">
   
   
@@ -129,6 +119,5 @@
 {% endif %}
 
 {# end breadcrumbs #}
-
 
 </header>

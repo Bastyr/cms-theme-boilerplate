@@ -8,10 +8,11 @@
 
 {% block header %}
   {% set sitename = "Brand Guide - Bastyr University" %}
-  {% set header_reverse_logo = false %}
-    {% set navigation_id = 41418721219 %}
-    {{ super() }}
-  {% global_partial path='./partials/microsite-header.html' %}
+    {% set header_reverse_logo = false %}
+      {% set navigation_id = 41418721219 %}
+      {% set site_name = "Brand Guide" %}
+      {{ super() }}
+    {% global_partial path='./partials/microsite-header.html' %}
 {% endblock header %}
 
 {% block body %}
@@ -39,8 +40,6 @@
 
 {% endblock body %}
 
-
-
 {% block footer %}
-  {% global_partial path='./partials/nap_footer.html' %}
+  {% global_partial path='./partials/brand_guide_footer.html' %}
 {% endblock footer %}

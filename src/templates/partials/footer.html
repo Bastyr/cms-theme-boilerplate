@@ -10,7 +10,7 @@
 
     {# Social follow and copyright #}
 
-    {# {% dnd_section %}
+    {% dnd_section %}
       {% dnd_column %}
         {% dnd_row %}
           {% dnd_module path='../../modules/social-follow' %}
@@ -32,12 +32,12 @@
         %}
           {% dnd_module
             path='@hubspot/rich_text',
-            html='<div style="text-align: center; font-size: 0.7rem;"><span>© {{ year }} All rights reserved.</span></div>'
+            html='<div style="text-align: center; font-size: 0.7rem;"><span>© Bastyr University {{ year }}. All rights reserved.</span></div>'
           %}
           {% end_dnd_module %}
         {% end_dnd_row %}
       {% end_dnd_column %}
-    {% end_dnd_section %} #}
+    {% end_dnd_section %}
 
   {% end_dnd_area %}
 </footer>
