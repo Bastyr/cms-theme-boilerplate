@@ -2,52 +2,106 @@
   templateType: global_partial
   label: NAP Footer
 -->
-<footer class="footer footer--nap">
+<footer class="footer" style="background-color: #2a2a29; color: #fff">
 
-<div class="container-fluid footer__container content-wrapper">
-  <div class="row-fluid-wrapper">
-    <div class="row-fluid">
-      <div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
+{% dnd_area 'footer'
+label='Footer',
+class='footer__container content-wrapper'
+%}
 
-        <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd-section">
-          <div class="row-fluid ">
-            <div class="span12 widget-span widget-type-cell dnd-column" style="" data-widget-type="cell" data-x="0" data-w="12">
+{% dnd_section 
+    vertical_alignment='MIDDLE'
+%}
 
-              <div class="row-fluid-wrapper row-depth-1 row-number-2 dnd-row">
-                Wrapped
-              <div class="row-fluid ">
+    {% dnd_column
+      offset=0,
+      width=9
+    %}
 
-            </div><!--end widget-span -->
-          </div><!--end row-->
-        </div><!--end row-wrapper -->
+        {% dnd_row 
+        %}
+        {% dnd_module
+        path='@hubspot/rich_text',
+        html='<iframe src="https://forms.monday.com/forms/embed/49706d8498f821854c625841d5c4c14a?r=use1" style="width: 100%; height: 600px;" ></iframe>'
+        %}
+        {% end_dnd_module %}
+  
+        {% end_dnd_row %}
+    {% end_dnd_column %} 
 
-      </div><!--end widget-span -->
-    </div>
-  </div>
-</div>
+    {% dnd_column
+      width=3,
+      offset=9,
+      vertical_alignment='MIDDLE'
+    %}
 
-    {% dnd_area 'footer'
-    label='Footer',
-    class='footer__container content-wrapper'
-  %}
-    {% dnd_section %}
-      {% dnd_column %}
-        {% dnd_row %}
+      {% dnd_row 
+          vertical_alignment='TOP'
+      %}
+        {% dnd_module
+        path='@hubspot/rich_text',
+        html='<img style="max-width: 100%; margin: 0 auto; display: inline-block;" alt="Bastyr University formal seal" src="https://educate.bastyr.edu/hubfs/Bastyr%20Brand%20Guide%20Content/Bastyr%20Seals/Seal_white_png.png"></img>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+      
+
+      {% dnd_row 
+      vertical_alignment='TOP'
+      margin={
+        top:"20px"
+      }
+      %}
+      {% dnd_module
+      path='@hubspot/rich_text',
+      html='<div style="">
+        Bastyr University Marketing
+      </div>'
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+      
+
+    {% end_dnd_column %}
+
+
+{% end_dnd_section %}
+
+{% dnd_section  %}
+    {% dnd_column %}
+        {% dnd_row
+        margin={
+        'top': 12,
+        'bottom': 12
+        }
+        %}
+            {% dnd_module 
+                path='@hubspot/divider',
+                fields={
+                    color: {
+                        color: "#393938",
+                        opacity: 100
+                    },
+                    width: 100
+                }
+            %}
+            {% end_dnd_module %}
         {% end_dnd_row %}
         {% dnd_row
-          margin={
-            'top': 12,
-            'bottom': 12
-          }
+        margin={
+        'top': 12,
+        'bottom': 12
+        }
         %}
-          {% dnd_module
+            {% dnd_module
             path='@hubspot/rich_text',
-            html='<hr style="border-color:#393938">
-            <div style="text-align: center; font-size: 0.7rem;"><span style="color:#fff; font-size: 14px;">© {{ year }} Bastyr University</span></div>'
-          %}
-          {% end_dnd_module %}
+            html='<div style="text-align: center; font-size: 0.7rem;"><span>© Bastyr University {{ year }}. All rights reserved.</span></div>'
+            %}
+            {% end_dnd_module %}
         {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
-  {% end_dnd_area %}
+    {% end_dnd_column %}
+{% end_dnd_section %}
+
+{% end_dnd_area %}
+
 </footer>

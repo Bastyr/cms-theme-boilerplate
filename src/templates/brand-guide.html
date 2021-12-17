@@ -34,9 +34,13 @@
   {% dnd_area 'dnd_area' class='body-container body-container--landing-page', label='Main section' %}
 
   {% end_dnd_area %}
+
 </main>
 
 {% endblock body %}
+
+
+
 {% block footer %}
-  {# override footer block from src/layouts/base.html--"temporarily" using module instead #}
+  {% global_partial path='./partials/nap_footer.html' %}
 {% endblock footer %}
